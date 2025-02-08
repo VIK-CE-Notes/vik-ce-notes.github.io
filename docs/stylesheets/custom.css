@@ -20,3 +20,9 @@ img[height], img[width] {
     flex-direction: row;
     justify-content: space-between;
 }
+
+/* Emotes */
+img[alt$=":"] {
+    height: 20px;
+    vertical-align: middle;
+}

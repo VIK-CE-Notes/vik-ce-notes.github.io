@@ -99,6 +99,8 @@ Web based: ![web based](https://hu.wikipedia.org/static/images/icons/wikipedia.p
  
 Local image: ![with relative path](../emote/reddit_gold.png){ height=25 }
 
+Emote: ![:end_the_name_with_a_colon_for_the_emote_style:](../emote/reddit_gold.png)
+
 ![Not available image]()
 
 ---

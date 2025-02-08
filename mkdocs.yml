@@ -1,0 +1,84 @@
+site_name: Notes-online
+site_url: https://vik-ce-notes.github.io
+use_directory_urls: false
+
+nav:
+  - Üdvözlünk: index.md
+  - Jegyzeteléshez:
+    - Instrukciók: ./for_contributors/index.md
+    - Showcase: ./for_contributors/showcase.md
+
+theme: 
+  name: material
+  icon:
+    logo: material/book-edit
+  favicon: /images/favicon.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: green
+      accent: teal
+      toggle:
+        icon: material/lightbulb
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: green
+      accent: teal
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to light mode
+  features:
+    - search.suggest
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    - navigation.instant
+  # Admonition icons: 
+  # https://squidfunk.github.io/mkdocs-material/reference/admonitions/?h=admonition#admonition-icons
+
+plugins:
+  - search
+  - macros
+  - plantuml:
+      puml_url: https://www.plantuml.com/plantuml/
+  - git-authors
+
+extra:
+#  homepage: https://example.com
+  generator: false
+  social:
+    - icon: material/github
+      name: GitHub
+      link: https://github.com/VIK-CE-Notes/vik-ce-notes.github.io
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - toc:
+        toc_depth : "1-1"
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      # custom icons and emojis: https://squidfunk.github.io/mkdocs-material/setup/changing-the-logo-and-icons/#additional-icons
+  - pymdownx.details
+  - pymdownx.highlight:
+      linenums: false
+      use_pygments: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - stylesheets/code.css
+  - stylesheets/custom.css

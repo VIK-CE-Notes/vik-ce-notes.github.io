@@ -1,0 +1,13 @@
+/* Fixing admonitions */
+div.admonition p:not(.admonition-title) {
+    white-space: pre-wrap;
+}
+
+img[height], img[width] {
+    height: revert-layer;
+    width: revert-layer;
+    max-width: none;
+    min-width: unset;
+    max-height: none;
+    min-height: unset;
+}

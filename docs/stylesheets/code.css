@@ -1,0 +1,38 @@
+/*
+Using the Tokyo Night theme
+URL: https://github.com/tokyo-night
+*/
+
+[data-md-color-scheme=slate] :root>* {
+    --md-code-hl-number-color: #ff9e64;
+    --md-code-hl-special-color: #f7768e;
+    --md-code-hl-function-color: #7aa2f7;
+    --md-code-hl-constant-color: #2ac3de;
+    --md-code-hl-keyword-color: #bb9af7;
+    --md-code-hl-string-color: #9ece6a;
+    --md-code-hl-name-color: #c0caf5;
+    --md-code-hl-operator-color: #7dcfff;
+    --md-code-hl-punctuation-color: #7aa2f7;
+    --md-code-hl-comment-color: #565f89;
+    --md-code-hl-generic-color: #a9b1d6;
+    --md-code-hl-variable-color: #c0caf5;
+    --md-code-fg-color: #a9b1d6;
+    --md-code-bg-color: #1a1b26;
+}
+
+[data-md-color-scheme=default] :root>* {
+    --md-code-hl-number-color: #965027;
+    --md-code-hl-special-color: #8c4351;
+    --md-code-hl-function-color: #2959aa;
+    --md-code-hl-constant-color: #006c86;
+    --md-code-hl-keyword-color: #5a3e8e;
+    --md-code-hl-string-color: #385f0d;
+    --md-code-hl-name-color: #343b58;
+    --md-code-hl-operator-color: #0f4b6e;
+    --md-code-hl-punctuation-color: #2959aa;
+    --md-code-hl-comment-color: #6c6e75;
+    --md-code-hl-generic-color: #343b58;
+    --md-code-hl-variable-color: #343b58;
+    --md-code-fg-color: #343b58;
+    --md-code-bg-color: #e6e7ed;
+}

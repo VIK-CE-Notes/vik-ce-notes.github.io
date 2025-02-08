@@ -2,6 +2,10 @@ site_name: Notes-online
 site_url: https://vik-ce-notes.github.io
 use_directory_urls: false
 
+repo_name: VIK-CE-Notes/vik-ce-notes.github.io
+repo_url: https://github.com/VIK-CE-Notes/vik-ce-notes.github.io
+edit_uri: edit/main/docs/
+
 nav:
   - Üdvözlünk: index.md
   - Jegyzeteléshez:
@@ -41,16 +45,19 @@ plugins:
   - search
   - macros
   - plantuml:
-      puml_url: https://www.plantuml.com/plantuml/
-  - git-authors
+     puml_url: https://www.plantuml.com/plantuml/
+  - git-revision-date-localized:
+      enable_creation_date: false
+      type: timeago
+      timezone: Europe/Budapest
+      locale: hu
+  - git-committers:
+      repository: VIK-CE-Notes/vik-ce-notes.github.io
+      branch: main
 
 extra:
 #  homepage: https://example.com
   generator: false
-  social:
-    - icon: material/github
-      name: GitHub
-      link: https://github.com/VIK-CE-Notes/vik-ce-notes.github.io
 
 markdown_extensions:
   - attr_list

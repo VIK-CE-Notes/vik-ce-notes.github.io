@@ -3,6 +3,7 @@ div.admonition p:not(.admonition-title) {
     white-space: pre-wrap;
 }
 
+/* Enables image attributes */
 img[height], img[width] {
     height: revert-layer;
     width: revert-layer;
@@ -10,4 +11,12 @@ img[height], img[width] {
     min-width: unset;
     max-height: none;
     min-height: unset;
+}
+
+/* Changes the bottom layout */
+.md-source-file {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

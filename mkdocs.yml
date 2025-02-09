@@ -19,6 +19,13 @@ nav:
       - 3. Pontok és klasszikus görbék: ./notes/sem4/computer_graphics/3.md
       - 4. Affin transzformációk: ./notes/sem4/computer_graphics/4.md
       - 5. 2D képszintézis: ./notes/sem4/computer_graphics/5.md
+      - 6. 2D textúrázás: ./notes/sem4/computer_graphics/6.md
+      - 7. 3D képszintézis: ./notes/sem4/computer_graphics/7.md
+      - 8. Sugárkövetés: ./notes/sem4/computer_graphics/8.md
+      - 9. Inkrementális képszintézis: ./notes/sem4/computer_graphics/9.md
+      - 10. Játékfejlesztés: ./notes/sem4/computer_graphics/10.md
+      - 11. Vektorháború: ./notes/sem4/computer_graphics/11.md
+      - 12. Fraktálok és káosz: ./notes/sem4/computer_graphics/12.md
 
 theme: 
   name: material
@@ -91,9 +98,11 @@ markdown_extensions:
       custom_checkbox: true
   
 extra_javascript:
-  - javascripts/mathjax.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
-
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+  
 extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
   - stylesheets/code.css
   - stylesheets/custom.css

@@ -88,7 +88,9 @@ Nim-összeg. Az a, $b ∈ \mathbb{N}$ számok nim-összegét úgy kapjuk meg, ho
 ### Sprague-Grundy-tétel
 
 Ha a $G = (V, E)$ és $G' = (V', E')$ gráfokkal rendelkező éles kombinatorikus
-játékok Grundy-számozása rendre $g : V → \mathbb{N}$ és $g' : V' → \mathbb{N}$, akkor a két játék összegének Grundy számozása $$g ⊕ g' : V × V' → \mathbb{N}$$.
+játékok Grundy-számozása rendre $g : V → \mathbb{N}$ és $g' : V' → \mathbb{N}$, akkor a két játék összegének Grundy számozása 
+
+$$g ⊕ g' : V × V' → \mathbb{N}$$
 
 ### Bouton-tétel
 
@@ -139,7 +141,7 @@ Adott egy $\mathcal{H} = (V, \varepsilon)$ hipergráf, és a soron következő j
 
 ### Erdős-Selfridge-tétel
 
-Ha egy építő-romboló játék $\mathcal{H} = (V, \varepsilon)$ hipergráfjára $\sum_{E \in \varepsilon} 2^{-|E|} < 1/2$ teljesül, akkor a romboló játékosnak mindig van nyerő stratégiája.
+Ha egy építő-romboló játék $\mathcal{H} = (V, \varepsilon)$ hipergráfjára $\displaystyle \sum_{E \in \varepsilon} 2^{-|E|} < \frac{1}{2}$ teljesül, akkor a romboló játékosnak mindig van nyerő stratégiája.
 
 ### Hipergráfok 2-színezhetőségének elégséges feltétele
 
@@ -440,35 +442,30 @@ Ilyen mechanizmusok:
 
 - `Jóváhagyásos szavazás:`
 
- 1. **Szavazás:** Minden szavazó tetszőleges számú alternatívát jóváhagyhat
- 2. **Győztes:** Az az alternatíva nyer, amelyiket a legtöbben jóváhagyták.
+    1. **Szavazás:** Minden szavazó tetszőleges számú alternatívát jóváhagyhat
+    2. **Győztes:** Az az alternatíva nyer, amelyiket a legtöbben jóváhagyták.
 
 - `Többségi szavazás:`
 
- 1. **Szavazás:** Minden szavazó egy alternatívát választ.
- 2. **Győztes:** Az az alternatíva nyer, amelyiket a legtöbben választottak.
+    1. **Szavazás:** Minden szavazó egy alternatívát választ.
+    2. **Győztes:** Az az alternatíva nyer, amelyiket a legtöbben választottak.
 
 - `Borda-szavazás:`
 
- 1. **Rangsorolás:** Minden szavazó rangsorolja az összes alternatívát. Ha van $( k )$ alternatíva, akkor az első helyezett $(k-1)$ pontot kap, a második helyezett $(k-2 )$ pontot, és így tovább, az utolsó helyezett 0 pontot kap.
-
- 2. **Pontok összesítése:** Az összes szavazó által adott pontokat összeadják minden alternatívára.
-
- 3. **Győztes meghatározása:** Az az alternatíva nyer, amelyik a legtöbb pontot kapta.
+    1. **Rangsorolás:** Minden szavazó rangsorolja az összes alternatívát. Ha van $( k )$ alternatíva, akkor az első helyezett $(k-1)$ pontot kap, a második helyezett $(k-2 )$ pontot, és így tovább, az utolsó helyezett 0 pontot kap.
+    2. **Pontok összesítése:** Az összes szavazó által adott pontokat összeadják minden alternatívára.
+    3. **Győztes meghatározása:** Az az alternatíva nyer, amelyik a legtöbb pontot kapta.
 
 - `Copeland-szavazás`
 
- 1. **Páros összehasonlítások:** Minden alternatívát összehasonlítanak minden más alternatívával egy-egy páros versenyben. Az egyes páros versenyekben az az alternatíva nyer, amelyik több szavazatot kap.
-
- 2. **Pontozás:** Minden alternatíva kap egy pontot minden egyes nyert páros versenyért, és fél pontot minden döntetlenért.
-
- 3. **Győztes meghatározása:** Az az alternatíva nyer, amelyik a legtöbb pontot gyűjtötte össze a páros versenyek során.
+    1. **Páros összehasonlítások:** Minden alternatívát összehasonlítanak minden más alternatívával egy-egy páros versenyben. Az egyes páros versenyekben az az alternatíva nyer, amelyik több szavazatot kap.
+    2. **Pontozás:** Minden alternatíva kap egy pontot minden egyes nyert páros versenyért, és fél pontot minden döntetlenért.
+    3. **Győztes meghatározása:** Az az alternatíva nyer, amelyik a legtöbb pontot gyűjtötte össze a páros versenyek során.
 
 - `Condorcet-szavazás`
 
- 1. **Páros összehasonlítások:** Minden alternatívát összehasonlítanak minden más alternatívával egy-egy páros versenyben. Az egyes páros versenyekbennaz az alternatíva nyer, amelyik több szavazatot kap.
-
- 2. **Győztes meghatározása:** Az az alternatíva nyer, amelyik minden más alternatívával szemben nyer.
+	1. **Páros összehasonlítások:** Minden alternatívát összehasonlítanak minden más alternatívával egy-egy páros versenyben. Az egyes páros versenyekbennaz az alternatíva nyer, amelyik több szavazatot kap.
+	2. **Győztes meghatározása:** Az az alternatíva nyer, amelyik minden más alternatívával szemben nyer.
 
 ### Extrém alternatíva
 
@@ -482,34 +479,30 @@ Tegyük fel, hogy az $F$ TVSZ független a lényegtelen alternatíváktól. Ha e
 
 - `Jóváhagyásos szavazás:`
 
- 1. **Szavazás:** Minden szavazó tetszőleges számú alternatívát jóváhagyhat
- 2. **Győztes:** Az az alternatíva nyer, amelyiket a legtöbben jóváhagyták.
+    1. **Szavazás:** Minden szavazó tetszőleges számú alternatívát jóváhagyhat
+    2. **Győztes:** Az az alternatíva nyer, amelyiket a legtöbben jóváhagyták.
 
 - `Többségi szavazás:`
 
- 1. **Szavazás:** Minden szavazó egy alternatívát választ.
- 2. **Győztes:** Az az alternatíva nyer, amelyiket a legtöbben választottak.
+    1. **Szavazás:** Minden szavazó egy alternatívát választ.
+    2. **Győztes:** Az az alternatíva nyer, amelyiket a legtöbben választottak.
 
 - `Borda-szavazás:`
-
- 1. **Rangsorolás:** Minden szavazó rangsorolja az összes alternatívát. Ha van $( k )$ alternatíva, akkor az első helyezett $(k-1)$ pontot kap, a második helyezett $(k-2 )$ pontot, és így tovább, az utolsó helyezett 0 pontot kap.
-
- 2. **Pontok összesítése:** Az összes szavazó által adott pontokat összeadják minden alternatívára.
-
- 3. **Győztes meghatározása:** Az az alternatíva nyer, amelyik a legtöbb pontot kapta.
+  
+    1. **Rangsorolás:** Minden szavazó rangsorolja az összes alternatívát. Ha van $( k )$ alternatíva, akkor az első helyezett $(k-1)$ pontot kap, a második helyezett $(k-2 )$ pontot, és így tovább, az utolsó helyezett 0 pontot kap.
+    2. **Pontok összesítése:** Az összes szavazó által adott pontokat összeadják minden alternatívára.
+    3. **Győztes meghatározása:** Az az alternatíva nyer, amelyik a legtöbb pontot kapta.
 
 - `Diktatórikus szavazás:`
 
- 1. **Szavazás:** Egy diktátor minden szavazásban egy alternatívát választ.
- 2. **Győztes:** Az a alternatíva nyer, amelyiket a diktátor választott.
+	1. **Szavazás:** Egy diktátor minden szavazásban egy alternatívát választ.
+	2. **Győztes:** Az a alternatíva nyer, amelyiket a diktátor választott.
 
 - `Copeland-szavazás`(*Concordet konzisztens*)
 
- 1. **Páros összehasonlítások:** Minden alternatívát összehasonlítanak minden más alternatívával egy-egy páros versenyben. Az egyes páros versenyekben az az alternatíva nyer, amelyik több szavazatot kap.
-
- 2. **Pontozás:** Minden alternatíva kap egy pontot minden egyes nyert páros versenyért, és fél pontot minden döntetlenért.
-
- 3. **Győztes meghatározása:** Az az alternatíva nyer, amelyik a legtöbb pontot gyűjtötte össze a páros versenyek során.
+	1. **Páros összehasonlítások:** Minden alternatívát összehasonlítanak minden más alternatívával egy-egy páros versenyben. Az egyes páros versenyekben az az alternatíva nyer, amelyik több szavazatot kap.
+	2. **Pontozás:** Minden alternatíva kap egy pontot minden egyes nyert páros versenyért, és fél pontot minden döntetlenért.
+	3. **Győztes meghatározása:** Az az alternatíva nyer, amelyik a legtöbb pontot gyűjtötte össze a páros versenyek során.
 
 ### Condorcet-győztes
 
@@ -517,20 +510,18 @@ Az az alternatíva, amelyik minden más alternatívával szemben nyer a páros v
 
 - `Condorcet-szavazás`
 
- 1. **Páros összehasonlítások:** Minden alternatívát összehasonlítanak minden más alternatívával egy-egy páros versenyben. Az egyes páros versenyekben az az alternatíva nyer, amelyik több szavazatot kap.
-
- 2. **Győztes meghatározása:** Az az alternatíva nyer, amelyik minden más alternatívával szemben nyer.
+	1. **Páros összehasonlítások:** Minden alternatívát összehasonlítanak minden más alternatívával egy-egy páros versenyben. Az egyes páros versenyekben az az alternatíva nyer, amelyik több szavazatot kap.
+	2. **Győztes meghatározása:** Az az alternatíva nyer, amelyik minden más alternatívával szemben nyer.
 
 ### Condorcet-konzisztencia
-
+		
 Egy szavazási mechanizmus `Condorcet-konzisztens`, ha a Condorcet-győztes nem veszíthet.
 
 ### Arrow-tétel
 
 Ha $|A| > 2$, továbbá az $F$ TVSZ egyhangú és független a lényegtelen alternatíváktól, akkor $F$ diktatórikus.
 
-## 14. Szavazási mechanizmusok manipulálhatósága és taktikázásbiztossága. Gibbard-Satterthwaite-tétel*
-
+## 14. Szavazási mechanizmusok manipulálhatósága és taktikázásbiztossága. Gibbard-Satterthwaite-tét
 ### Manipulálhatóság
 
 Az $f : L^n \rightarrow A$ TVF manipulálható, ha van olyan $\Pi = (\preceq_1,...,\preceq_n)$ választási profil és $\preceq_i'$ preferenciarendezés, amire $f(\Pi) \preceq_i f(\Pi_{-i}, \preceq_i')$ teljesül. Ha egy $f$ TVF nem manipulálható, akkor $f$-et taktikázásbiztosnak is nevezzük.

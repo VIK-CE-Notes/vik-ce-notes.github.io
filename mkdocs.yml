@@ -26,6 +26,9 @@ nav:
       - 10. Játékfejlesztés: ./notes/sem4/computer_graphics/10.md
       - 11. Vektorháború: ./notes/sem4/computer_graphics/11.md
       - 12. Fraktálok és káosz: ./notes/sem4/computer_graphics/12.md
+  - Specializációk:
+    - Algoritmikus játékelmélet:
+      - Vizsgajegyzet: ./notes/spec/game_theory/exam_notes.md
 
 theme: 
   name: material

@@ -31,8 +31,10 @@ Ahhoz, hogy a dokumentumaid / javításaid megoszd másokkal az alábbi lépése
 4. Nyiss egy pull requestet
 
 **Újonnan csatlakozók:**
+
 - Mivel még nem hozhatsz létre új branch-et, ezért a `gh repo fork` használata javasolt
 -  Alternatíva a fentebbi lépések használata VS Code-ban, ami push-nál automatikusan felajánlja a fork elvégzését.
+-  *A PR nyitása minden módszernél ugyanúgy szükséges*
 
 És ha minden jól megy, akkor hamarosan a `main` branchre is kikerülnek a változtatások.
 

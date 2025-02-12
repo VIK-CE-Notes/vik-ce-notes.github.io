@@ -1,7 +1,6 @@
 # Notes-online
 
-**Notes-online was made for computer engineering students at Budapest 
-University of Technology and Economics (BME).**
+**Notes-online was made for computer engineering students at Budapest University of Technology and Economics (BME).**
 
 Visit [https://vik-ce-notes.github.io/](https://vik-ce-notes.github.io/)
 

@@ -3,6 +3,10 @@ div.admonition p:not(.admonition-title) {
     white-space: pre-wrap;
 }
 
+p:not(.admonition-title) {
+    white-space: pre-wrap;
+}
+
 /* Enables image attributes */
 img[height], img[width] {
     height: revert-layer;

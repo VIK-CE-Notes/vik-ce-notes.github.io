@@ -14,6 +14,9 @@ Vagyis elegendő ezt a kiegészítőt használni a `docs` mappán belül, ha csa
 
 #### Feltöltés
 Ahhoz, hogy a dokumentumaid / javításaid megoszd másokkal az alábbi lépéseket javasoljuk:
+
+**For contributors:**
+
 1. Klónozd le a repository-t
     ```bash
     git clone https://github.com/VIK-CE-Notes/vik-ce-notes.github.io
@@ -26,6 +29,12 @@ Ahhoz, hogy a dokumentumaid / javításaid megoszd másokkal az alábbi lépése
     git commit -m "Added notes for Subject"
     ```
 4. Nyiss egy pull requestet
+
+**Újonnan csatlakozók:**
+
+- Mivel még nem hozhatsz létre új branch-et, ezért a `gh repo fork` használata javasolt
+-  Alternatíva a fentebbi lépések használata VS Code-ban, ami push-nál automatikusan felajánlja a fork elvégzését.
+-  *A PR nyitása minden módszernél ugyanúgy szükséges*
 
 És ha minden jól megy, akkor hamarosan a `main` branchre is kikerülnek a változtatások.
 

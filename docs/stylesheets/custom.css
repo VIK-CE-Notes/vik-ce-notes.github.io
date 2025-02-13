@@ -5,6 +5,20 @@ div.admonition p:not(.admonition-title) {
 
 p:not(.admonition-title) {
     white-space: pre-wrap;
+    line-height: 1.4rem;
+}
+
+/* Remove TOC under mid view */
+@media only screen and (max-width: 1200px) {
+    div.md-sidebar--secondary:not([hidden]) {
+        display: none;
+    }
+}
+
+/* Last list link into new line */
+li > a[href]:last-of-type::before { 
+    content: ' ';
+    display: block;
 }
 
 /* Enables image attributes */

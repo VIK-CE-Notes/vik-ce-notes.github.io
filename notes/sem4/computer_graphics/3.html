@@ -1,0 +1,1364 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://vik-ce-notes.github.io/notes/sem4/computer_graphics/3.html">
+      
+      
+        <link rel="prev" href="2.html">
+      
+      
+        <link rel="next" href="4.html">
+      
+      
+      <link rel="icon" href="/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
+    
+    
+      
+        <title>3. Pontok és klasszikus görbék - Notes-online</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.d7758b05.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/code.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pontok-es-klasszikus-gorbek" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="Notes-online" class="md-header__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes-online
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. Pontok és klasszikus görbék
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/VIK-CE-Notes/vik-ce-notes.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    VIK-CE-Notes/vik-ce-notes.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="Notes-online" class="md-nav__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    Notes-online
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/VIK-CE-Notes/vik-ce-notes.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    VIK-CE-Notes/vik-ce-notes.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Üdvözlünk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Jegyzeteléshez
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Jegyzeteléshez
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../for_contributors/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instrukciók
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../for_contributors/showcase.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Showcase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    4. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            4. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Számítógépes grafika
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Számítógépes grafika
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Geometriák és algebrák
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Grafikus hardver és szoftver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="3.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    3. Pontok és klasszikus görbék
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Affin transzformációk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="5.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. 2D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="6.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. 2D textúrázás
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="7.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. 3D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="8.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Sugárkövetés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Inkrementális képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Játékfejlesztés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Vektorháború
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Fraktálok és káosz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Specializációk
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Specializációk
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Algoritmikus játékelmélet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmikus játékelmélet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spec/game_theory/exam_notes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vizsgajegyzet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="pontok-es-klasszikus-gorbek">Pontok és klasszikus görbék</h1>
+<blockquote>
+<p>Ha bárkinek van erre ideje, ez egy érdekes videó, az első 21 perce még néhol fedi is a tananyagot: <a href="https://youtu.be/jvPPXbo87ds">The Continuity of Splines - Freya Holmér</a></p>
+</blockquote>
+<h2 id="koordinatak">Koordináták</h2>
+<ul>
+<li>Koordináták használata: mérés alapján történik</li>
+<li>Koordinátarendszer: referencia alapján</li>
+<li>Baricentrikus (homogén) koordináták: <span class="arithmatex">\(r_i\)</span> referencia pontokhoz tartozik <span class="arithmatex">\(m_i\)</span> súly érték<ul>
+<li>
+<blockquote>
+<p>Homogén: ahol +1 dimenzióban jelöltük, hogy ideális pont-e</p>
+</blockquote>
+</li>
+<li>Error <span class="arithmatex">\(r\)</span> súlypont az, amin a tárgy "meg tudna állni"
+ <span class="arithmatex">\(r\)</span> pont az <span class="arithmatex">\(r_1, r_2, ...\)</span> <strong>pontok kombinációja</strong> <span class="arithmatex">\(\displaystyle r = \frac{\sum_i m_i r_i}{\sum_i m_i} = \sum_i \alpha_i r_i\)</span> <em>(ahol <span class="arithmatex">\(a_i = \frac{m_i}{\text{összsúly}}\)</span>)</em></li>
+<li>Konvex kombináció: ha a súlyok nem negatívak <em>(ekkor <span class="arithmatex">\(r\)</span> a referencia pontok között lesz)</em><ul>
+<li>Egy egynes / szakasz: 2 pont konvex kombinációja</li>
+<li>Egy háromszög / sík: 3 pont konvex kombinációja</li>
+</ul>
+</li>
+<li><em>Mire is jó ez nekünk?</em><ul>
+<li>Arra, hogy görbéket ábrázoljunk</li>
+<li>Az explicit egyenlet <span class="arithmatex">\(y = mx+b\)</span> nem jó nekünk, hiszen csak egyenest lehet vele rajzolni <em>(hiszen 1 y-hoz csak 1 értéket vehetünk fel)</em></li>
+<li>Az implicit egynlet <span class="arithmatex">\(f(x,y) = 0\)</span> ez már lehetőséget ad, de még picit komplikált megkonstruálni <em>(azt fogjuk megnézni, hogy hogyan lehet egyszerűbbé tenni)</em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="kvadratikus-gorbek">Kvadratikus görbék</h3>
+<ul>
+<li>Példák: <span class="arithmatex">\(r(x,y)\)</span> azon pontok, amik kielégítik az egyenletet<ul>
+<li>Kör: <span class="arithmatex">\((r - c)^2 - R^2 = 0\)</span></li>
+<li>Ellipszis: <span class="arithmatex">\(|r - f_1| + |r - f_2| = C\)</span> <em>(<span class="arithmatex">\(f_1, f_2\)</span> fókuszpont és <span class="arithmatex">\(C\)</span> távolságra)</em></li>
+<li>Hiperbola: <span class="arithmatex">\(|r - f_1| - |r - f_2| = C\)</span></li>
+<li>Parabola: <span class="arithmatex">\(|r - f| = n \cdot (r - p)\)</span> <em>(n normálvektorú és p helyvektorú egyenestől mért távolságú pontok)</em></li>
+</ul>
+</li>
+<li>Megadásuk:<ul>
+<li>Implicit alakban:
+<span class="arithmatex">\(f(x,y) = a_{11} x^2 + a_{22} y^2 + 2a_{12} xy + 2a_{13} xy + 2a_{23}y + a_{33} = 0\)</span></li>
+<li>Mátrix alakban:
+<span class="arithmatex">\(\displaystyle \begin{bmatrix} x &amp; y &amp; 1 \end{bmatrix} \begin{bmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\ a_{21} &amp; a_{22} &amp; a_{23} \\ a_{31} &amp; a_{32} &amp; a_{33} \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}\)</span>
+<!--ebben az a furcsa, hogy a diasoron úgy mutatja be, mintha a karakterisztikus mátrix csak szimmetrikus lehetne... ami nem igazán igaz, de ezt hogy írjam ide?-->
+<em>(igazából ezekkel már egész komplex görbéket meg lehet adni)</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="parameteres-egyenletek">Paraméteres egyenletek</h3>
+<ul>
+<li>Nem csak kvadratikus görbékkel, de parametrikus egyenletekkel <em>(r(t)-t használva)</em> is le lehet írni görbéket, például:
+<img alt="" src="img/3_h8this.png" /></li>
+<li><em>Jó, de ez miben más? Ez mozgásként fogalmazza meg a görbét, nem pedig feltétel rendszerként, mint az implicit egyenletek</em></li>
+</ul>
+<h2 id="szabadformaju-gorbek">Szabadformájú görbék</h2>
+<ul>
+<li>A lényeg, hogy meg akarunk adni pontokat, amik közett olyan szépen természetesen menjen egy görbe<ul>
+<li><em>(folytonosságok: <span class="arithmatex">\(C^0\)</span> - a görbe nem szakad, <span class="arithmatex">\(C^1\)</span> - a t szerinti első derivált folytonos, vagyis a görbület nem ugrál - nem kanyarodik hirtelen nagyobbat)</em></li>
+<li><span class="arithmatex">\(C^2\)</span> folytonosság - a második derivált is folytonos, a görbék között a sebesség is állandó <em>(nem kanyarodik át hirtelen a másik irányba, ha eddig az egyikbe kanyarodott)</em></li>
+</ul>
+</li>
+<li>Fontos még, hogy a kontroll pontok lokális vezérelhetőséget adjanak</li>
+<li>Általában valahogy így néznek ki:
+  <span class="arithmatex">\(\displaystyle x(t) = \sum_i a_i \cdot t^i  \\ y(t) = \sum_i b_i \cdot t^i \\ z(t) = ...\)</span></li>
+</ul>
+<h2 id="lagrange-interpolacio">Lagrange interpoláció</h2>
+<ul>
+<li>Legyen <span class="arithmatex">\(r_1, r_2, ..., r_n\)</span> kontrollpontok, amikhez a <span class="arithmatex">\(t_1, t_2, ..., t_n\)</span> csomóértékek ("súlyok") tartoznak</li>
+<li>Ez egy <span class="arithmatex">\(n-1\)</span>-ed fokú polinom lesz
+<span class="arithmatex">\(\displaystyle r(t) = \sum_i L_i(t) \cdot r_i\)</span> ahol <span class="arithmatex">\(L_i(t) = \frac{\prod_{j \neq i} (t-t_j)}{\prod_{j \neq i}(t_i - t_j)}\)</span></li>
+<li>
+<p><em>(az <span class="arithmatex">\(L_i\)</span>-nél az <span class="arithmatex">\(i\)</span>-t is lehetne egy paraméterként jelölni, de matematikailag így szebb)</em></p>
+</li>
+<li>
+<p>Ha <span class="arithmatex">\(L_i(t)\)</span>-nél <span class="arithmatex">\(t\)</span> a <span class="arithmatex">\(k.\)</span> kontrollpont (<span class="arithmatex">\(t_k\)</span>), akkor: <span class="arithmatex">\(L_i(t_k) = 1\)</span>, ha <span class="arithmatex">\(i = k\)</span>, különben <span class="arithmatex">\(0\)</span>
+<em>(ehhez csak végig kell gondolni, hogy a produktum hogyan működik)</em></p>
+</li>
+<li>Mi ennek a rákfenéje:<ul>
+<li>Minden súly hat minden pontra <span class="arithmatex">\(\Rightarrow\)</span> ha az egyik kontroll pontot odébb rakom, az a teljes görbét megvariálja <span class="arithmatex">\(\Rightarrow\)</span> NINCS lokális vezérelhetőség, vagyis nem alkalmazható bonyolult ig kell gondolni, hogy a produktum hogyan működik görbékre</li>
+</ul>
+</li>
+</ul>
+<h2 id="hermite-interpolacio">Hermite interpoláció</h2>
+<ul>
+<li>A Lagrange interpoláció általánosítása (ugyanazokkal a bajokkal küzd)</li>
+<li>A pontoknak meg lehet határozni egy pont sebességét, gyorsulását</li>
+<li><em>Csak azt az esetet vettük, ahol 2 pont <span class="arithmatex">\(p_1, p_2\)</span> van és csak a sebességük van megadva <span class="arithmatex">\(v_1, v_2\)</span></em><ul>
+<li>4 tulajdonsága van <span class="arithmatex">\(\Rightarrow\)</span> ennyi ismeretlennel kell tudni számolni <span class="arithmatex">\(\Rightarrow\)</span> 3-ad fokú polinom lesz:
+<span class="arithmatex">\(r(t) = a_3 (t - t_i)^3 + a_2 (t - t_i)^2 + a_1 (t - t_i)^1 + a_0\)</span></li>
+<li>Mivel a deriváltra is van feltétel, ezért ezt is használjuk:
+<span class="arithmatex">\(\dot{r}(t) = 3 a_3 (t - t_i)^2 + 2 a_2 (t - t_i) + a_1\)</span></li>
+</ul>
+</li>
+<li><em>Az egyenletekbe helyettesítsük be a megkötéseket (legyen <span class="arithmatex">\(t_i\)</span> a 0. időpont):</em>
+    <span class="arithmatex">\(r(t_i) = p_i = a_0 \qquad\)</span> <em>(hiszen itt t = 0)</em>
+    <span class="arithmatex">\(r(t_{i+1}) = p_{i+1} = a_3 (t - t_i)^3 + a_2 (t - t_i)^2 + a_1 (t - t_i)^1 + a_0\)</span>
+    <span class="arithmatex">\(\dot{r}(t_i) = v_{i} = a_1\)</span>
+    <span class="arithmatex">\(\dot{r}(t_{i+1}) = v_{i+1} = 3 a_3 (t - t_i)^2 + 2 a_2 (t - t_i) + a_1\)</span>
+    <em>(ez nem olyan fontos, inkább a megoldás lényeges)</em></li>
+<li>Az egyenletek megoldása:<ul>
+<li><span class="arithmatex">\(a_0 = p_i\)</span></li>
+<li><span class="arithmatex">\(a_1 = v_i\)</span></li>
+<li><span class="arithmatex">\(a_2 = \frac{3(p_{i+1} - p_i)}{(t_{i+1} - t_i)^2} - \frac{(v_{i+1} + 2 v_i)}{t_{i+1} - t_i}\)</span></li>
+<li><span class="arithmatex">\(a_3 = \frac{2 (p_i - p_{i+1})}{(t_{i+1} - t_i)^3} + \frac{v_{i+1} + v_i}{(t_{i+1} - t_i)^2}\)</span></li>
+</ul>
+</li>
+</ul>
+<h2 id="bezier-approximacio">Beziér approximáció</h2>
+<p>Az a cél, hogy a függvény ne oszcilláljon, amit eddig például az váltott ki, hogy a súlyok <em>pozitív és negatív</em> értéket is felvehettek azaz <span class="arithmatex">\(B_i(t) \geq 0\)</span> minden esetben.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ez konvex kombináció, vagyis a súlypont a pontok által bezárt konvex burokban van - korábban tárgyaltuk.</p>
+</div>
+<p>Egy másik kikötés, hogy a súlyok arányosan hassanak, azaz </p>
+<div class="arithmatex">\[\sum_{i} B_i(t) = 1\]</div>
+<p>teljesül.</p>
+<p>Ehhez Beziér a Bernstein-polinomokat használta súlyfüggvényként, amelyek a következők:</p>
+<div class="arithmatex">\[1^n = (t + (1-t))^n \overset{\text{*}}{=} \sum_{i = 0}^n \binom{n}{i} \cdot t^i (1-t)^{n-i}\]</div>
+<p><span class="arithmatex">\(*\)</span>: a binomiális tétel miatt</p>
+<details class="note" open="open">
+<summary><span class="arithmatex">\(\binom{n}{k}\)</span> emlékeztető</summary>
+<div class="arithmatex">\[\binom{n}{k} = \frac{n^k}{k! (n-k)!}\]</div>
+</details>
+<h3 id="sulyfuggveny-es-gorbe">Súlyfüggvény és görbe</h3>
+<p>Ezek alapján a <span class="arithmatex">\(B_i(t)\)</span> súlyfüggvény a következő lesz:</p>
+<div class="arithmatex">\[\displaystyle B_i(t) = \binom{n}{i} \cdot t^i (1-t)^{n-i}\]</div>
+<p>Maga az <span class="arithmatex">\(r(t)\)</span> görbe pedig:</p>
+<div class="arithmatex">\[r(t) = \sum_{i = 0}^{n} B_i(t) \cdot r_i\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mivel <span class="arithmatex">\(i\)</span> az <span class="arithmatex">\(0\)</span>-tól indul, ezért a "pontok száma <span class="arithmatex">\(- 1\)</span>"-ig megyünk és <span class="arithmatex">\(0\)</span>-tól kezdjük a pontok számozását.</p>
+</div>
+<h3 id="hatranyok">Hátrányok</h3>
+<p>Egy hátránya a módszernek az, hogy ha sok kontrollpontunk van, akkor az egyik változása elhanyagolható lesz. Ráadásul az éles változásokat is nehéz megjeleníteni, mert túl sok pont hat.</p>
+<h2 id="catmull-rom-spline">Catmull-Rom spline</h2>
+<ul>
+<li>A hiba eddig az volt, hogy nagyon magas fokú lett a polinom, a bonyolult görbén a pontok hatása vagy túl sok vagy túl kevés lett</li>
+<li>Megoldás: spline - több görbe szegmenssel dolgozunk
+  Minden 2 pont közé egy Hermite interpolációs görbét illesztünk.<ul>
+<li>Az egymás utáni szakaszokon a lezáró és kezdő pont megegyezik és a sebessége is megegyezik, így nem fog ugrásszerűen változni a görbe
+<em>(<span class="arithmatex">\(C^1\)</span> folytonos)</em></li>
+<li>Ehhez kell valami függvény arra is, hogy a <span class="arithmatex">\(v_i\)</span>-ket is meghatározzuk 
+<em>(ez úgy fog menni, hogy pontnak a 2 szakaszát egyenes vonalú egyenletes mozgásnak venni és annak az átlagsebességét használni)</em>
+<span class="arithmatex">\(\displaystyle v_i = \frac{1}{2}(\frac{r_{i+1} - r_i}{t_{i+1} - t_i} + \frac{r_i - r_{i-1}}{t_i - t_{i-1}})\)</span></li>
+<li>a többit pedig fentebb láttuk</li>
+</ul>
+</li>
+<li>itt a <span class="arithmatex">\(t\)</span> csomú értékeket mi határozzuk meg <em>(a számolós feladatban az i. ponthoz i értéke tartozott azt hiszem)</em></li>
+</ul>
+<hr />
+<h1 id="kviz">Kvíz</h1>
+<blockquote>
+<p>1. Egy Bézier görbe kontrollpontjai (4,8), (7,9), (4,4)
+Mi a Bézier görbe t=1.0 paraméterre felvett pontjának x koordinátája?</p>
+</blockquote>
+<ul>
+<li>Van-e bármi trükk, hogy elkerüljük a számolást?
+Igen van, hiszen <span class="arithmatex">\(t = 1\)</span> esetén a görbe utolsó pontjánál járunk, amit a görbe biztosan érint vagyis <span class="arithmatex">\(r(1) = (4,4) \Rightarrow\)</span> a válasz <span class="arithmatex">\(4\)</span></li>
+<li>De mégis hogyan kéne kiszámolni?
+<span class="arithmatex">\(r(t) = \sum_{i = 0}^{n} B_i(t) \cdot r_i \qquad B_i(t) = \binom{n}{i} \cdot t^i (1-t)^{n-i} \\ \qquad\)</span><ol>
+<li><span class="arithmatex">\(n = 0 \ : \ B_0(1) = \binom{2}{0} \cdot 1^0 (1-1)^{2-0} = \frac{2^0}{0! \cdot (2-0)!} \cdot 1 \cdot 0\)</span>
+<span class="arithmatex">\(\Rightarrow 0 \cdot (4, 8) = (0, 0)\)</span></li>
+<li><span class="arithmatex">\(n = 1 \ : \ B_1(1) = \binom{2}{1} \cdot 1^1 (1-1)^{2-1} = \frac\\ \qquad{2^1}{1! \cdot (2-1)!} \cdot 1 \cdot 0\)</span>
+<span class="arithmatex">\(\Rightarrow 0 \cdot (7, 9) = (0, 0)\)</span></li>
+<li><span class="arithmatex">\(n = 2 \ : \ B_2(1) = \binom{2}{2} \cdot 1^2 (1-1)^{2-2} = \frac{2^2}{2! \cdot (2-2)!} \cdot 1 \cdot 1\)</span>
+<span class="arithmatex">\(\Rightarrow 1 \cdot (4, 4) = (4, 4)\)</span></li>
+</ol>
+</li>
+</ul>
+<p><span class="arithmatex">\((0,0) + (0,0) + (4,4) = (4,4) \Rightarrow\)</span> a válasz még mindig <span class="arithmatex">\(4\)</span></p>
+<hr />
+<blockquote>
+<p>2. Egy Lagrange görbe kontrollpontjai és a csomóértékei:</p>
+<p><span class="arithmatex">\((x, y), \qquad t\)</span></p>
+<p><span class="arithmatex">\((4,5), \qquad 0\)</span></p>
+<p><span class="arithmatex">\((6,4), \qquad 1\)</span></p>
+<p><span class="arithmatex">\((7,10),\quad \ \ 2\)</span></p>
+<p>Mi a Lagrange görbe <span class="arithmatex">\(t=0.9\)</span> paraméterre felvett pontjának az x koordinátája?</p>
+</blockquote>
+<ul>
+<li>A képlet:
+<span class="arithmatex">\(r(t) = \sum_i L_i(t) \cdot r_i \qquad L_i(t) = \frac{\prod_{j \neq i} (t-t_j)}{\prod_{j \neq i}(t_i - t_j)}\)</span></li>
+<li>Számolás: <em>(0-tól számozok mert úgy kényelmesebb)</em><ul>
+<li><span class="arithmatex">\(i = 0: L_0(0.9) = \frac{(0.9 - 1) \cdot (0.9 - 2)}{(0 - 1) \cdot (0 - 2)} = \frac{0.11}{2}\)</span></li>
+<li><span class="arithmatex">\(i = 1: L_1(0.9) = \frac{(0.9 - 0) \cdot (0.9 - 2)}{(1 - 0) \cdot (1 - 2)} = \frac{-0.99}{-1}\)</span></li>
+<li><span class="arithmatex">\(i = 2: L_2(0.9) = \frac{(0.9 - 0) \cdot (0.9 - 1)}{(2 - 0) \cdot (2 - 1)} = \frac{-0.09}{2}\)</span></li>
+</ul>
+</li>
+</ul>
+<p><span class="arithmatex">\(\frac{0.11}{2} \cdot (4,5) + \frac{-0.99}{-1} \cdot(6,4) + \frac{-0.09}{2} \cdot (7, 10) = \\ (0.22, 0.275) + (5.94, 3.96) + (-0.315, -0.45) = (5.845, 3.785) \Rightarrow 5.845\)</span></p>
+<hr />
+<blockquote>
+<p>7. Egy Catmull-Rom görbe kontrollpontjai és a csomóértékei:</p>
+<p><span class="arithmatex">\((x, y), \qquad t\)</span></p>
+<p><span class="arithmatex">\((4,8), \qquad   0\)</span></p>
+<p><span class="arithmatex">\((7,9), \qquad   1\)</span></p>
+<p><span class="arithmatex">\((4,4), \qquad   2\)</span></p>
+<p><span class="arithmatex">\((7,3), \qquad   3\)</span></p>
+<p>Mi a Catmull-Rom görbe <span class="arithmatex">\(t=1.5\)</span> paraméterre felvett pontjátnak az x koordinátája?</p>
+</blockquote>
+<ol>
+<li>a <span class="arithmatex">\(1 &lt; t &lt; 2\)</span>, vagyis ezek között a pontok között fogjuk vizsgálni</li>
+<li>
+<p><span class="arithmatex">\(v_i\)</span>-k kiszámítása:</p>
+<ul>
+<li><span class="arithmatex">\(\displaystyle v_i = \frac{1}{2}(\frac{r_{i+1} - r_i}{t_{i+1} - t_i} + \frac{r_i - r_{i-1}}{t_i - t_{i-1}}) \\ \quad\)</span></li>
+<li><span class="arithmatex">\(\displaystyle v_1 = \frac{1}{2}(\frac{(4,4) - (7,9)}{2-1} + \frac{(7,9) - (4,8)}{1-0}) =\frac{(0, -4)}{2} \\ \quad\)</span> </li>
+<li><span class="arithmatex">\(\displaystyle v_2 = \frac{1}{2}(\frac{(7,3) - (4,4)}{3-2} + \frac{(4,4) - (7,9)}{2-1}) = \frac{(0,-6)}{2}\)</span> </li>
+</ul>
+</li>
+<li>
+<p>Hermite paraméterei:</p>
+<ul>
+<li><span class="arithmatex">\(a_0 = p_i = (7,9)\)</span></li>
+<li><span class="arithmatex">\(a_1 = v_i = (0, -2) \\ \quad\)</span></li>
+<li><span class="arithmatex">\(\displaystyle a_2 = \frac{3(p_{i+1} - p_i)}{(t_{i+1} - t_i)^2} - \frac{(v_{i+1} + 2 v_i)}{t_{i+1} - t_i} = \\ \frac{3((4,4) - (7,9))}{1} - \frac{(0,-3) + 2 \cdot (0, -2)}{1} = (-9,-8) \\ \quad\)</span></li>
+<li><span class="arithmatex">\(\\ \displaystyle a_3 = \frac{2 (p_i - p_{i+1})}{(t_{i+1} - t_i)^3} + \frac{v_{i+1} + v_i}{(t_{i+1} - t_i)^2} = \\  \frac{2 ((7,9) - (4, 4))}{1} + \frac{(0,-3) + (0,-2)}{1} = (6, 5)\)</span></li>
+</ul>
+</li>
+<li>
+<p>Maga a függvény:</p>
+</li>
+<li><span class="arithmatex">\(r(t) = a_3 (t - t_i)^3 + a_2 (t - t_i)^2 + a_1 (t - t_i)^1 + a_0\)</span></li>
+<li><span class="arithmatex">\(r(1.5) = a_3 (1.5 - 1)^3 + a_2 (1.5 - 1)^2 + a_1 (1.5 - 1)^1 + a_0\)</span>
+ <span class="arithmatex">\(r(1.5) = (6,5) \cdot 0.125 + (-9,-8) \cdot 0.25 + (0, -2) \cdot 0.5 + (7,9)\)</span>
+ <span class="arithmatex">\(r(1.5) = (0.75, 0.625) + (-2.25,-2) + (0, -1) + (7,9)\)</span>
+ <span class="arithmatex">\(r(1.5) = (5.5,6.625) \Rightarrow 5.5\)</span> a válasz
+ <img alt="💀" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f480.svg" title=":skull:" /></li>
+</ol>
+<!--szeppuku-t fogok elkövetni, ha ez lesz a vizsgán. És ez még nem is volt ronda-->
+
+<hr />
+<blockquote>
+<p>3. Jelöljük be az igaz állításokat!</p>
+</blockquote>
+<ul>
+<li>Igaz állítások:<ul>
+<li>A <span class="arithmatex">\(B_i(t)\)</span> Bezier bázisfüggények összege 1.</li>
+<li>A <span class="arithmatex">\(B_i(t)\)</span> Bezier bázisfüggvények a Bernstein polinomok.</li>
+<li>A Bezier görbe C2 folytonos.</li>
+<li>A <span class="arithmatex">\(B_i(t)\)</span> Bezier bázisfüggényeknek nincs valós gyöke a 0-n és az 1-en kívül.</li>
+<li>A <span class="arithmatex">\(B_i(t)\)</span> Bezier bázisfüggények nem negatívak.</li>
+</ul>
+</li>
+<li>Hamis állítások:<ul>
+<li>A Bezier görbe interpolálja a kontrollpontjait.
+<em>(a görbe nem megy át minden kontrollponton)</em></li>
+<li>Ha n pontunk van, akkor a <span class="arithmatex">\(B_i(t)\)</span> Bezier bázisfüggények n-ed fokú polinomok.
+<em>(0-tól megy, úgyhogy n-1)</em></li>
+<li>A Lagrange görbe a Bezier görbe speciális esete.
+<em>(a Lagrange görbének semmilyen ilyen megkötése nincs)</em></li>
+<li>A Bézier görbe a Lagrange görbe speciális esete.
+<em>(nem használja a Lagrange képletét)</em></li>
+</ul>
+</li>
+</ul>
+<hr />
+<blockquote>
+<p>4. Jelöljük be az igaz állításokat!</p>
+</blockquote>
+<ul>
+<li>Igaz állítások:<ul>
+<li>A súlyokat használva kombinációs faktorként, pontok konvex kombinációja mindig a súlypontot adja meg.
+<em>(ezt képzeld el egy háromszögre, ahol a súlyok konvex kombinációja valóban a súlypontot adja)</em></li>
+<li>Három nem egy egyenesbe eső pont kombinációjaként a három pont által definiált sík bármely pontja előállítható. 
+<em>(igen, súlyozástól függ)</em></li>
+</ul>
+</li>
+<li>Hamis állítások: <ul>
+<li>A súlypontra felírt forgatónyomatók mindig zérus, ha a pontjainkat bármilyen erővel is támadjuk.</li>
+<li>A súlypontot megfogva, a test nem mozdítható el. 
+<em>(ezen a ponton stabilan áll, de ettől még mozgatható)</em></li>
+<li>Ha <span class="arithmatex">\(r_i\)</span> pontba <span class="arithmatex">\(m_i\)</span> súlyt (i=1,2,...) helyezünk, akkor a rendszer súlypontja <span class="arithmatex">\(\displaystyle\sum^i m_i \cdot r_i\)</span>
+<em>(ehhez még le kell osztani az összsúllyal <span class="arithmatex">\(\displaystyle\sum^i m_i\)</span>-vel, hogy igaz legyen)</em></li>
+</ul>
+</li>
+</ul>
+<hr />
+<blockquote>
+<p>5. Jelöljük be az igaz állításokat!</p>
+</blockquote>
+<ul>
+<li>Igaz állítások: <!--ezekhez nem tuodm mit lehet hozzáfűzni--><ul>
+<li>A hiperbola megadható kvadratikus implicit függvénnyel.</li>
+<li>Ahogy az x=cos(t), y=sin(t) körmozgást definiál, az x=cosh(t), y=sinh(t) egy hiperbolán való mozgást.</li>
+<li>Ha van egy olyan függvényünk, amely kifejezi egy pont és egy alakzat távolságát, akkor a függvény az alakzat implicit függvénye.</li>
+</ul>
+</li>
+<li>Hamis állítások: <ul>
+<li>Az egyenes y=m*x+b alakú explicit egyenletével a sík bármely egyenese definiálható.
+<em>(az y tengellyel párhuzamos egyenesek nem)</em></li>
+<li>Egy körnek egyetlen parametrikus egyenlete van. 
+<em>(ugyanazt a köregyenletet végtelen sok módon fel tudod írni)</em></li>
+<li>A körnek van explicit és parametrikus egyenlete, de implicit egyenlete nincs.
+<em>(implicit van neki, explicit esetekre bontással van igazából)</em></li>
+<li>A tractrix a körmozgás és a haladó mozgás szuperpozíciója.</li>
+<li>A  hegy tetejéről az aljáig leggyorsabban egyenespályán csúszhatunk le. </li>
+<li>Ahogy az x=cos(t), y=sin(t)  állandó sebességű körmozgást definiál, az x=cosh(t), y=sinh(t) egy hiperbolán való állandó sebességű mozgást.
+<em>(nem állandó sebességű)</em></li>
+<li>Egy implicit függvény az alakzat és egy pont távolságát adja meg.</li>
+<li>Ha egy alakzatnak az implicit egyenlete nem <code>a*x+b*y+c=0</code> alakú, akkor az alakzat nem lehet egyenes.
+<em>(nagyon egyszerű ellenpélda: (ax + by + c)^2 = 0)</em></li>
+</ul>
+</li>
+</ul>
+<hr />
+<blockquote>
+<p>6. Jelöljük be az igaz állításokat!</p>
+</blockquote>
+<ul>
+<li>Igaz állítások:<ul>
+<li>Az <span class="arithmatex">\(L_i(t)\)</span> Lagrange bázisfüggények összege 1.
+<em>(az előadáson volt egy diagramm a piros, kék ... színekkel és a lényeg, hogy minden pont hatása összesen 1)</em></li>
+<li>A Lagrange görbe C2 folytonos.</li>
+<li>Az <span class="arithmatex">\(L_i(t)\)</span> Lagrange bázisfüggényeknek a gyökei a csomóértékek a <span class="arithmatex">\(t_i\)</span>-t kivéve.</li>
+<li>A Lagrange interpoláció a Hermite interpoláció speciális esete.</li>
+</ul>
+</li>
+<li>Hamis állítások:<ul>
+<li>Az <span class="arithmatex">\(L_i(t)\)</span> Lagrange bázisfüggényeknek nincs valós gyöke.
+<em>(attól még, hogy magas fokú lehet neki)</em></li>
+<li>Az <span class="arithmatex">\(L_i(t)\)</span> Lagrange bázisfüggények nem negatívak.
+<em>(de van ilyen is,  a számolós példában is)</em></li>
+<li>Az Hermite interpoláció a Lagrange interpoláció speciális esete.
+<em>(pont fordítva, az általánosítása)</em></li>
+<li>Ha n pontunk van, akkor az <span class="arithmatex">\(L_i(t)\)</span> Lagrange bázisfüggények n-ed fokú polinomok.
+<em>(n-1)</em></li>
+<li>A csomóértékek megválasztása nem befolyásolja a Lagrange görbe alakját.
+<em>(de benne vannak a képletben)</em></li>
+</ul>
+</li>
+</ul>
+<hr />
+<blockquote>
+<p>8. Jelöljük be az igaz állításokat!</p>
+</blockquote>
+<ul>
+<li>Igaz állítások:<ul>
+<li>A Catmull-Rom görbe Hermite interpolációs görbékből épül fel.
+<em>(csak nézz fel)</em></li>
+<li>A Catmull-Rom görbe bázisfüggények összege 1.
+<em>(igen, mivel a Hermite az általánosítása a Lagrange-nak)</em></li>
+<li>A Catmull-Rom görbe harmadfokú polinom a kontrollpontok számától függetlenül.
+<em>(igen, mert Hermite-t használ)</em></li>
+</ul>
+</li>
+<li>Hamis állítások:<ul>
+<li>A Catmull-Rom görbe bázisfüggényei nem negatívak.
+<em>(de azok, mert Hermit-et használ)</em></li>
+<li>A Catmull-Rom görbe C2 folytonos.
+<em>(a szegmensek ezt így nem korlátozzák be)</em></li>
+<li>A Catmull-Rom görbe a kontrollpontok konvex burkán belül fut.</li>
+<li>A Catmull-Rom görbe egy pontjára minden kontrollpont hat.
+<em>(pont úgy lett kialakítva, hogy ne)</em></li>
+<li>A Catmull-Rom spline a Bezier görbe speciális esete.
+<em>(nope)</em></li>
+<li>Ha n pontunk van, akkor a Catmull-Rom görbe n-1-ed fokú polinom.
+<em>(nem, mert szegmensekből áll)</em></li>
+</ul>
+</li>
+</ul>
+<p><a href="2.html">Előző</a></p>
+<p><a href="4.html">Következő</a></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2025-02-13T09:52:51+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2025-02-13</span>
+  </span>
+
+    
+    
+    
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/Gilgames32" class="md-author" title="@Gilgames32">
+          
+          <img src="https://avatars.githubusercontent.com/u/91968230?v=4&size=72" alt="Gilgames32">
+        </a>
+      
+        <a href="https://github.com/levy04" class="md-author" title="@levy04">
+          
+          <img src="https://avatars.githubusercontent.com/u/84914593?v=4&size=72" alt="levy04">
+        </a>
+      
+        <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
+          
+          <img src="https://avatars.githubusercontent.com/u/19864447?v=4&size=72" alt="web-flow">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.instant"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f13b1293.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>

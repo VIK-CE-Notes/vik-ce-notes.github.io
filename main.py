@@ -25,8 +25,8 @@ def katex_block_linebreaks(text : str) -> str:
     This function adds a line break before and after every KaTeX block.
     '''
 
-    before_pattern = r'(?!\n)(\$\$.*?\$\$)'
-    after_pattern = r'(\$\$.*?\$\$)(?!\n)'
+    before_pattern = r'(?!\n)(\s*\$\$.*?\$\$)'
+    after_pattern = r'(\s*\$\$.*?\$\$)(?!\n)'
     return re.sub(before_pattern, r'\n\1\n', re.sub(after_pattern, r'\n\1\n', text))
 
 

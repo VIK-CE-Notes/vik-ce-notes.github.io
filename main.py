@@ -1,4 +1,6 @@
 import re
+from mkdocs_macros.plugin import MacrosPlugin
+from unidecode import unidecode
 
 def define_env(env):
     pass
@@ -30,13 +32,22 @@ def katex_block_linebreaks(text : str) -> str:
     return re.sub(before_pattern, r'\n\1\n', re.sub(after_pattern, r'\n\1\n', text))
 
 
-def on_pre_page_macros(env):
+def remove_url_accents(text : str) -> str:
+    '''
+    Cause the headings get the id without the accents
+    '''
+
+    pattern = r'\[(.*)\]\((.*)\)'
+    return re.sub(pattern, lambda m: f'[{m.group(1)}]({unidecode(m.group(2))})', text)
+
+
+def on_pre_page_macros(env : MacrosPlugin):
     '''
     This function is called before the page macros are processed.
     '''
     text = compatible_admonition(env.markdown)
-    
     text = katex_block_linebreaks(text)
+    text = remove_url_accents(text)
 
     # * ADD YOUR PREPROCESSING HERE
     # Use https://regexr.com/ to understand the regex patterns

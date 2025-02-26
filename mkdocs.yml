@@ -11,6 +11,26 @@ nav:
   - Jegyzeteléshez:
     - Instrukciók: ./for_contributors/index.md
     - Showcase: ./for_contributors/showcase.md
+  - 1. félév:
+    - Bevezetés a számításelméletbe 1: 
+        - Tételek: ./notes/sem1/theory_of_computing_1/tetelsor.md
+        - 1. Tétel: ./notes/sem1/theory_of_computing_1/1.md
+        - 2. Tétel: ./notes/sem1/theory_of_computing_1/2.md
+        - 3. Tétel: ./notes/sem1/theory_of_computing_1/3.md
+        - 4. Tétel: ./notes/sem1/theory_of_computing_1/4.md
+        - 5. Tétel: ./notes/sem1/theory_of_computing_1/5.md
+        - 6. Tétel: ./notes/sem1/theory_of_computing_1/6.md
+        - 7. Tétel: ./notes/sem1/theory_of_computing_1/7.md
+        - 8. Tétel: ./notes/sem1/theory_of_computing_1/8.md
+        - 9. Tétel: ./notes/sem1/theory_of_computing_1/9.md
+        - 10. Tétel: ./notes/sem1/theory_of_computing_1/10.md
+        - 11. Tétel: ./notes/sem1/theory_of_computing_1/11.md
+        - 12. Tétel: ./notes/sem1/theory_of_computing_1/12.md
+        - 13. Tétel: ./notes/sem1/theory_of_computing_1/13.md
+        - 14. Tétel: ./notes/sem1/theory_of_computing_1/14.md
+        - 15. Tétel: ./notes/sem1/theory_of_computing_1/15.md
+        - 16. Tétel: ./notes/sem1/theory_of_computing_1/16.md
+        - 17. Tétel: ./notes/sem1/theory_of_computing_1/17.md
   - 4. félév:
     - Számítógépes grafika:
       # - Előszó: ./notes/sem4/computer_graphics/index.md
@@ -56,6 +76,7 @@ theme:
     - content.code.select
     - content.code.annotate
     - navigation.instant
+    - navigation.footer
   # Admonition icons: 
   # https://squidfunk.github.io/mkdocs-material/reference/admonitions/?h=admonition#admonition-icons
 

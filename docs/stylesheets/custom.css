@@ -13,10 +13,14 @@ p:not(.admonition-title) {
     div.md-sidebar--secondary:not([hidden]) {
         display: none;
     }
+
+    article.md-content__inner {
+        margin: 0 25px;
+    }
 }
 
 /* Last list link into new line */
-li > a[href]:last-of-type::before { 
+li > a[href]:last-child::before { 
     content: ' ';
     display: block;
 }

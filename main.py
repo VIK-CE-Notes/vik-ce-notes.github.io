@@ -27,9 +27,12 @@ def katex_block_linebreaks(text : str) -> str:
     This function adds a line break before and after every KaTeX block.
     '''
 
-    before_pattern = r'(?!\n)(\s*\$\$.*?\$\$)'
-    after_pattern = r'(\s*\$\$.*?\$\$)(?!\n)'
-    return re.sub(before_pattern, r'\n\1\n', re.sub(after_pattern, r'\n\1\n', text))
+    pattern = r'(.*\n?)([\t\f ]*\$\$.*?\$\$)(\n.*)'
+    
+    return re.sub(pattern, lambda x: f'\1{_if_not_empty(x.group(1), "\n")}\2{_if_not_empty(x.group(3), "\n")}\3', text)
+
+def _if_not_empty(text: str, on_not_empty: str = "", on_empty: str = "") -> str:
+    return on_not_empty if text.strip() else on_empty
 
 
 def remove_url_accents(text : str) -> str:

@@ -48,3 +48,14 @@ img[alt$=":"] {
     height: 20px;
     vertical-align: middle;
 }
+
+/* katex block fix */
+.md-typeset div.arithmatex > span {
+    padding: 0;
+}
+.md-typeset div.arithmatex > span > span.katex-display {
+    margin: 0.5em 0;
+}
+.md-typeset p {
+    margin: 1em 0;
+}

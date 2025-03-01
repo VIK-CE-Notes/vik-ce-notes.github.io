@@ -20,7 +20,7 @@ p:not(.admonition-title) {
 }
 
 /* Last list link into new line */
-li > a[href]:last-child::before { 
+li > a[href]:not(:only-child):last-child::before { 
     content: ' ';
     display: block;
 }

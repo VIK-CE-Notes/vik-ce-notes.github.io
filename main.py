@@ -29,11 +29,15 @@ def katex_block_linebreaks(text : str) -> str:
 
     pattern = r'(.*\n?)([\t\f ]*\$\$.*?\$\$)(\n.*)'
     
-    return re.sub(pattern, lambda x: f'\1{_if_not_empty(x.group(1), "\n")}\2{_if_not_empty(x.group(3), "\n")}\3', text)
+    return re.sub(
+        pattern, 
+        lambda x: 
+            x.group(1) + _if_not_empty(x.group(1), '\n') + x.group(2) + _if_not_empty(x.group(3), '\n') + x.group(3) + 'asd',
+        text
+    )
 
 def _if_not_empty(text: str, on_not_empty: str = "", on_empty: str = "") -> str:
     return on_not_empty if text.strip() else on_empty
-
 
 def remove_url_accents(text : str) -> str:
     '''

@@ -1,0 +1,1991 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://vik-ce-notes.github.io/notes/sem4/computer_graphics/1.html">
+      
+      
+        <link rel="prev" href="../../sem1/theory_of_computing_1/17.html">
+      
+      
+        <link rel="next" href="2.html">
+      
+      
+      <link rel="icon" href="/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>1. Geometriák és algebrák - Notes-online</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/code.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#geometriak-es-algebrak" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="Notes-online" class="md-header__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes-online
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Geometriák és algebrák
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/VIK-CE-Notes/vik-ce-notes.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    VIK-CE-Notes/vik-ce-notes.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="Notes-online" class="md-nav__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    Notes-online
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/VIK-CE-Notes/vik-ce-notes.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    VIK-CE-Notes/vik-ce-notes.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Üdvözlünk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Jegyzeteléshez
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Jegyzeteléshez
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../for_contributors/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Instrukciók
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../for_contributors/showcase.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Showcase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            1. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bevezetés a számításelméletbe 1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Bevezetés a számításelméletbe 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/tetelsor.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tételek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    15. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    16. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    17. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    4. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            4. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Számítógépes grafika
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Számítógépes grafika
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="1.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Geometriák és algebrák
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Grafikus hardver és szoftver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Pontok és klasszikus görbék
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Affin transzformációk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. 2D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. 2D textúrázás
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. 3D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Sugárkövetés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Inkrementális képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Játékfejlesztés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Vektorháború
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Fraktálok és káosz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Specializációk
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Specializációk
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algoritmikus játékelmélet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmikus játékelmélet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spec/game_theory/exam_notes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vizsgajegyzet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="geometriak-es-algebrak">Geometriák és algebrák:</h1>
+<blockquote>
+<p>A geometriák különböző axiómákra épülnek. 
+Például az Euklidészi síkgeometriában az egyik legfontosabb, hogy egy egyenesre egy külső pontból legfeljebb 1 olyan egyenes húzható, ami nem metszi <em>(ez a párhuzamos)</em></p>
+</blockquote>
+<ul>
+<li>Ezeknek az axiómáknak a megváltoztatása különböző eredményekhez vezethet. Például a háromszög szögeinek összege mindig:<ul>
+<li>Hiperbolikus geometriában: <span class="arithmatex">\(&lt; 180°\)</span></li>
+<li>Euklidészi geometriában: <span class="arithmatex">\(180°\)</span></li>
+<li>Gömbi geometriában: <span class="arithmatex">\(&gt; 180°\)</span></li>
+</ul>
+</li>
+</ul>
+<h2 id="gorbulet">Görbület</h2>
+<ul>
+<li>
+<p><strong>Görbék görbülete:</strong> </p>
+<ul>
+<li>Egy adott pontra az alábbi két definíció egyikét használhatjuk:<ul>
+<li>A görbület az egysebességű centripetális gyorsulás (<span class="arithmatex">\(a_{cp} = \frac{v^2}{R}\)</span>, egysebességű = a sebesség nagysága állandó)</li>
+<li>A simuló kör sugarának reciproka</li>
+</ul>
+</li>
+<li><img alt="" src="img/1_gorbulet.png" /></li>
+<li><em>(<span class="arithmatex">\(\kappa = \frac{1}{r} = \frac{v^2}{r}\)</span>)</em></li>
+</ul>
+</li>
+<li>
+<p><strong>Gauss görbület:</strong></p>
+<ul>
+<li>Egy felület (mondjuk henger) görbületét szeretnénk meghatározni egy adott pontban.
+<em>(Ebben a pontban a felületnek van egy normálvektora, ami merőleges a felület síkjára)</em>. </li>
+<li>Ekkor az alakzatot a felvághatjuk síkokkal <em>(amik a pontot metszik és a normálvektorral párhuzamosak)</em></li>
+<li>Azek a síkok bármerre állhatnak és a felületet ahogy metszik, úgy egy görbét határoznak meg.
+Az így kapott görbék közül van 2, ahol az egyiknél minimális a görbület, a másiknál maximális. Ezek a metszési irányok egymásra merőlegesek <em>(ezek a principális / főgörbületi irányok)</em></li>
+<li>Az itt található görbületek szorzata a Gauss-görbület</li>
+<li><img alt="" src="img/1_gauss_gorbulet.png" /></li>
+</ul>
+</li>
+<li><a href="https://youtu.be/0ZV4TjgI424?t=621"><em>Részletesebben</em></a>
+<em>(a diasorokon voltak még további alakzatok, ezeken érdemes ezt végig gondolni, a legfontosabb, hogy a normállal mindig párhuzamosak ezek a metszések)</em></li>
+</ul>
+<h2 id="gombi-geometria">Gömbi geometria</h2>
+<ul>
+<li>Gömb egyenlete: <span class="arithmatex">\(x^2 + y^2 + z^2 = R^2 = \frac{1}{K}\)</span></li>
+<li>Itt a görbület állandóan pozitív, az egyenesek is görbék</li>
+<li>Fontos változás:<ul>
+<li>Két pont nem mindig határoz meg egy egyenest egyértelműen</li>
+<li>Két egyenes mindig 2 pontban metszi egymást</li>
+<li>Itt 0 darab nem metsző egyenes van (még a párhuzamosok is metszik egymást)</li>
+</ul>
+</li>
+<li><strong>Főkör:</strong> 2 pont és a gömb közepe meghatároz egy síkot. A kör, ami a sík és gömb metszésével jön létre a főkör
+<em>(Nem mindig lehet egyértelműen meghatározni, pl. Északi sark, Déli sark, Origó pontokkal végtelensok sík van)</em></li>
+<li>Gömbi geometriában a legrövidebb út két pont között mindig a főkörön van</li>
+<li>
+<p><strong>Elliptikus geometria:</strong> olyan geometria, ahol az átellenes pontok egynek számítanak</p>
+</li>
+<li>
+<p><strong>Gömbök vetítése:</strong>
+    <img alt="" src="img/1_vetites.png" /></p>
+<ol>
+<li>Középpontos vetítés: <ul>
+<li>csak a felső gömböt</li>
+<li>egyenes tartó</li>
+<li>nem kör, szög és távoltástartó</li>
+</ul>
+</li>
+<li>Sztereografikus vetítés:<ul>
+<li>a déli pólus kivételével mindent</li>
+<li>nem egyenestartó</li>
+<li>kör és szögtartó, de nem távolságtartó</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Mercator térkép:</strong> hengerre vetít a gömb középpontból, de emiatt megnyúlik. </p>
+<ul>
+<li>Szögtartó</li>
+<li>Nem távolságtartó</li>
+</ul>
+</li>
+<li>
+<p><strong>Számolások gömbi geometriánál:</strong></p>
+<ul>
+<li>A görbület: <span class="arithmatex">\(\kappa = 1/R^2\)</span> <!--ez elég triviális--></li>
+<li>Távolság: <span class="arithmatex">\(R \theta = \theta / \sqrt{\kappa}\)</span>
+<em>(ez egy körív, ahol 2 pont között <span class="arithmatex">\(\theta\)</span> szög van - radiánban)</em></li>
+<li>Kör kerülete: 
+<img alt="" src="img/1_kerulet.png" /></li>
+<li>Háromszögek:<ul>
+<li><span class="arithmatex">\(a^2 + b^2 &gt; c^2\)</span></li>
+<li><span class="arithmatex">\(T = (\alpha + \beta + \gamma - \pi) / \kappa\)</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="hiperbolikus-geometria">Hiperbolikus geometria</h2>
+<ul>
+<li>Hiperboloid egyenlete: <span class="arithmatex">\(x^2 + y^2 - z^2 = -R^2 = \frac{1}{\kappa}\)</span><ul>
+<li><em>Ez levezethető komplex számmal is <span class="arithmatex">\((iR)^2\)</span></em></li>
+</ul>
+</li>
+<li>Itt a görbület állandóan negetív</li>
+<li>Fontos változások:<ul>
+<li>Egy egyenesre egy külső ponból több nem metsző egyenes húzható</li>
+</ul>
+</li>
+<li>
+<p>Hiperbolikus terek vetítése egy diszkre:
+<img alt="" src="img/1_hiberbolikus.png" /></p>
+</li>
+<li>
+<p><em>Emlékeztető a 3. háziból - 2 kör merőleges:</em>
+<img alt="" src="img/1_hazi_help.png" /></p>
+</li>
+</ul>
+<h3 id="minkowski-ter">Minkowski tér</h3>
+<ul>
+<li>A háromdimenziós teret kiterjesztjük egy negyedik dimenzióval, ami az idő</li>
+<li>Itt nem pontok, hanem események vannak jelen<ul>
+<li><em>Mert ugyanaz a hely szerepelhet kétszer, de különböző időpontokban más-más esemény közben van</em></li>
+</ul>
+</li>
+<li>Ebben a rendszerben a távolságot úgy kell érteni, hogy <span class="arithmatex">\(x_1\)</span> helyről <span class="arithmatex">\(t\)</span> idő alatt egy hatás elér-e egy <span class="arithmatex">\(x_2\)</span> helyre</li>
+</ul>
+<h4 id="projektiv-geometria">Projektív geometria</h4>
+<blockquote>
+<p>a GPU mindegyik geometriát támogatja, de projektív geometriában gondolkodik</p>
+</blockquote>
+<ul>
+<li>Euklideszi geometriában nem beszélhetünk végtelenről, viszont a projektív geometriában létezik.</li>
+<li>Fontos változás:<ul>
+<li>Itt két egyenes pontosan egy pontban metszi egymást 
+<em>(vagy 1 pontban metszenek, vagy a végtelenben. Ha azon gondolkodnál, hogy de balra és jobbra is van végtelen, az ne aggasszon, mert az a pont jobbra és balra ugyanaz a végtelen)</em></li>
+</ul>
+</li>
+<li><em>Ez a rendszer nem metrikus, mert nem lehet pl. távolságról beszélni, hiszen ha a végtelen is része, akkor ami végtelen távol van, azt nem lehet számításba venni</em></li>
+<li>Nincsenek olyan koordináta rendszerek, amik távolságokat használnak <em>(fentebb említett ok miatt)</em> - Vagyis Descartes és Polár koordinátarendszerek nem használhatók<ul>
+<li><img alt="" src="img/1_idealis_pont.png" /></li>
+<li>Itt a zöld és a piros pontok az <strong>ideális pontok</strong> ahol az egyenesek metszenék egymást. 
+Mivel a geometriánkban végtelen sok egyenes lehet, ezért a piros és zöld pontok között végtelen sok ideális pont lehet még. </li>
+</ul>
+</li>
+<li><em>Ha átgondoljuk, hogy van végtelen sok ideális pont, amik jobbra és balra nézve is önmaguk képviselik, akkor láthatjuk, hogy ez egy elliptikus geometria (fogalma fentebb) csak szög és távolság fogalom nélkül</em></li>
+</ul>
+<h2 id="sikgeometria">Síkgeometria</h2>
+<ul>
+<li>2 dimenzióról beszélünk (<span class="arithmatex">\(x\)</span>,<span class="arithmatex">\(y\)</span> koordinátákkal), amihez felveszünk egy harmadik tulajdonságot (<span class="arithmatex">\(w\)</span>-t). Így képesek vagyunk Euklideszi és Projektív geometriát is mejeleníteni.<ul>
+<li>Projektív esetben mondjuk azt, hogy csak az egyenes, ami átmegy az origón. 
+<img alt="" src="img/1_projektiv.png" />
+Vagyis akkor van egy bizonyos végtelen pontunk, ahol minden egyenes találkozik.
+Ekkor minden pont végtelen távoli, ahol <span class="arithmatex">\(w\)</span> = 0, hiszen bármely egyenes, ami rajtuk átmegy, az az origón is. Vagyis az egyenesük párhuzamos lesz a (kék) síkkal, amit látunk.</li>
+</ul>
+</li>
+<li>Ambiens tér (<a href="https://en.wikipedia.org/wiki/Ambient_space_(mathematics)">ambient space</a>): egy olyan tér, ami valamilyen objektumot körbevesz<ul>
+<li>Ezek a befoglaló terek nekünk az ábrázolást segítik. Ezért az ambiens vektorokat képesnek kell lennünk összeadni és skálázni.</li>
+<li>Ebből következik, hogy <span class="arithmatex">\(w=0\)</span> a vektoroknál és <span class="arithmatex">\(w=1\)</span> a pontoknál (egyéb <span class="arithmatex">\(w\)</span>-k se nem pontok, se nem vektorok).</li>
+</ul>
+</li>
+<li><strong>Skaláris szorzás:</strong><ul>
+<li><span class="arithmatex">\(a_1 \cdot a_2 = |a_1| |a_2| \cos(\alpha)\)</span></li>
+<li>Euklideszi geometriában: <span class="arithmatex">\(a_1 \cdot a_2 = x_1 x_2 + y_1 y_2 + z_1 z_2\)</span></li>
+<li>Nem asszociatív művelet (számít a szorzások sorrendje)
+<span class="arithmatex">\((u \cdot v) \cdot w \neq u \cdot (v \cdot w)\)</span></li>
+</ul>
+</li>
+<li><strong>Vektoriális szorzás (kereszt szorzás):</strong><ul>
+<li><span class="arithmatex">\(|a_1 \times a_2 | = |a_1| |a_2| \sin(\theta)\)</span></li>
+<li><span class="arithmatex">\(c_x = a_y b_z - a_z b_y\)</span>
+  <span class="arithmatex">\(c_y = a_z b_x - a_x b_z\)</span>
+  <span class="arithmatex">\(c_z = a_x b_y - a_y b_x\)</span></li>
+<li>Ez sem asszociatív</li>
+</ul>
+</li>
+<li><strong>Vektorok tulajdonságai:</strong><ul>
+<li>Két pont különbsége vektor</li>
+<li>Az ambiens térnek elemei <span class="arithmatex">\([x,y,0]\)</span></li>
+<li>Hossz: <span class="arithmatex">\(|v| = \sqrt{v \cdot v}\)</span></li>
+<li>Merőlegesség: <span class="arithmatex">\(u \perp v\)</span> ha <span class="arithmatex">\(u \cdot v = 0\)</span><ul>
+<li>Minden vektorra végtelensok merőleges van <span class="arithmatex">\(\lambda [y, -x, 0]\)</span></li>
+</ul>
+</li>
+<li>Párhuzamosság: <span class="arithmatex">\(u \parallel v\)</span> ha <span class="arithmatex">\(u = \lambda v\)</span><ul>
+<li>Minden vektorra végtelensok párhuzamos van <span class="arithmatex">\(\lambda [x, y, 0]\)</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Egyenesek:</strong><ul>
+<li>Parametrikus egynlet: <span class="arithmatex">\(r(t) = p + vt\)</span>
+<em>(vagyis p pontból t ideje indultunk el v vektorrala - ha végig gondolod ez valóban pontok gyűjteménye, hiszen <span class="arithmatex">\(w=1\)</span> mindig)</em></li>
+<li>Implicit egyenlet: <span class="arithmatex">\(n \cdot (r - p) = 0\)</span><ul>
+<li>Ahol <span class="arithmatex">\(r\)</span> egyenest határozzuk meg <span class="arithmatex">\(p\)</span> pontja és <span class="arithmatex">\(n\)</span> normálvektora segítségével
+<span class="arithmatex">\(r(x,y) \Rightarrow [n_x, n_y, 0] \cdot [x - p_x, y - p_y, 0] = 0\)</span>
+Vagyis: <span class="arithmatex">\(n_x x + n_y y + d = 0\)</span></li>
+<li>Ha <span class="arithmatex">\(r\)</span> helyére behelyettesítünk, akkor könnyen eldönthetjük, hogy egy pont rajta van-e
+<em>(egyébként pont azért implicit egyenlet, mert az r egyenest nem fejezzük ki explicit)</em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="tergeometria">Térgeometria</h2>
+<ul>
+<li>A cél, hogy minden legyen ugyanolyan mint a síknál, csak mostmár egyel magasabb dimenzióban</li>
+<li>vektor: <span class="arithmatex">\([x,y,z,0]\)</span>, pont: <span class="arithmatex">\([x,y,z,1]\)</span></li>
+<li>a korábban megbeszélt műveletek nem válltoznak </li>
+<li>az egynes egynletek továbbra is megmaradnak</li>
+<li><strong>Sík egyenlete:</strong> <ul>
+<li>Explicit: <span class="arithmatex">\(r(u,v) = p + au + bv \qquad\)</span> (ahol <span class="arithmatex">\(a, b\)</span> nem párhuzamos vektorok)</li>
+<li>Implicit: <span class="arithmatex">\(n \cdot (r-p) = 0 \qquad \qquad\)</span> (ahol <span class="arithmatex">\(n\)</span> normálvektor merőleges <span class="arithmatex">\(a, b\)</span> vektorokra)
+Vagyis: <span class="arithmatex">\(n_x x + n_y y + n_z z + d = 0\)</span></li>
+</ul>
+</li>
+</ul>
+<h2 id="homogen-koordinatak">Homogén koordináták</h2>
+<ul>
+<li>Homogén koordináták: ahol +1 dimenzióban megadunk egy értéket ami jelöli, hogy ideális pontról beszélünk-e</li>
+<li>Ezt valamennyire láttuk, a fontos különbség, hogy a <span class="arithmatex">\(w\)</span> távolság jelölést is segíti nekünk<ul>
+<li><span class="arithmatex">\([2x,2y,1] = [x,y,\frac{1}{2}]\)</span>
+mert ha osztjuk a <span class="arithmatex">\(w\)</span> koordinátájával, akkor <span class="arithmatex">\([x,y,\frac{1}{2}] / \frac{1}{2} = [2x,2y,1]\)</span></li>
+</ul>
+</li>
+<li>Az egyenes implicit egyenlete:<ul>
+<li><span class="arithmatex">\([X(t),Y(t),w(t)] = [X_1,Y_1,w_1](1-t) + [X_2, Y_2,w_2] \cdot t\)</span></li>
+<li>Ez 2 különböző pontból segít meghatározni az egyenest</li>
+<li><em>De mégis miért jobb ez? Mert ez magától kezeli a végtelen pontokat a Descartes koordinátákkal szemben</em>
+<span class="arithmatex">\(n_x X / w + n_y Y / w + d = 0 \qquad w \neq 0\)</span>
+<span class="arithmatex">\(n_x X + n_y Y + dw = 0\qquad w \neq 0\)</span></li>
+</ul>
+</li>
+<li>Hogyan csináljunk Euklidésziből homogént: <ul>
+<li>Fogjuk a pontokat és mindenhol kibővítjük a pontok koordinátáit <span class="arithmatex">\(w = 1\)</span>-el.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="kviz">Kvíz</h1>
+<blockquote>
+<p>1. Milyen messze van az <span class="arithmatex">\((-5, 4)\)</span> pont a <span class="arithmatex">\(3x + 4y + 5 = 0\)</span> implicit egyenletű egyenestől</p>
+</blockquote>
+<p><strong>Középiskolában tanultakkal megoldható:</strong> 
+<em>(ha van gyorsabb megoldás javítsátok)</em></p>
+<ol>
+<li>Egyenesre normálvektort állítasz
+<span class="arithmatex">\((3, 4) \Rightarrow (4, -3)\)</span></li>
+<li>Normálvektorral új egyenes, ami átmegy a ponton
+<span class="arithmatex">\(4 * (-5) + (-3) * 4 + d = 0\)</span>
+<span class="arithmatex">\(d = 32 \Rightarrow 4x -3y + 32 = 0\)</span></li>
+<li>Az egyenesek metszéspontjának megtalálása
+<span class="arithmatex">\(4x -3y + 32 = 0 \text{ és } 3x + 4y + 5 = 0\)</span> 
+<em>(Mondjuk hozzáadom <span class="arithmatex">\(\frac{3}{4}\)</span>-szer az másodikat az elsőhöz, de sok jó út van)</em>
+<span class="arithmatex">\(\frac{25}{4} x + \frac{133}{4} = 0 \Rightarrow x = \frac{-143}{25}\)</span>
+<span class="arithmatex">\(\Rightarrow y = \frac{76}{25}\)</span></li>
+<li>Metszés pont és eredeti pont távolságának kiszámítása
+<span class="arithmatex">\(d = \sqrt{(((-5) - (\frac{-143}{25}))^2 + (4 - \frac{76}{25})^2)} = 1.2\)</span></li>
+</ol>
+<p><strong>Alternatív megoldás:</strong> </p>
+<ul>
+<li>
+<p>képletet használunk <span class="arithmatex">\(d = n \cdot (r-p)\)</span>, ahol <span class="arithmatex">\(r\)</span> az egyenes és <span class="arithmatex">\(n\)</span> egység hosszú    </p>
+<ol>
+<li>
+<p>a normálvektort egységhosszúvá tesszük 
+<span class="arithmatex">\(n = (3, 4) \Rightarrow n = \frac{(3, 4)}{\sqrt{3^2 + 4^2}} = (\frac{3}{5}, \frac{4}{5})\)</span>
+<em>(figyeljünk, implicit egyenletnél a koordináta sorrendre)</em></p>
+</li>
+<li>
+<p>az <span class="arithmatex">\(r-p\)</span> kivonást elvégzzük: <em>(ez egy vektor r és p között)</em>
+A számításához használhatjuk az <span class="arithmatex">\(r\)</span> bármely pontját <em>(én az x=0 pontot választottam)</em> 
+<span class="arithmatex">\(R = (0, \frac{-5}{4})\)</span> 
+Ekkor <span class="arithmatex">\(r - p = (0, \frac{-5}{4}) - (-5, 4) = (5, -\frac{21}{4})\)</span></p>
+</li>
+<li>elvégezzük a skaláris szorzást: 
+<span class="arithmatex">\(n \cdot (r-p) = (\frac{3}{5}, \frac{4}{5}) \cdot (5, -\frac{21}{4}) = \frac{3}{5} * 5 + \frac{4}{5} *  -\frac{21}{4} = 3 - \frac{21}{5} = -1.2\)</span></li>
+<li>De miért negatív?
+Ez egy előjeles távolság, szóval függ attól, hogy a p pont az egyenes melyik oldalán van
+Vagyis, ha abszolútértékkel használjuk, akkor helyes megoldást kapunk
+<span class="arithmatex">\(|-1.2| = 1.2\)</span>
+<img alt="🍰" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f370.svg" title=":cake:" /></li>
+</ol>
+</li>
+</ul>
+<p><a href="https://brilliant.org/wiki/dot-product-distance-between-point-and-a-line/">(a képlet kb így jön ki)</a></p>
+<hr />
+<blockquote>
+<p>2. Tekintsünk 2 várost "A"-t és "B"-t az északi szélesség (lattitude) 45 fokán. Az "A" város keleti hosszúsága 165 fok, a "B" város keleti hosszúsága 50 fok.
+Mekkora az A és B város távolsága km-ben, ha a föld sugarát 6000 km-nek vesszük?</p>
+</blockquote>
+<p><em>(Ilyenkor nem használhatjuk a Távolság: <span class="arithmatex">\(R \theta\)</span> képletet direktben, mert x és y tengelyen is van bezárt szög és ezért vagy a sugár méretét kéne arányosítani, vagy a szöget kéne újraszámolni)</em></p>
+<p>Keressük tehát azt a <span class="arithmatex">\(\theta\)</span> szöget, melyet a A és B <em>(pontosabban a beléjük húzott sugarak)</em> bezárnak a rajtuk átmenő főkörön.</p>
+<details> 
+    <summary> 
+        Konkrét megoldás:
+    </summary>
+<img src="./img/1_kviz_notes.jpg">
+</details>
+
+<p>Ellenőrzésre és általános esetre <a href="code/dist.py">script</a>.</p>
+<!-- Ez nem jó. Távolságot a főkörön mérjük, ott a legrövidebb.
+
+Szerencsére volt erre egy másik képlet:
+1. 45°-nál mekkora egy kör kerülete: 
+$R' =  R * sin(\theta) = 6000 * \sin(45°) \approx 4242.64$
+1. Ezen a körön már tudjuk, hogy a közrezárt szög 145-105 = 40 fok:
+Ami radiánban: $\theta' = (40/180) * \pi = 0.6981$
+$dist = R' * \theta' = 2961.92$
+-->
+
+<hr />
+<blockquote>
+<p>3. A gömbi geometriánk Gauss görbülete <span class="arithmatex">\(0.8\)</span>. Mekkora a <span class="arithmatex">\(0.2\)</span> sugarú kör kerülete ebben a geometriában?</p>
+</blockquote>
+<ol>
+<li>Gauss görbületből a gömb sugara:
+<span class="arithmatex">\(K = 1/R^2 \Rightarrow R = 1 / \sqrt{K} = 1 / \sqrt{0.8} \approx 1.12\)</span> </li>
+<li>A kör sugara most a gömbön található egyenesben mérve van megadva. <em>(a korábbi ábrán ez volt <span class="arithmatex">\(r\)</span>)</em>
+<span class="arithmatex">\(r = R * \theta \Rightarrow \theta = 0.2 / 1.12 \approx 0.18\)</span></li>
+<li>A kör kerülete pedig:
+<span class="arithmatex">\(2 \pi R \sin(\theta) = 2 \pi * 1.12 * \sin(0.18) = 1.2499\)</span> 
+<em>(ha pontos értékekkel számolunk, ha kerekítve, akkor 1.26 kb)</em></li>
+</ol>
+<hr />
+<blockquote>
+<p>4. Egy pont koordinátái a t idő alábbi függvényei: x(t) = t*t, y(t) = 1/t mekkora a mozgás sebességének a négyzete 1 sec-ben?</p>
+</blockquote>
+<ol>
+<li>A sebesség a mozgás idő szerinti első deriváltja:
+<span class="arithmatex">\(x'(t) = 2t \qquad y'(t) = -1 / t^2\)</span></li>
+<li>Ezt szeretnénk tudni az 1 időpontban:
+<span class="arithmatex">\(x'(1) = 2 \qquad y'(1) = -1 / 1\)</span></li>
+<li>Ebből a sebesség:
+<span class="arithmatex">\(v = \sqrt{2^2 + (-1)^2} = \sqrt{5}\)</span></li>
+<li>Vagyis a sebesség négyzete:
+<span class="arithmatex">\(\sqrt{5}^2 = 5\)</span></li>
+</ol>
+<hr />
+<blockquote>
+<p>5. Asszociatív műveletek:
+(x * y) * z = x * (y * z)</p>
+</blockquote>
+<ul>
+<li>Komplex számok szorzata</li>
+<li>Duális számok szorzata</li>
+<li>Mátrixok szorzata</li>
+<li>Vektorok elemenkénti szorzata
+<em>(ez csak arra ment ki, hogy a vekoriális és a skaláris szorzás ne asszociatív)</em></li>
+</ul>
+<hr />
+<blockquote>
+<p>10. Kommutatív műveletek:
+a * b = b * a</p>
+</blockquote>
+<ul>
+<li>Komplex számok szorzata</li>
+<li>Duális számok szorzata</li>
+<li>Vektorok skaláris szorzata</li>
+<li>Vektorok elemenkénti szorzata</li>
+</ul>
+<hr />
+<blockquote>
+<p>6. Mi igaz Euklideszi geometriában</p>
+</blockquote>
+<ul>
+<li>sinh(3x + 4y + 5) = 0 egy egynes <em>(valóban az)</em></li>
+<li>3x + 4y + 5 = 0 egyenesre merőleges a 4x -3y + 5 = 0</li>
+<li>3x + 4y + 5 = 0 egyenes megegyezik a -3x -4y - 5 = 0-tel</li>
+<li>3x + 4y + 5 = 0 egyenes párhuzamos a 9x 3y + 5 = 0-tel <em>(ráadásul meg is egyeznek)</em></li>
+</ul>
+<hr />
+<blockquote>
+<p>7. Milyen műveleti eredmények értelmezhetők Euklideszi geometriában?</p>
+</blockquote>
+<ul>
+<li>Két pont kombinációja <em>(ha jól gondolom, ez egy egyenes)</em></li>
+<li>Két vektor kombinációja</li>
+<li>Két vektor összege</li>
+<li>Vektor szorzása számmal</li>
+<li>Pont és vektor összege</li>
+</ul>
+<p><em>(pont szorzása vektorral és két pont összege pedig nem létező műveletek)</em></p>
+<hr />
+<blockquote>
+<p>8-9. Mi igaz a geometriákra</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Gömbi</th>
+<th>Hiperbolikus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A sík görbülete</td>
+<td>Pozitív</td>
+<td>Negatív</td>
+</tr>
+<tr>
+<td>Egyenes a 2 pont közti legrövidebb út</td>
+<td>igaz</td>
+<td>igaz</td>
+</tr>
+<tr>
+<td>Háromszög szögeinek összege</td>
+<td>&gt; 180°</td>
+<td>&lt; 180°</td>
+</tr>
+<tr>
+<td>A pitagorasz tétel</td>
+<td>nem igaz</td>
+<td>nem igaz</td>
+</tr>
+<tr>
+<td>Egyéb</td>
+<td>Két különböző egyenes 2 pontban metszi egymást</td>
+<td>1 egyenesre 1-nél több nem metsző egyenes van</td>
+</tr>
+</tbody>
+</table>
+<p><a href="2.html">Következő</a></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. június 11. 01:29:14 CEST"><span class="timeago" datetime="2025-06-11T01:29:14+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. június 11. 01:29:14 CEST">2025-06-11</span>
+  </span>
+
+    
+    
+    
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/Gilgames32" class="md-author" title="@Gilgames32">
+          
+          <img src="https://avatars.githubusercontent.com/u/91968230?v=4&size=72" alt="Gilgames32">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../sem1/theory_of_computing_1/17.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 17. Tétel">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                17. Tétel
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="2.html" class="md-footer__link md-footer__link--next" aria-label="Next: 2. Grafikus hardver és szoftver">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2. Grafikus hardver és szoftver
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.instant", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>

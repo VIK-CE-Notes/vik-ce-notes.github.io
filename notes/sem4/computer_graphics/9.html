@@ -1,0 +1,2227 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://vik-ce-notes.github.io/notes/sem4/computer_graphics/9.html">
+      
+      
+        <link rel="prev" href="8.html">
+      
+      
+        <link rel="next" href="10.html">
+      
+      
+      <link rel="icon" href="/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>9. Inkrementális képszintézis - Notes-online</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/code.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#inkrementalis-3d-kepszintezis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="Notes-online" class="md-header__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes-online
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              9. Inkrementális képszintézis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/VIK-CE-Notes/vik-ce-notes.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    VIK-CE-Notes/vik-ce-notes.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="Notes-online" class="md-nav__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    Notes-online
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/VIK-CE-Notes/vik-ce-notes.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    VIK-CE-Notes/vik-ce-notes.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Üdvözlünk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Jegyzeteléshez
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Jegyzeteléshez
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../for_contributors/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Instrukciók
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../for_contributors/showcase.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Showcase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            1. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bevezetés a számításelméletbe 1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Bevezetés a számításelméletbe 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/tetelsor.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tételek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    15. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    16. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    17. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    4. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            4. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Számítógépes grafika
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Számítógépes grafika
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Geometriák és algebrák
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Grafikus hardver és szoftver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Pontok és klasszikus görbék
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Affin transzformációk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. 2D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. 2D textúrázás
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. 3D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Sugárkövetés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="9.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Inkrementális képszintézis
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Játékfejlesztés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Vektorháború
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Fraktálok és káosz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Specializációk
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Specializációk
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algoritmikus játékelmélet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmikus játékelmélet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spec/game_theory/exam_notes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vizsgajegyzet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<!-- na de menjünk medvét vadászni -->
+
+<h1 id="inkrementalis-3d-kepszintezis">Inkrementális 3D képszintézis</h1>
+<blockquote>
+<p>Eddig úgymond pixelvezérelt 3D képszintézissel foglalkoztunk, ez viszont meglehetősen lassú és erőforrásigyényes folyamat.</p>
+<p><span class="arithmatex">\(\sim \text{Pixelszám} \times \text{Objektumszám} \times (\text{Fényforrásszám} + 1)\)</span></p>
+<p>Most egy objektumvezérelt irányból fogjuk megközelíteni a dolgot, ennek sokkal egyszerűbb a hardveres implementációja, támogathatósága.</p>
+</blockquote>
+<p><img alt="the pipeline is real" src="img/9_pipeline.png" /></p>
+<h2 id="tesszelacio">Tesszeláció</h2>
+<p>= felületek háromszögekre bontása</p>
+<p><img alt="" src="img/9_tesselation.png" /></p>
+<p>Magyarázat:</p>
+<ul>
+<li>felület parametrikus egyenletét használjuk</li>
+<li>paramétertér az egységnégyzet, innen behelyettesíthetünk bármilyen <span class="arithmatex">\(u, v\)</span> párost a felület egyenletébe</li>
+<li>kapott pontokat kössük össze háromszögekkel (értelemszerűen úgy, hogy azok a paramétertérben szomszédosak)</li>
+</ul>
+<p><span class="arithmatex">\(r_{n, m} = r(u_n, v_m)\)</span></p>
+<p>Továbbá szükségünk lesz valamilyen normálvektorra is:</p>
+<ul>
+<li>csúcsonként kiszámoljuk a normálvektort
+    &gt; az eredmény egy retro/low-poly hatás, jól elkülönülnek a háromszögek, még sima felületeknél is.
+    &gt; ha azt szeretnénk, hogy sima legyen:</li>
+<li>a normálvektorokat később interpoláljuk <img alt="" src="img/9_normal_interpolation.png" /></li>
+</ul>
+<p>Emléketzető paraméteres felületek normálvektorának kiszámításához <em>(parciálisan deriváltakat keresztszorozzuk)</em>:</p>
+<p><span class="arithmatex">\(N = \cfrac{\partial r(u, v)}{\partial u} \times \cfrac{\partial r(u, v)}{\partial v}\)</span></p>
+<h2 id="implementacio">Implementáció</h2>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Geometry</span>
+<span class="p">{</span>
+<span class="k">protected</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">vao</span><span class="p">,</span><span class="w"> </span><span class="n">vbo</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Geometry</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">glGenVertexArrays</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vao</span><span class="p">);</span>
+<span class="w">        </span><span class="n">glBindVertexArray</span><span class="p">(</span><span class="n">vao</span><span class="p">);</span>
+<span class="w">        </span><span class="n">glGenBuffers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vbo</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">Draw</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="o">~</span><span class="n">Geometry</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">glDeleteBuffers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vbo</span><span class="p">);</span>
+<span class="w">        </span><span class="n">glDeleteVertexArrays</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vao</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ParamSurface</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Geometry</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nVtxStrip</span><span class="p">,</span><span class="w"> </span><span class="n">nStrips</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">VertexData</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">vec3</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">norm</span><span class="p">;</span>
+<span class="w">        </span><span class="n">vec2</span><span class="w"> </span><span class="n">tex</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">VertexData</span><span class="w"> </span><span class="nf">GenVertexData</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">Create</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">M</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">Draw</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">glBindVertexArray</span><span class="p">(</span><span class="n">vao</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nStrips</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">            </span><span class="n">glDrawArrays</span><span class="p">(</span><span class="n">GL_TRIANGLE_STRIP</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">nVtxStrip</span><span class="p">,</span><span class="w"> </span><span class="n">nVtxStrip</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<p><div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">ParamSurface::Create</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">M</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">nVtxStrip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">M</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">nStrips</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="p">;</span>
+<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">VertexData</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vtxData</span><span class="p">;</span><span class="w"> </span><span class="c1">// CPU-n</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">M</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">vtxData</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">GenVertexData</span><span class="p">((</span><span class="kt">float</span><span class="p">)</span><span class="n">j</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">i</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">N</span><span class="p">));</span>
+<span class="w">        </span><span class="n">vtxData</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">GenVertexData</span><span class="p">((</span><span class="kt">float</span><span class="p">)</span><span class="n">j</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">N</span><span class="p">));</span>
+<span class="w">                                              </span><span class="c1">// u          // v</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">glBindVertexArray</span><span class="p">(</span><span class="n">vao</span><span class="p">);</span>
+<span class="w">    </span><span class="n">glBindBuffer</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span><span class="w"> </span><span class="n">vbo</span><span class="p">);</span>
+<span class="w">    </span><span class="n">glBufferData</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span><span class="w"> </span><span class="n">vtxData</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">VertexData</span><span class="p">),</span>
+<span class="w">                 </span><span class="o">&amp;</span><span class="n">vtxData</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">GL_STATIC_DRAW</span><span class="p">);</span>
+<span class="w">    </span><span class="n">glEnableVertexAttribArray</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// AttArr 0 = POSITION</span>
+<span class="w">    </span><span class="n">glEnableVertexAttribArray</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// AttArr 1 = NORMAL</span>
+<span class="w">    </span><span class="n">glEnableVertexAttribArray</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// AttArr 2 = UV</span>
+<span class="w">    </span><span class="n">glVertexAttribPointer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">GL_FLOAT</span><span class="p">,</span><span class="w"> </span><span class="n">GL_FALSE</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">VertexData</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">offsetof</span><span class="p">(</span><span class="n">VertexData</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">));</span>
+<span class="w">    </span><span class="n">glVertexAttribPointer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">GL_FLOAT</span><span class="p">,</span><span class="w"> </span><span class="n">GL_FALSE</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">VertexData</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">offsetof</span><span class="p">(</span><span class="n">VertexData</span><span class="p">,</span><span class="w"> </span><span class="n">norm</span><span class="p">));</span>
+<span class="w">    </span><span class="n">glVertexAttribPointer</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">GL_FLOAT</span><span class="p">,</span><span class="w"> </span><span class="n">GL_FALSE</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">VertexData</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">offsetof</span><span class="p">(</span><span class="n">VertexData</span><span class="p">,</span><span class="w"> </span><span class="n">tex</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+Ez utóbbihoz egy kis magyarázat:</p>
+<ul>
+<li>az első funky for ciklus lehet egy kicsit érdekesebb, mi is történik itt?<ul>
+<li>kigeneráljuk a paramétertér adott sorának és adott oszlopának térbeli pozícióját</li>
+<li>majd ugyan így a következő sorét<blockquote>
+<p>miért jó ez?
+ha sorban haladnánk, abból egymás utáni pontokat kapunk, ezeket nem lenne értelme háromszögként értelmezni
+ehelyett egy cikk-cakkos <em>"legyező"</em> mintát követünk
+ezt <code>GL_TRIANGLE_STRIP</code>-ként <em>(legyező)</em> kezelve egyszerűen ki tudjuk rajzolni
+<img alt="legyezőőőőőőőőőőő" src="img/9_stripe_is_not_a_big_fan.png" />  </p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>figyeljük meg hogy a csúcspontok generálásakor egy <code>VertexData</code> objektumot kapunk vissza, ez tartalmazza a pozíciót, a normálist, és a textúra (UV) koordinátákat is</li>
+<li>ki hogy szereti, stride vagy több VBO, Szirmay több VBO-val szereti</li>
+<li>szét is szedjük 3 külön VBO-ba, a vertexdata megfelelő értékeivel feltöltve</li>
+</ul>
+<h2 id="transzformaciok">Transzformációk</h2>
+<p>(<strong>M</strong> odel) Modellezési transzformáció:</p>
+<div class="arithmatex">\[
+[r, 1] \bold{T}_\text{Model} = [r_\text{world}, 1] \\
+\bold{T}_\text{Model}^{-1}[N, 0]^T = [N_\text{world}, d]^T
+\]</div>
+<p>(<strong>V</strong> iew) Kamera transzformáció:</p>
+<div class="arithmatex">\[
+[r_\text{world}, 1] \bold{T}_\text{View} = [r_\text{camera}, 1]
+\]</div>
+<p>(<strong>P</strong> rojection) Perspektív transzformáció:</p>
+<div class="arithmatex">\[
+[r_\text{camera}, 1] \bold{T}_\text{Proj} = [r_\text{ndc}w, w]
+\]</div>
+<p><strong>MVP</strong> transzformáció:</p>
+<blockquote>
+<p>a fenti hármat kiszámolhatjuk egyben is, nem kell csúcspontonként háromszor mátrixszorozni</p>
+</blockquote>
+<div class="arithmatex">\[
+\bold{T}_\text{MVP} = \bold{T}_\text{Model} \bold{T}_\text{View} \bold{T}_\text{Proj}
+\]</div>
+<h3 id="modellezesi-model-transzformacio">Modellezési (Model) transzformáció</h3>
+<ul>
+<li>a pontjaink referenciahelyzetben vannak meg</li>
+<li>Descartes koordinátákat át kell váltanunk homogén koordinátákba</li>
+<li>
+<p>kell egy mátrix ami</p>
+<ol>
+<li>skálázza</li>
+<li>elforgatja</li>
+<li>eltolja</li>
+</ol>
+<p>az alakzatot</p>
+</li>
+<li>
+<p>skálázás
+    <span class="arithmatex">\(s_x, s_y, s_z\)</span>-vel való átméretezés
+    $$
+    \begin{bmatrix}
+    s_x &amp; 0 &amp; 0 &amp; 0 \newline
+    0 &amp; s_y &amp; 0 &amp; 0 \newline
+    0 &amp; 0 &amp; s_z &amp; 0 \newline
+    0 &amp; 0 &amp; 0 &amp; 1 \newline
+    \end{bmatrix}
+    $$</p>
+</li>
+<li>
+<p>orientáció
+    <span class="arithmatex">\(d\)</span> egységvektor körül <span class="arithmatex">\(\varphi\)</span> szöggel való forgatás <em>(tehát <span class="arithmatex">\(d\)</span> lesz a forgás tengelye)</em>
+    $$
+    \begin{bmatrix}
+    i_x &amp; i_y &amp; i_z &amp; 0\newline
+    j_x &amp; j_y &amp; j_z &amp; 0\newline
+    k_x &amp; k_y &amp; k_z &amp; 0\newline
+    0 &amp; 0 &amp; 0 &amp; 1\newline
+    \end{bmatrix}
+    $$
+    <span class="arithmatex">\(i, j, k\)</span> vektorokat úgy kapjuk meg, hogy a hozzájuk tartozó bázisvektorokra alkalmazzuk az alábbi képletet:</p>
+<div class="arithmatex">\[r' = r \cos(\varphi) + d(r \cdot d) (1 - \cos(\varphi)) + (d \times r) \sin(\varphi)$$
+asd
+3. pozíció
+$v_x, v_y, v_z$-vel való eltolás
+$$
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0\newline
+0 &amp; 1 &amp; 0 &amp; 0\newline
+0 &amp; 0 &amp; 1 &amp; 0\newline
+v_x &amp; v_y &amp; v_z &amp; 1\newline
+\end{bmatrix}
+\]</div>
+</li>
+<li>
+<p>tehát a modellezési transzformáció mátrixunk a
+    $$
+    \bold{T}_\text{M} = 
+    \begin{bmatrix}
+    s_x &amp; 0 &amp; 0 &amp; 0\newline
+    0 &amp; s_y &amp; 0 &amp; 0\newline
+    0 &amp; 0 &amp; s_z &amp; 0\newline
+    0 &amp; 0 &amp; 0 &amp; 1\newline
+    \end{bmatrix}
+    \begin{bmatrix}
+    i_x &amp; i_y &amp; i_z &amp; 0\newline
+    j_x &amp; j_y &amp; j_z &amp; 0\newline
+    k_x &amp; k_y &amp; k_z &amp; 0\newline
+    0 &amp; 0 &amp; 0 &amp; 1\newline
+    \end{bmatrix}
+    \begin{bmatrix}
+    1 &amp; 0 &amp; 0 &amp; 0\newline
+    0 &amp; 1 &amp; 0 &amp; 0\newline
+    0 &amp; 0 &amp; 1 &amp; 0\newline
+    v_x &amp; v_y &amp; v_z &amp; 1\newline
+    \end{bmatrix}
+    $$
+    <span class="arithmatex">\(4 \times 4\)</span>-es mátrix lesz</p>
+</li>
+<li>
+<p>normálvektorhoz a mátrix inverzével szorozzuk a normál vektor transzponáltját </p>
+</li>
+</ul>
+<h3 id="kamera-view-transzformacio">Kamera (View) transzformáció</h3>
+<blockquote>
+<p>eltolás, elforgatás, annak érdekében, úgy, hogy a kameránk legyen az origó(ban) és a <span class="arithmatex">\(-z\)</span> irányba nézzen (affin)</p>
+</blockquote>
+<p><img alt="aaa" src="img/9_camera_model.png" /></p>
+<ul>
+<li><span class="arithmatex">\({e}\)</span>: eye - szem pozíciója</li>
+<li><span class="arithmatex">\(\text{lookat}\)</span>: ide nézünk, a nézetünk/képernyő téglalap középpontja</li>
+<li><span class="arithmatex">\(\text{vup}\)</span>: a függőlegesen felfelének tekintett irány</li>
+<li><span class="arithmatex">\(\text{fov}\)</span>: field of view = látószög</li>
+<li><span class="arithmatex">\(\text{asp}\)</span>: aspect = képarány (vízszintes <span class="arithmatex">\(\ratio\)</span> függőleges)</li>
+<li><span class="arithmatex">\(\text{fp, bp}\)</span>: front plane, back plane = első és hátsó vágósík, ami ezeken kívül esik azokat figyelmen kívül hagyjuk</li>
+</ul>
+<p><img alt="" src="img/9_space.png" /></p>
+<blockquote>
+<p><em>van egy ilyen ábra is hurrá, nem teljesen sikerült értelmezni de:</em></p>
+</blockquote>
+<p>a különböző terek, koordináta rendszerek, sorban</p>
+<p>E modell szerinti kamera (view) transzformációs mátrix tehát:</p>
+<p><img alt="" src="img/9_view_uwv.png" /></p>
+<p><span class="arithmatex">\(w = (e - \text{lookat})/|e-\text{lookat}|\)</span> <em>(leosztunk a hosszával avagy normalizáljuk)</em></p>
+<p><span class="arithmatex">\(u = (\text{vup} \times w)/|\text{vup} \times w|\)</span> <em>(úgyszintén)</em> </p>
+<p><span class="arithmatex">\(v = w \times u\)</span></p>
+<div class="arithmatex">\[
+\bold{T}_V =
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0\newline
+0 &amp; 1 &amp; 0 &amp; 0\newline
+0 &amp; 0 &amp; 1 &amp; 0\newline
+-e_x &amp; -e_y &amp; -e_z &amp; 1\newline
+\end{bmatrix}
+\begin{bmatrix}
+u_x &amp; u_y &amp; u_z &amp; 0\newline
+v_x &amp; v_y &amp; v_z &amp; 0\newline
+w_x &amp; w_y &amp; w_z &amp; 0\newline
+0 &amp; 0 &amp; 0 &amp; 1\newline
+\end{bmatrix}^{-1}
+\]</div>
+<blockquote>
+<p>invertálás: a mátrixunk egy ortonormál mátrix (ahol a sorok egységvektorok és egymásra merőlegesek)
+ilyen mátrix inverze a saját transzponáltja</p>
+</blockquote>
+<h3 id="perspektiv-projection-transzformacio">Perspektív (Projection) transzformáció:</h3>
+<p>Látószög normalizálás:
+<img alt="" src="img/9_fov_norm.png" />
+$$
+\begin{bmatrix}
+\cfrac 1 {\tan(\frac {\text{fov}} 2 ) \cdot \text{asp}} &amp; 0 &amp; 0 &amp; 0\newline
+0 &amp; \cfrac 1 {\tan(\frac {\text{fov}} 2 )} &amp; 0 &amp; 0\newline
+0 &amp; 0 &amp; 1 &amp; 0\newline
+0 &amp; 0 &amp; 0 &amp; 1\newline
+\end{bmatrix}
+$$</p>
+<blockquote>
+<p>Miért jó ez? Ezzel skálázzuk a nézetet hogy stimmeljen a látószög (itt 90°) és a képarány.</p>
+</blockquote>
+<p>Perspektíva:
+<img alt="" src="img/9_proj.png" /></p>
+<blockquote>
+<p>A sugaraink jelenleg mind a kamerából indulnak, így viszont torz képet kapnánk. Ha azt szeretnénk, hogy tényleg pespektívának tűnjön, ahhoz párhuzamos sugarak kellenek.</p>
+</blockquote>
+<p>Kis emlékeztető (egyenes egyenlete): <span class="arithmatex">\(y = m \cdot x + b\)</span></p>
+<p>Origón átmenő: <span class="arithmatex">\(y = m \cdot x\)</span></p>
+<p>Vízszintes: <span class="arithmatex">\(y = b\)</span></p>
+<p><span class="arithmatex">\((-m_x z, -m_y z, z)\)</span> -ből kell tehát valahogyan <span class="arithmatex">\((m_x, m_y, z^*)\)</span>-ot előállítani</p>
+<p>Homogén koordinátákkal ez úgy néz ki, hogy:</p>
+<p><span class="arithmatex">\([-m_x z, -m_y z, z, 1] \rightarrow [-m_x, -m_y, z^*, 1] \sim [-m_x z, -m_y z, -zz^*, -z]\)</span></p>
+<p>Ezt valamilyen</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0\newline
+0 &amp; 1 &amp; 0 &amp; 0\newline
+0 &amp; 0 &amp; \alpha &amp; -1\newline
+0 &amp; 0 &amp; \beta &amp; 0\newline
+\end{bmatrix}
+\]</div>
+<p>mátrixszal tudnák elérni.</p>
+<p>Keressük tehát <span class="arithmatex">\(\alpha\)</span>-t és <span class="arithmatex">\(\beta\)</span>-t:</p>
+<p><span class="arithmatex">\(-zz^* = \alpha z + \beta \rightarrow z^* = -\alpha -\beta / z\)</span></p>
+<p>Ábrán is látszik, hogy <span class="arithmatex">\(-fp\)</span>-t tekintjük majd <span class="arithmatex">\(-1\)</span>-nek, <span class="arithmatex">\(-bp\)</span>-t pedig <span class="arithmatex">\(1\)</span>-nek. </p>
+<p>Felírhatjuk ezeket egyenletekként:</p>
+<p><span class="arithmatex">\(-1 = \alpha \cdot (-fp) + \beta\)</span></p>
+<p>$ 1 = \alpha \cdot (-bp) + \beta$</p>
+<p>Átrendezve pedig kijön, hogy</p>
+<p><span class="arithmatex">\(\alpha = \cfrac{(fp+bp)}{bpfp}​\)</span></p>
+<p><span class="arithmatex">\(\beta = \cfrac{2fp \cdot bp}{bpfp}\)</span></p>
+<p>Helyettesítsük be és szorozzuk meg a látószög normalizáláshoz használt mátrixszal:</p>
+<div class="arithmatex">\[
+\bold{T}_P =
+\begin{bmatrix}
+\frac 1 {\tan(\frac {\text{fov}} 2 )\text{asp}} &amp; 0 &amp; 0 &amp; 0\newline
+0 &amp; \frac 1 {\tan(\frac {\text{fov}} 2 )} &amp; 0 &amp; 0\newline
+0 &amp; 0 &amp; \frac{(fp+bp)}{bp - fp} &amp; -1\newline
+0 &amp; 0 &amp; \frac{2fp \cdot bp}{bp - fp} &amp; 0\newline
+\end{bmatrix}
+\]</div>
+<p>Tömör gyönyör :3c</p>
+<h3 id="z-fighting">Z-fighting</h3>
+<p><span class="arithmatex">\(z^*\)</span> nem lineáris függvénye a <span class="arithmatex">\(z\)</span>-nek, távolban lévő pontokról nem tudjuk eldönteni, hogy melyik van közelebb.</p>
+<p><strong><span class="arithmatex">\(\cfrac{fp}{bp}\)</span> nem lehet kicsi!</strong></p>
+<p><img alt="" src="img/9_floatmoment.png" /></p>
+<p>Perspektív torzítás = homogén osztás</p>
+<p><span class="arithmatex">\((x^*, y^*, z^*) = (X/w, Y/w, Z/w) \qquad \boxed{w = z_c}\)</span></p>
+<p>(<span class="arithmatex">\(z_c\)</span>: kamera szerinti koordináta)</p>
+<h2 id="implementacio_1">Implementáció</h2>
+<h3 id="camera-osztaly">Camera osztály</h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Camera</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">vec3</span><span class="w"> </span><span class="n">wEye</span><span class="p">,</span><span class="w"> </span><span class="n">wLookat</span><span class="p">,</span><span class="w"> </span><span class="n">wVup</span><span class="p">;</span><span class="w"> </span><span class="c1">// extrinsic parameters</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">fov</span><span class="p">,</span><span class="w"> </span><span class="n">asp</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="n">bp</span><span class="p">;</span><span class="w">   </span><span class="c1">// intrinsic parameters</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">mat4</span><span class="w"> </span><span class="n">V</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="c1">// view matrix</span>
+<span class="w">        </span><span class="n">vec3</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">wEye</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">wLookat</span><span class="p">);</span>
+<span class="w">        </span><span class="n">vec3</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">cross</span><span class="p">(</span><span class="n">wVup</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">));</span>
+<span class="w">        </span><span class="n">vec3</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cross</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">TranslateMatrix</span><span class="p">(</span><span class="o">-</span><span class="n">wEye</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">mat4</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                                             </span><span class="n">u</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                                             </span><span class="n">u</span><span class="p">.</span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                                             </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">mat4</span><span class="w"> </span><span class="n">P</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="c1">// projection matrix</span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">sy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">tanf</span><span class="p">(</span><span class="n">fov</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">mat4</span><span class="p">(</span><span class="n">sy</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">asp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                    </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">sy</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                    </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="p">(</span><span class="n">fp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bp</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">bp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">fp</span><span class="p">),</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span>
+<span class="w">                    </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">fp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">bp</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">bp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">fp</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<h2 id="transzformaciok-elokeszitese-a-gpu-n">Transzformációk előkészítése a GPU-n</h2>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">Draw</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">mat4</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ScaleMatrix</span><span class="p">(</span><span class="n">scale</span><span class="p">)</span><span class="w"> </span><span class="o">*</span>
+<span class="w">             </span><span class="n">RotationMatrix</span><span class="p">(</span><span class="n">rotAng</span><span class="p">,</span><span class="w"> </span><span class="n">rotAxis</span><span class="p">)</span><span class="w"> </span><span class="o">*</span>
+<span class="w">             </span><span class="n">TranslateMatrix</span><span class="p">(</span><span class="n">pos</span><span class="p">);</span>
+<span class="w">    </span><span class="n">mat4</span><span class="w"> </span><span class="n">Minv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TranslateMatrix</span><span class="p">(</span><span class="o">-</span><span class="n">pos</span><span class="p">)</span><span class="w"> </span><span class="o">*</span>
+<span class="w">                </span><span class="n">RotationMatrix</span><span class="p">(</span><span class="o">-</span><span class="n">rotAngle</span><span class="p">,</span><span class="w"> </span><span class="n">rotAxis</span><span class="p">)</span><span class="w"> </span><span class="o">*</span>
+<span class="w">                </span><span class="n">ScaleMatrix</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">scale</span><span class="p">);</span>
+<span class="w">    </span><span class="n">mat4</span><span class="w"> </span><span class="n">MVP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">camera</span><span class="p">.</span><span class="n">V</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">camera</span><span class="p">.</span><span class="n">P</span><span class="p">();</span>
+<span class="w">    </span><span class="n">shader</span><span class="o">-&gt;</span><span class="n">setUniform</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;M&quot;</span><span class="p">);</span><span class="w">         </span><span class="c1">// </span>
+<span class="w">    </span><span class="n">shader</span><span class="o">-&gt;</span><span class="n">setUniform</span><span class="p">(</span><span class="n">Minv</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Minv&quot;</span><span class="p">);</span><span class="w">   </span><span class="c1">// GPU változóinak állítása</span>
+<span class="w">    </span><span class="n">shader</span><span class="o">-&gt;</span><span class="n">setUniform</span><span class="p">(</span><span class="n">MVP</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MVP&quot;</span><span class="p">);</span><span class="w">     </span><span class="c1">// </span>
+<span class="w">    </span><span class="n">glBindVertexArray</span><span class="p">(</span><span class="n">vao</span><span class="p">);</span>
+<span class="w">    </span><span class="n">glDrawArrays</span><span class="p">(...);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>A hozzá tartozó csúcspontárnyaló (vertex shader)
+<div class="highlight"><pre><span></span><code><span class="n">uniform</span><span class="w"> </span><span class="n">mat4</span><span class="w"> </span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="n">Minv</span><span class="p">,</span><span class="w"> </span><span class="n">MVP</span><span class="p">;</span>
+<span class="n">layout</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">vtxPos</span><span class="p">;</span>
+<span class="n">layout</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">vtxNorm</span><span class="p">;</span>
+<span class="n">out</span><span class="w"> </span><span class="n">vec4</span><span class="w"> </span><span class="n">color</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">gl_Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec4</span><span class="p">(</span><span class="n">vtxPos</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">MVP</span><span class="p">;</span>
+<span class="w">    </span><span class="n">vec4</span><span class="w"> </span><span class="n">wPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec4</span><span class="p">(</span><span class="n">vtxPos</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M</span><span class="p">;</span>
+<span class="w">    </span><span class="n">vec4</span><span class="w"> </span><span class="n">wNormal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Minv</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vec4</span><span class="p">(</span><span class="n">vtxNorm</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Illumination</span><span class="p">(</span><span class="n">wPos</span><span class="p">,</span><span class="w"> </span><span class="n">wNormal</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h2 id="vagas">Vágás</h2>
+<blockquote>
+<p>Mit látok? Normalizáltunk mindent is, minden tengelyen a <span class="arithmatex">\((-1, 1)\)</span> intervallumot kell csak figyelembe vennem, hogy jó legyen.</p>
+</blockquote>
+<p>A normalizált eszközkoordinátarendszerben, homogén koordinátákkal:</p>
+<div class="arithmatex">\[
+-1 &lt; X/w &lt; 1 \\
+-1 &lt; Y/w &lt; 1 \\
+-1 &lt; Z/w &lt; 1 \\
+\text{és}\\
+\boxed{w = - z_c \quad (w &gt; 0)}\\
+\Downarrow \\
+-w &lt; X &lt; w \\
+-w &lt; Y &lt; w \\
+-w &lt; Z &lt; w \\
+\]</div>
+<h2 id="viewport-transzformacio">Viewport transzformáció</h2>
+<p>Normalizáltból (NDC) képernyőkoordinátákba:</p>
+<p><img alt="" src="img/9_viewport_trans.png" /></p>
+<p><em><span class="arithmatex">\(\text{Magyarázat: ...}\)</span></em> <!-- triviális --></p>
+<h2 id="transzformacios-csovezetek">Transzformációs csővezeték</h2>
+<p>Az egyes transzformációkat külön a CPU-n:</p>
+<ul>
+<li>MVP</li>
+<li>Modell</li>
+<li>Modell-inverz</li>
+</ul>
+<p>Ezeket átadjuk a csúcspontárnyalónak.
+Vágás homogén koordinátákban, utána visszatérhetünk Descartes koordinátákba.</p>
+<h2 id="takaras">Takarás</h2>
+<p><img alt="" src="img/9_overcast.png" /></p>
+<p>Képernyő koordinátarendszerben</p>
+<ul>
+<li>sugarak a <span class="arithmatex">\(z\)</span> tengyellyel párhuzamosak tehát</li>
+<li>sugárparaméter = <span class="arithmatex">\(z\)</span> koordináta</li>
+<li><span class="arithmatex">\((x, y, z)\)</span> pont az <span class="arithmatex">\((x, y)\)</span> pixelben látszik</li>
+</ul>
+<blockquote>
+<p>Az alapján, hogy hogyan határozzuk meg, hogy mi látszik közelebb beszélhetünk:</p>
+</blockquote>
+<p>Objektumtér algoritmusok (folytonos):</p>
+<ul>
+<li>láthatóságfelbontás nem függ a felbontástól</li>
+</ul>
+<p>Képtér algoritmusok (diszkrét):</p>
+<ul>
+<li>mi látszik a pixelben?</li>
+<li>pl. sugárkövetésnél</li>
+</ul>
+<h2 id="backface-culling-hatsolap-eldobas">Backface culling (hátsólap eldobás)</h2>
+<blockquote>
+<p>tldr: azon háromszögeket amik nem felénk néznek, azt fogjuk csinálni amit a tárgy okozta fájdalmainkkal: ignoráljuk</p>
+</blockquote>
+<p><img alt="real" src="img/9_real_backface_culling.png" /></p>
+<blockquote>
+<p><em>Fun fact: óramutató járásával megegyeznek a pontok, ezért van r3 és r2 más sorrendben.</em></p>
+</blockquote>
+<p>Nem felénk néző háromszögeket eldobjuk.
+Felénk néz, ha <span class="arithmatex">\(n_z &lt; 0\)</span></p>
+<p>Feltételezés: kívülről általában a csúcsok óramutatóval megegyező körüljárásúak</p>
+<!-- beniii nézd zbuffer (benedek ezt az életben nem fogja elolvasni (szia beni :3)) -->
+<h2 id="z-buffer">Z-buffer</h2>
+<p><img alt="" src="img/9_zbuffer.png" /></p>
+<ul>
+<li>objektumcentrikus</li>
+<li>a pixelek sugárparamétereit <em>(azaz <span class="arithmatex">\(z\)</span> koordinátáit, ezért z-buffer)</em> egy tömbben tartjuk nyilván</li>
+<li>ezt minimum kereséshez fogjuk használni, tehát maximális mélységűre (<span class="arithmatex">\(1\)</span>-re) fogjuk inicializálni</li>
+<li>háromszögeket egyesével meglátogatjuk és jó prog1-et végzett hallgató módjára ha kisebbek vagyunk a minimumnál akkor felülírjuk stb.</li>
+</ul>
+<h3 id="linearis-interpolacio">Lineáris interpoláció</h3>
+<p><img alt="" src="img/9_z_interpol.png" /></p>
+<!-- mégis fontos :) -->
+<p>Minden egyes soron, azon belül az oszlopain végiglépegetünk, és kiszámoljuk <span class="arithmatex">\(z\)</span>-t. Ez költséges művelet, amit úgy tudunk felgyorsítani, hogy kiszámoljuk a sor első <span class="arithmatex">\(z\)</span> koordinátáját, majd a következő cellánál ezt az eredményt felhasználjuk, hozzáadunk egy <span class="arithmatex">\(a\)</span> értéket. <span class="arithmatex">\(a\)</span> megadja, hogy egy pixelt az <span class="arithmatex">\(x\)</span> irányba lépve <span class="arithmatex">\(z\)</span> mennyit változik <em>(kvázi meredekség)</em>. Ezt azért tehetjük meg mert a háromszög felülete lapos, <span class="arithmatex">\(z\)</span> lineárisan változik.</p>
+<p>Tehát <span class="arithmatex">\(a = \cfrac{-n_x}{n_z}\)</span></p>
+<h2 id="takaras-opengl-ben">Takarás OpenGL-ben</h2>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="n">glutInitDisplayMode</span><span class="p">(</span><span class="n">GLUT_RGBA</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">GLUT_DOUBLE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">GLUT_DEPTH</span><span class="p">);</span>
+<span class="w">    </span><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">);</span><span class="w"> </span><span class="c1">// z-buffer is on</span>
+<span class="w">    </span><span class="n">glDisable</span><span class="p">(</span><span class="n">GL_CULL_FACE</span><span class="p">);</span><span class="w"> </span><span class="c1">// backface culling is off</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="arnyalas">Árnyalás</h2>
+<h3 id="lokalis-illuminacio-arnyek-nelkul">Lokális illumináció árnyék nélkül</h3>
+<p>Röhögve tudjuk már a képletet fejből, hogy:</p>
+<p><span class="arithmatex">\(L(V) \approx \sum_l {L^\text{in}}_l \cdot f_r(L_l, N, V) \cdot \cos^+ {\theta^\text{in}}_l\)</span></p>
+<p>Nade ezt mégse kéne pixelenként (lassú).</p>
+<ul>
+<li>
+<p>csúcspontonként: csúcspontokon belül az <span class="arithmatex">\(L\)</span> "szín" interpolációja
+    &gt; Gouraud árnyalás (per-vertex shading)</p>
+</li>
+<li>
+<p>Pixelenként: belül a normál vektort interpoláljuk:
+    &gt; Phong árnyalás (per-pixel shading)</p>
+</li>
+</ul>
+<h3 id="gouraud-arnyalas">Gouraud árnyalás</h3>
+<p><img alt="" src="img/9_gouraud_issue.png" /></p>
+<blockquote>
+<p>yadda yadda megszokott módon csúcsokra kiszámoljuk, okos diák módjára tudjuk már hogy kell jól interpolálni stb stb, DE</p>
+</blockquote>
+<p>Sok sebből vérzik:</p>
+<ul>
+<li>anyagtulajdonság konstans</li>
+<li>árnyék nincs <em>(nem tudna különben színt interpolálni)</em></li>
+<li>durva tesszcelláció mellet csúnya a spekuláris <em>(a komponens huplija elveszhet, mert a függvény erősen nem lináris)</em></li>
+</ul>
+<p>Vertex shader:
+<div class="highlight"><pre><span></span><code><span class="n">uniform</span><span class="w"> </span><span class="n">mat4</span><span class="w"> </span><span class="n">MVP</span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="n">Minv</span><span class="p">;</span><span class="w">            </span><span class="c1">// MVP, Model, Model-inverse</span>
+<span class="n">uniform</span><span class="w"> </span><span class="n">vec4</span><span class="w"> </span><span class="n">kd</span><span class="p">,</span><span class="w"> </span><span class="n">ks</span><span class="p">,</span><span class="w"> </span><span class="n">ka</span><span class="p">;</span><span class="w">              </span><span class="c1">// diffuse, specular, ambient ref</span>
+<span class="n">uniform</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">shine</span><span class="p">;</span><span class="w">                  </span><span class="c1">// shininess for specular ref</span>
+<span class="n">uniform</span><span class="w"> </span><span class="n">vec4</span><span class="w"> </span><span class="n">La</span><span class="p">,</span><span class="w"> </span><span class="n">Le</span><span class="p">;</span><span class="w">                  </span><span class="c1">// ambient and point sources</span>
+<span class="n">uniform</span><span class="w"> </span><span class="n">vec4</span><span class="w"> </span><span class="n">wLiPos</span><span class="p">;</span><span class="w">                  </span><span class="c1">// pos of light source in world</span>
+<span class="n">uniform</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">wEye</span><span class="p">;</span><span class="w">                    </span><span class="c1">// pos of eye in world</span>
+<span class="n">layout</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">vtxPos</span><span class="p">;</span><span class="w">  </span><span class="c1">// pos in modeling space</span>
+<span class="n">layout</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">vtxNorm</span><span class="p">;</span><span class="w"> </span><span class="c1">// normal in modeling space</span>
+<span class="n">out</span><span class="w"> </span><span class="n">vec4</span><span class="w"> </span><span class="n">color</span><span class="p">;</span><span class="w">                       </span><span class="c1">// computed vertex color</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">gl_Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec4</span><span class="p">(</span><span class="n">vtxPos</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">MVP</span><span class="p">;</span><span class="w"> </span><span class="c1">// to NDC</span>
+<span class="w">    </span><span class="n">vec4</span><span class="w"> </span><span class="n">wPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec4</span><span class="p">(</span><span class="n">vtxPos</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M</span><span class="p">;</span>
+<span class="w">    </span><span class="n">vec3</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">wLiPos</span><span class="p">.</span><span class="n">xyz</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wPos</span><span class="p">.</span><span class="n">w</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">wPos</span><span class="p">.</span><span class="n">xyz</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wLiPos</span><span class="p">.</span><span class="n">w</span><span class="p">);</span>
+<span class="w">    </span><span class="n">vec3</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">wEye</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">wPos</span><span class="p">.</span><span class="n">xyz</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">wPos</span><span class="p">.</span><span class="n">w</span><span class="p">);</span>
+<span class="w">    </span><span class="n">vec4</span><span class="w"> </span><span class="n">wNormal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Minv</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vec4</span><span class="p">(</span><span class="n">vtxNorm</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">vec3</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">wNormal</span><span class="p">.</span><span class="n">xyz</span><span class="p">);</span>
+<span class="w">    </span><span class="n">vec3</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">L</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">V</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">cost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">cosd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">H</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ka</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">La</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">kd</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ks</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="n">cosd</span><span class="p">,</span><span class="w"> </span><span class="n">shine</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Le</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+Pixel shader:
+<div class="highlight"><pre><span></span><code><span class="n">in</span><span class="w"> </span><span class="n">vec4</span><span class="w"> </span><span class="n">color</span><span class="p">;</span><span class="w">          </span><span class="c1">// interpolated color of vertex shader</span>
+<span class="n">out</span><span class="w"> </span><span class="n">vec4</span><span class="w"> </span><span class="n">fragmentColor</span><span class="p">;</span><span class="w"> </span><span class="c1">// output goes to frame buffer</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">fragmentColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">color</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h3 id="phong-arnyalas">Phong árnyalás</h3>
+<blockquote>
+<p>hasonló a történet</p>
+</blockquote>
+<p><img alt="" src="img/9_phong.png" /></p>
+<ul>
+<li>csúcspontokban tehát tudjuk a tulajdonságait</li>
+<li>belső pixelenként elvégezzük a vektorok lineáris interpolációját</li>
+<li>nem felejtük el normalizálni a interpolációval kapott vektorokat, hogy egység hosszúak legyenek <em>(ugyanis ez nem garantált)</em></li>
+</ul>
+<p>Vertex shader:
+<div class="highlight"><pre><span></span><code><span class="n">uniform</span><span class="w"> </span><span class="n">mat4</span><span class="w"> </span><span class="n">MVP</span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="n">Minv</span><span class="p">;</span><span class="w">            </span><span class="c1">// MVP, Model, Model-inverse</span>
+<span class="n">uniform</span><span class="w"> </span><span class="n">vec4</span><span class="w"> </span><span class="n">wLiPos</span><span class="p">;</span><span class="w">                  </span><span class="c1">// pos of light source</span>
+<span class="n">uniform</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">wEye</span><span class="p">;</span><span class="w">                    </span><span class="c1">// pos of eye</span>
+<span class="n">layout</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">vtxPos</span><span class="p">;</span><span class="w">  </span><span class="c1">// pos in model sp</span>
+<span class="n">layout</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">vtxNorm</span><span class="p">;</span><span class="w"> </span><span class="c1">// normal in model sp</span>
+<span class="n">out</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">wNormal</span><span class="p">;</span><span class="w">                     </span><span class="c1">// normal in world space</span>
+<span class="n">out</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">wView</span><span class="p">;</span><span class="w">                       </span><span class="c1">// view in world space</span>
+<span class="n">out</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">wLight</span><span class="p">;</span><span class="w">                      </span><span class="c1">// light dir in world space</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">gl_Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec4</span><span class="p">(</span><span class="n">vtxPos</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">MVP</span><span class="p">;</span><span class="w"> </span><span class="c1">// to NDC</span>
+<span class="w">    </span><span class="n">vec4</span><span class="w"> </span><span class="n">wPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec4</span><span class="p">(</span><span class="n">vtxPos</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M</span><span class="p">;</span>
+<span class="w">    </span><span class="n">wLight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wLiPos</span><span class="p">.</span><span class="n">xyz</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wPos</span><span class="p">.</span><span class="n">w</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">wPos</span><span class="p">.</span><span class="n">xyz</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wLiPos</span><span class="p">.</span><span class="n">w</span><span class="p">;</span>
+<span class="w">    </span><span class="n">wView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wEye</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">wPos</span><span class="p">.</span><span class="n">xyz</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">wPos</span><span class="p">.</span><span class="n">w</span><span class="p">;</span>
+<span class="w">    </span><span class="n">wNormal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Minv</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vec4</span><span class="p">(</span><span class="n">vtxNorm</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)).</span><span class="n">xyz</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+Pixel shader:
+<div class="highlight"><pre><span></span><code><span class="n">uniform</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">kd</span><span class="p">,</span><span class="w"> </span><span class="n">ks</span><span class="p">,</span><span class="w"> </span><span class="n">ka</span><span class="p">;</span><span class="w"> </span><span class="c1">// diffuse, specular, ambient ref</span>
+<span class="n">uniform</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">shine</span><span class="p">;</span><span class="w">     </span><span class="c1">// shininess for specular ref</span>
+<span class="n">uniform</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">La</span><span class="p">,</span><span class="w"> </span><span class="n">Le</span><span class="p">;</span><span class="w">     </span><span class="c1">// ambient and dir/point source rad</span>
+<span class="n">in</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">wNormal</span><span class="p">;</span><span class="w">         </span><span class="c1">// interpolated world sp normal</span>
+<span class="n">in</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">wView</span><span class="p">;</span><span class="w">           </span><span class="c1">// interpolated world sp view</span>
+<span class="n">in</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">wLight</span><span class="p">;</span><span class="w">          </span><span class="c1">// interpolated world sp illum dir</span>
+<span class="n">out</span><span class="w"> </span><span class="n">vec4</span><span class="w"> </span><span class="n">fragmentColor</span><span class="p">;</span><span class="w">  </span><span class="c1">// output goes to frame buffer</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">vec3</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">wNormal</span><span class="p">);</span>
+<span class="w">    </span><span class="n">vec3</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">wView</span><span class="p">);</span>
+<span class="w">    </span><span class="n">vec3</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">wLight</span><span class="p">);</span>
+<span class="w">    </span><span class="n">vec3</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">L</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">V</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">cost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">cosd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">H</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">vec3</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ka</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">La</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">kd</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ks</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="n">cosd</span><span class="p">,</span><span class="w"> </span><span class="n">shine</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Le</span><span class="p">;</span>
+<span class="w">    </span><span class="n">fragmentColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec4</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h2 id="2d-texturazas-ismet">2D textúrázás ismét</h2>
+<p><img alt="teki" src="img/9_2d_texture.png" /></p>
+<p>Ez történik ha linárisan interpoláljuk a textúrát.</p>
+<blockquote>
+<p>nem követi a perspektívát
+oké de akkor hogy csináljuk jól?</p>
+</blockquote>
+<p>Kiszámoljuk az affin transzformációt a 2D és a 3D háromszög között, ennek az inverzével meg tudjuk határozni a pixel pozícióját textúratérben.</p>
+<h2 id="inkrementalis-kepszintezis-csovezetek">Inkrementális képszintézis csővezeték</h2>
+<p>Azért transzformáltunk, hogy a láthatósági feladatot és a vetítést képernyő koordináta-rendszerben oldhassuk meg</p>
+<ul>
+<li>Triviális hátsó lap eldobás</li>
+<li>Z-buffer algoritmus</li>
+<li>Vetítés = z eldobása, 3D háromszög = 2D háromszög</li>
+</ul>
+<p>Per-pixel árnyalás:</p>
+<ul>
+<li>Vektorokat csúcspontonként számítjuk és pixelekre interpoláljuk</li>
+<li>Illuminációs képlet pixelenként</li>
+</ul>
+<!-- fuuu -->
+
+<h1 id="kviz">Kvíz</h1>
+<blockquote>
+<p>1. A parametrikus felület tesszellációjánál a egységnégyzet paraméter tartományban 8x8 pontot vettünk fel szabályos rácsban. A felületet GL_TRIANGLES típussal jelentíjük meg. Hány csúcspontból fog állni a VBO.</p>
+</blockquote>
+<p><em>Megoldás:</em></p>
+<p>Vigyázunk hogy cselesen <code>GL_TRIANGLES</code>-t kér. Tehát háromszögenként 3 csúcs.</p>
+<p><span class="arithmatex">\(8 \times 8\)</span> <strong>pont</strong> rács, elképzelhetjük egy <span class="arithmatex">\(7 \times 7\)</span>-es táblázatként, cellánként <span class="arithmatex">\(2\)</span> háromszög, háromszögenként <span class="arithmatex">\(3\)</span> csúcs, azaz</p>
+<p><span class="arithmatex">\(7 \cdot 7 \cdot 2 \cdot 3 = 294\)</span></p>
+<hr />
+<blockquote>
+<p>2. Egy paraméteres felület: 
+$$
+x(u,v)=3u+6.7v+3uv \newline
+y(u,v)=6.5u+6.7v+3 uv \newline
+z(u,v)=1.3u+6.7v+3 uv \newline
+$$
+Mekkora az nx/nz, azaz a normálvektor x és z komponensének aránya az (u,v)=(1,1) pontban?</p>
+</blockquote>
+<p><em>Megoldás:</em></p>
+<p>Meglátjuk, hogy paraméteres, és mint az őrült nekiállunk parciálisan deriválni:</p>
+<p><span class="arithmatex">\(x(u, v)\)</span>:
+$$
+\cfrac{\partial x}{\partial u} = 3 + 3v\ ~\
+\cfrac{\partial x}{\partial v} = 6.7 + 3u\
+$$
+<span class="arithmatex">\(y(u, v)\)</span>:
+$$
+\cfrac{\partial y}{\partial u} = 6.5 + 3v\ ~\
+\cfrac{\partial y}{\partial v} = 6.7 + 3u\
+$$
+<span class="arithmatex">\(z(u, v)\)</span>:
+$$
+\cfrac{\partial z}{\partial u} = 1.3 + 3v\~\
+\cfrac{\partial z}{\partial v} = 6.7 + 3u\
+$$</p>
+<p>Emlékszünk, hogy</p>
+<p><span class="arithmatex">\(N = \cfrac{\partial r(u, v)}{\partial u} \times \cfrac{\partial r(u, v)}{\partial v}\)</span></p>
+<p>Ez pedig nem más, mint</p>
+<div class="arithmatex">\[N = 
+\bigg(
+    \cfrac{\partial x}{\partial u}\bigg|_{(1, 1)},
+    \cfrac{\partial y}{\partial u}\bigg|_{(1, 1)},
+    \cfrac{\partial z}{\partial u}\bigg|_{(1, 1)}
+\bigg)
+\times
+\bigg(
+    \cfrac{\partial x}{\partial v}\bigg|_{(1, 1)},
+    \cfrac{\partial y}{\partial v}\bigg|_{(1, 1)},
+    \cfrac{\partial z}{\partial v}\bigg|_{(1, 1)}
+\bigg)
+\\~\\
+= (6, 9.5, 4.3) \times (9.7, 9.7, 9.7) = (50.44, -16.49, -33.95)
+\]</div>
+<p>Tehát az arányuk
+<span class="arithmatex">\(\cfrac{n_x}{n_y} = \cfrac{50.44}{-33.95} = -1.485\)</span></p>
+<hr />
+<blockquote>
+<p>3. A parametrikus felület tesszellációjánál a egységnégyzet paraméter tartományban 7x7 pontot vettünk fel szabályos rácsban. A felületet GL_TRIANGLE_STRIP típussal jelentíjük meg. Hány csúcspontból fog állni a VBO.</p>
+</blockquote>
+<p><em>Megoldás:</em></p>
+<p>Itt <code>GL_TRIANGLE_STRIP</code>-ben kéri.</p>
+<p>Ezt legjobban a példakód magyarázza el.</p>
+<p><span class="arithmatex">\(7 \times 7\)</span> pontunk van, <span class="arithmatex">\(6\)</span> sor <span class="arithmatex">\(7\)</span> pont**páros**án megyünk végig, azaz <span class="arithmatex">\(6 \cdot 7 \cdot 2 = 84\)</span> pontunk lesz a VBO-ban.</p>
+<hr />
+<blockquote>
+<p>4. Egy háromszög három csúcsa képernyő koordinátarendszerben: 
+<br>(13, 67, 0.6)
+<br>(56, 80, 0.7)
+<br>(78, 13, 0.9)</p>
+<p>Mennyivel változik a z koordináta, amikor a kitöltés során egy pixelről a jobboldali szomszéd pixelre lépünk?</p>
+</blockquote>
+<p><em>Megoldás:</em></p>
+<p>Interpolálni mindenki tud ügyebár, ki kell számolnunk az <span class="arithmatex">\(a\)</span> értékét. </p>
+<p>Előtte viszont szükségünk van a normálvektorra. Ez háromszögeknél:</p>
+<p><span class="arithmatex">\(n = (r3 - r1) \times (r2 - r1) = (65, -54, 0.3) \times (43, 13, 0.1) = (-9.3, 6.4, 3167)\)</span></p>
+<p><span class="arithmatex">\(a\)</span> pedig nem más, mint</p>
+<p><span class="arithmatex">\(a = \cfrac{-n_x}{n_z} = \cfrac{9.3}{3167} = 0.003\)</span></p>
+<p><img alt="🫂" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1fac2.svg" title=":people_hugging:" /></p>
+<p><a href="8.html">Előző</a></p>
+<p><a href="10.html">Következő</a></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. június 11. 01:29:14 CEST"><span class="timeago" datetime="2025-06-11T01:29:14+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. június 11. 01:29:14 CEST">2025-06-11</span>
+  </span>
+
+    
+    
+    
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/Gilgames32" class="md-author" title="@Gilgames32">
+          
+          <img src="https://avatars.githubusercontent.com/u/91968230?v=4&size=72" alt="Gilgames32">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="8.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 8. Sugárkövetés">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                8. Sugárkövetés
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="10.html" class="md-footer__link md-footer__link--next" aria-label="Next: 10. Játékfejlesztés">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                10. Játékfejlesztés
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.instant", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>

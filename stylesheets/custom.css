@@ -1,0 +1,61 @@
+/* Fixing admonitions */
+div.admonition p:not(.admonition-title) {
+    white-space: pre-wrap;
+}
+
+p:not(.admonition-title) {
+    white-space: pre-wrap;
+    line-height: 1.4rem;
+}
+
+/* Remove TOC under mid view */
+@media only screen and (max-width: 1200px) {
+    div.md-sidebar--secondary:not([hidden]) {
+        display: none;
+    }
+
+    article.md-content__inner {
+        margin: 0 25px;
+    }
+}
+
+/* Last list link into new line */
+li > a[href]:not(:only-child):last-child::before { 
+    content: ' ';
+    display: block;
+}
+
+/* Enables image attributes */
+img[height], img[width] {
+    height: revert-layer;
+    width: revert-layer;
+    max-width: none;
+    min-width: unset;
+    max-height: none;
+    min-height: unset;
+}
+
+/* Changes the bottom layout */
+.md-source-file {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Emotes */
+img[alt$=":"] {
+    height: 20px;
+    vertical-align: middle;
+}
+
+/* katex block fix */
+.md-typeset div.arithmatex > span {
+    padding: 0;
+}
+.md-typeset div.arithmatex > span > span.katex-display {
+    margin: 0.5em 0;
+}
+.md-typeset p {
+    margin: 1em 0;
+}

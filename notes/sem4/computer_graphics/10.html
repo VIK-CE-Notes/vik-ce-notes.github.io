@@ -1,0 +1,2065 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://vik-ce-notes.github.io/notes/sem4/computer_graphics/10.html">
+      
+      
+        <link rel="prev" href="9.html">
+      
+      
+        <link rel="next" href="11.html">
+      
+      
+      <link rel="icon" href="/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>10. Játékfejlesztés - Notes-online</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/code.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jatekfejlesztes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="Notes-online" class="md-header__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes-online
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              10. Játékfejlesztés
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/VIK-CE-Notes/vik-ce-notes.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    VIK-CE-Notes/vik-ce-notes.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="Notes-online" class="md-nav__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    Notes-online
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/VIK-CE-Notes/vik-ce-notes.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    VIK-CE-Notes/vik-ce-notes.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Üdvözlünk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Jegyzeteléshez
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Jegyzeteléshez
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../for_contributors/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Instrukciók
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../for_contributors/showcase.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Showcase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            1. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bevezetés a számításelméletbe 1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Bevezetés a számításelméletbe 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/tetelsor.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tételek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    15. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    16. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    17. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    4. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            4. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Számítógépes grafika
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Számítógépes grafika
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Geometriák és algebrák
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Grafikus hardver és szoftver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Pontok és klasszikus görbék
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Affin transzformációk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. 2D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. 2D textúrázás
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. 3D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Sugárkövetés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Inkrementális képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="10.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Játékfejlesztés
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Vektorháború
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Fraktálok és káosz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Specializációk
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Specializációk
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algoritmikus játékelmélet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmikus játékelmélet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spec/game_theory/exam_notes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vizsgajegyzet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<!-- adóbevallási határidő március 18 ugye nem felejtettük el -->
+
+<h1 id="jatekfejlesztes">Játékfejlesztés</h1>
+<h2 id="jatekok-feladatai">Játékok feladatai</h2>
+<ul>
+<li>képszintézis az avatár nézőpontjából</li>
+<li>avatár vezérlése valamilyen beviteli eszközzel <em>(akár többel)</em></li>
+<li>intelligens objektumok <em>(ai/állapotgép)</em></li>
+<li>játéklogika</li>
+<li>a fizika világ szimulációja (Newtoni fizika)</li>
+</ul>
+<blockquote>
+<p>Ezek szinte minden játéknak részei, ezért ezeket előre elkészíthetjük általános formában, egy keretrendszer <em>(ún. game engine)</em> formájában.
+A gameenginenek hála nekünk elég csak a játék konkrétumait, műkődését és kinézetét beállítani, leprogramozni.</p>
+</blockquote>
+<h2 id="osztalydiagram">Osztálydiagram</h2>
+<p><img alt="" src="img/10_classdiagram.png" /></p>
+<h2 id="gameobject">GameObject</h2>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">GameObject</span>
+<span class="p">{</span>
+<span class="k">protected</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Shader</span><span class="w"> </span><span class="o">*</span><span class="n">shader</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Material</span><span class="w"> </span><span class="o">*</span><span class="n">material</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Texture</span><span class="w"> </span><span class="o">*</span><span class="n">texture</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Geometry</span><span class="w"> </span><span class="o">*</span><span class="n">geometry</span><span class="p">;</span>
+<span class="w">    </span><span class="n">vec3</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">velocity</span><span class="p">,</span><span class="w"> </span><span class="n">acceleration</span><span class="p">;</span>
+<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">GameObject</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">children</span><span class="p">;</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">ModelingTransform</span><span class="p">(</span><span class="n">mat4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="n">mat4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Minv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Minv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UnitMatrix</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">GameObject</span><span class="p">(</span><span class="n">Shader</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">Material</span><span class="w"> </span><span class="o">*</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">Texture</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">Geometry</span><span class="w"> </span><span class="o">*</span><span class="n">g</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">Control</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">dt</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">Animate</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">dt</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">Draw</span><span class="p">(</span><span class="n">RenderState</span><span class="w"> </span><span class="n">state</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="c1">// parameter by value to separate objects</span>
+<span class="w">        </span><span class="n">mat4</span><span class="w"> </span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="n">Minv</span><span class="p">;</span>
+<span class="w">        </span><span class="n">ModelingTransform</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="n">Minv</span><span class="p">);</span>
+<span class="w">        </span><span class="n">state</span><span class="p">.</span><span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">M</span><span class="p">;</span>
+<span class="w">        </span><span class="n">state</span><span class="p">.</span><span class="n">Minv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">Minv</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Minv</span><span class="p">;</span>
+<span class="w">        </span><span class="n">state</span><span class="p">.</span><span class="n">material</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">material</span><span class="p">;</span>
+<span class="w">        </span><span class="n">state</span><span class="p">.</span><span class="n">texture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">texture</span><span class="p">;</span>
+<span class="w">        </span><span class="n">shader</span><span class="o">-&gt;</span><span class="n">Bind</span><span class="p">(</span><span class="n">state</span><span class="p">);</span><span class="w"> </span><span class="c1">// uniform variable setting</span>
+<span class="w">        </span><span class="n">geometry</span><span class="o">-&gt;</span><span class="n">Draw</span><span class="p">();</span><span class="w">    </span><span class="c1">// triangles go down the pipeline</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="o">*</span><span class="n">child</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">children</span><span class="p">)</span>
+<span class="w">            </span><span class="n">child</span><span class="o">-&gt;</span><span class="n">Draw</span><span class="p">(</span><span class="n">state</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<blockquote>
+<p>Unitysek előnyben! Nade mi is történik itt?</p>
+</blockquote>
+<p>A játékunk érzékelhető része <code>GameObject</code>ekből áll, minden <em>(majdnem)</em>, amit megjelenítünk egy <code>GameObject</code> (vagy annak leszármazottja). Ezek tárolás egy fa struktúrát követ, a gyökere a <code>Scene</code>, az összes többi csúcsban <code>GameObject</code>ek vannak, és ők is tartalmazhatnak más <code>GameObject</code>eket (<code>children</code>).</p>
+<p>Egy <code>Gameobject</code> tudja magáról a megjelenítéséhez szükséges tulajdonságait és alakját. Kirajzoláskor ezeket beállítja a <code>RenderState</code>be, (<strong>mert az ópengéel egy álalpotgép</strong>) mielőtt meghívná a <code>geomteri</code>ájára a kirajzolást. Fontos megemlíteni hogy az <code>M</code> transzformációs mátrixot (és inverzét) nem felülírja, hanem megszorozza az eddigi állapotot. Ez azért van így, mert a <code>GameObject</code>ek <code>child</code>jainak helyzetét a <code>parent</code>hez relatívan értelmezzük. </p>
+<blockquote>
+<p>Pl. Sceneből indul (0, 0, 0) origó középpontból, a karakterünket direktben tartalmazza, koordinátája egyenlő lesz a világbeli koordinátáival, mondjuk (1, 1, 1). A karakter egyik child objektuma a kalapja, ennek koordinátái a (0, 0, 2), relatíven értelmezzük, tehát a karakterünk origójától lesz ilyen távolságban. Ha az ezekhez tartozó mátrixokat egymás után összeszorozzuk, kapjuk meg a child GameObjectek tényleges világbeli pozícióját, itt ez most (1, 1, 3) lenne. </p>
+</blockquote>
+<h2 id="szimulacios-hurok-game-loop">Szimulációs hurok (Game loop)</h2>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">onIdle</span><span class="p">()</span>
+<span class="p">{</span><span class="w"> </span><span class="c1">// idle call back</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">tend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">tstart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tend</span><span class="p">;</span>
+<span class="w">    </span><span class="n">tend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glutGet</span><span class="p">(</span><span class="n">GLUT_ELAPSED_TIME</span><span class="p">);</span>
+<span class="w">    </span><span class="n">scene</span><span class="p">.</span><span class="n">Simulate</span><span class="p">(</span><span class="n">tstart</span><span class="p">,</span><span class="w"> </span><span class="n">tend</span><span class="p">,</span><span class="w"> </span><span class="n">keys</span><span class="p">);</span>
+<span class="w">    </span><span class="n">glutPostRedisplay</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>Azaz amikor a programunk épp nem renderel, megmérjük az előző <code>Simulate</code> (Unityben update) óra eltelt időt, majd meghívjuk a függvényt.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">Scene::Simulate</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">ts</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">te</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">keys</span><span class="p">[])</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">avatar</span><span class="o">-&gt;</span><span class="n">ProcInput</span><span class="p">(</span><span class="n">keys</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ts</span><span class="p">;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">te</span><span class="p">;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dt</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">Dt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fmin</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span><span class="w"> </span><span class="n">te</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">GameObject</span><span class="w"> </span><span class="o">*</span><span class="n">o</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">objects</span><span class="p">)</span>
+<span class="w">            </span><span class="n">o</span><span class="o">-&gt;</span><span class="n">Control</span><span class="p">(</span><span class="n">Dt</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">GameObject</span><span class="w"> </span><span class="o">*</span><span class="n">o</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">objects</span><span class="p">)</span>
+<span class="w">            </span><span class="n">o</span><span class="o">-&gt;</span><span class="n">Animate</span><span class="p">(</span><span class="n">Dt</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>Mi itt a <code>Dt</code>? Ez az ún. delta time, ami méri két kirajzolt képkocka = két szimulációs "update tick" közti időt. 
+Ha az eltelt idő (<code>te-ts</code>) nagyon nagy, az szimulációs anomáliákhoz (pl. hibás ütközés) vezethet, ezért bevezetünk egy maximum delta time változót (<code>dt</code>). Ha <code>te-ts</code> túllépné ezt ezt a maximumot, akkor ezt az időegységet a biztonság kedvéért kisebb szeletekre bontjuk, kis lépésekben szimuláljuk le.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">onDisplay</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">);</span>
+<span class="w">    </span><span class="n">scene</span><span class="p">.</span><span class="n">Render</span><span class="p">();</span>
+<span class="w">    </span><span class="n">glutSwapBuffers</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>A szimulálás után pedig kirendereljük a jelenlegi állapotot.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">Scene::Render</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">RenderState</span><span class="w"> </span><span class="n">state</span><span class="p">;</span><span class="w"> </span><span class="c1">// M=Minv=UnitMatrix();</span>
+<span class="w">    </span><span class="n">avatar</span><span class="o">-&gt;</span><span class="n">SetCameraTransform</span><span class="p">(</span><span class="n">state</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">GameObject</span><span class="w"> </span><span class="o">*</span><span class="n">o</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">objects</span><span class="p">)</span>
+<span class="w">        </span><span class="n">o</span><span class="o">-&gt;</span><span class="n">Draw</span><span class="p">(</span><span class="n">state</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>Figyeljük meg, hogy új <code>RenderState</code>t hozunk létre, <code>M</code> és <code>Minv</code> az egységmátrix lesznek, azaz nem nyújtunk, nem forgatunk, nem méretezünk.</p>
+</blockquote>
+<h2 id="volumetric-shader">Volumetric shader</h2>
+<blockquote>
+<p>Semelyik jegyzetben, sem a videóiban nem találtam hozzá magyarázatot. Freestyle.</p>
+</blockquote>
+<p>Kiterjedt de nem egyértelműen meghatározható geometriájú térfogatok (volume, hence the name volumetric shader), pl. köd, füst stb. megjelenítésére használjuk. Ezek többnyire minden irányból ugyan úgy néznek ki.
+<img alt="" src="img/10_volumetric.png" /></p>
+<p>Vertex shader:
+<div class="highlight"><pre><span></span><code><span class="n">uniform</span><span class="w"> </span><span class="n">mat4</span><span class="w"> </span><span class="n">MVP</span><span class="p">;</span>
+<span class="n">layout</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">vec2</span><span class="w"> </span><span class="n">vtxPos</span><span class="p">;</span>
+<span class="n">out</span><span class="w"> </span><span class="n">vec2</span><span class="w"> </span><span class="n">uv</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">gl_Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec4</span><span class="p">(</span><span class="n">vtxPos</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">MVP</span><span class="p">;</span>
+<span class="w">    </span><span class="n">uv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">vtxPos</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">vec2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+Fragment shader:
+<div class="highlight"><pre><span></span><code><span class="n">uniform</span><span class="w"> </span><span class="n">sampler2D</span><span class="w"> </span><span class="n">textureMap</span><span class="p">;</span>
+<span class="n">uniform</span><span class="w"> </span><span class="n">vec4</span><span class="w"> </span><span class="n">color</span><span class="p">;</span>
+<span class="n">in</span><span class="w"> </span><span class="n">vec2</span><span class="w"> </span><span class="n">uv</span><span class="p">;</span>
+<span class="n">out</span><span class="w"> </span><span class="n">vec4</span><span class="w"> </span><span class="n">fragColor</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">fragColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">texture</span><span class="p">(</span><span class="n">textureMap</span><span class="p">,</span><span class="w"> </span><span class="n">uv</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">color</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>Implementáció:
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">VolumetricShader</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GPUProgram</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">Bind</span><span class="p">(</span><span class="n">RenderState</span><span class="w"> </span><span class="n">state</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Use</span><span class="p">();</span><span class="w"> </span><span class="c1">// make this program run</span>
+<span class="w">        </span><span class="n">setUniform</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">MVP</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MVP&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">setUniform</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">color</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;color&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">setUniform</span><span class="p">(</span><span class="o">*</span><span class="n">state</span><span class="p">.</span><span class="n">texture</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;textureMap&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></p>
+<h2 id="avatar">Avatar</h2>
+<blockquote>
+<p>A mi szemszögünk</p>
+</blockquote>
+<p><div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Avatar</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GameObject</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">ProcessInput</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="nf">wVup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">SetCameraTransform</span><span class="p">(</span><span class="n">RenderState</span><span class="w"> </span><span class="o">&amp;</span><span class="n">state</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Camera</span><span class="w"> </span><span class="n">camera</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">velocity</span><span class="p">,</span><span class="w"> </span><span class="n">wVup</span><span class="p">());</span><span class="w"> </span><span class="c1">// a gyorsulás irányába nézünk</span>
+<span class="w">        </span><span class="n">state</span><span class="p">.</span><span class="n">V</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">camera</span><span class="p">.</span><span class="n">V</span><span class="p">();</span>
+<span class="w">        </span><span class="n">state</span><span class="p">.</span><span class="n">P</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">camera</span><span class="p">.</span><span class="n">P</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<code>wVup = [0, 1, 0]</code> vagy a gyorsulásból és a korábbi wVup átlagából kapjuk meg.</p>
+<h2 id="keyboard-polling">Keyboard polling</h2>
+<p><div class="highlight"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="n">keys</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span><span class="w"> </span><span class="c1">// is pressed?</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">onKeyboard</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pX</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pY</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">keys</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">onKeyboardUp</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pX</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pY</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">keys</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+Egy tömbben tároljuk, hogy éppen mi a billentyűk állása, a fenti két eseményben állítjuk. <code>Simulate</code> közben ebből a tömbből polloljuk az állását.</p>
+<h2 id="euler-karakterisztika-invarians">Euler karakterisztika invariáns</h2>
+<p><span class="arithmatex">\(\text{csúcs} - \text{él} + \text{lap} = \chi\)</span></p>
+<p><span class="arithmatex">\(\chi\)</span> a felület topológiájától függ.</p>
+<h2 id="frenet-keret">Frenet keret</h2>
+<blockquote>
+<p>transzformációval érjük el, hogy a nézőpont/geometria kijelölt "feje" a sebesség irányába nézzen.</p>
+</blockquote>
+<p><img alt="" src="img/10_frenet_egye_meg.png" /></p>
+<!-- még jó hogy ez is jól le van írva a jegyzetben (: -->
+
+<p>$M = 
+\begin{bmatrix}
+i' &amp; 0 \
+j' &amp; 0 \
+k' &amp; 0 \
+r  &amp; 1 \
+\end{bmatrix}
+$</p>
+<p>Először kiszámoljuk a <strong>nem ortonormál</strong> formájában:</p>
+<p><em>(ortonormál = vektorok mertőlegesek egymásra és egység hosszúak)</em></p>
+<p><span class="arithmatex">\(j^* = v\)</span></p>
+<p><span class="arithmatex">\(k^* = k'(1-\alpha) + a \cdot \alpha\)</span> </p>
+<p><span class="arithmatex">\(i^* = j' \times k^*\)</span></p>
+<blockquote>
+<p><span class="arithmatex">\(k'\)</span>? <span class="arithmatex">\(\alpha\)</span>? Hogy? Mi?</p>
+<p><span class="arithmatex">\(k'\)</span>: az előző ortonormalizált <span class="arithmatex">\(k'\)</span></p>
+<p><span class="arithmatex">\(\alpha\)</span>: súlyozási tényező, lehetővé teszi hogy az új és az előző <span class="arithmatex">\(k'\)</span> előző között egy sima átmenetet biztosítsunk, és véde az <span class="arithmatex">\(a = 0\)</span> eset ellen is.</p>
+</blockquote>
+<p>Majd <strong>ortogonalizáljuk</strong>:</p>
+<p><span class="arithmatex">\(j' = \^{j^*}\qquad\qquad\)</span> (normalizáljuk)</p>
+<p><span class="arithmatex">\(i' = \cfrac{j' \times k^* }{|j' \times k^*|}\quad~~\)</span> (ezt is, csak nem tudom ugyan úgy jelölni)</p>
+<p><span class="arithmatex">\(k' = i' \times j'\qquad~\)</span> (ezt már nem kell, hiszen két normalizált vektort keresztszoroztunk)</p>
+<p>Esélyes hogy <span class="arithmatex">\(a\)</span> és <span class="arithmatex">\(v\)</span> nincs megadva. <span class="arithmatex">\(r\)</span> első deriváltja <span class="arithmatex">\(v\)</span>, második deriváltja <span class="arithmatex">\(a\)</span>.</p>
+<blockquote>
+<p>Ez kicsit leegyszerűsítve, <span class="arithmatex">\(\alpha = 1\)</span> esetben a következő:</p>
+<p><span class="arithmatex">\(j' = \^v\)</span></p>
+<p><span class="arithmatex">\(i' = \^v \times \^a\)</span></p>
+<p><span class="arithmatex">\(k' = \^v \times \^a \times \^v\)</span></p>
+</blockquote>
+<h4 id="utkozesek">Ütközések</h4>
+<div class="highlight"><pre><span></span><code><span class="n">dist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">obj1</span><span class="p">.</span><span class="n">pos</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">obj2</span><span class="p">.</span><span class="n">pos</span><span class="p">)</span>
+<span class="n">minDist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj1</span><span class="p">.</span><span class="n">BoundingRadius</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">obj2</span><span class="p">.</span><span class="n">BoundingRadius</span><span class="p">()</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dist</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">minDist</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// collision</span>
+</code></pre></div>
+<blockquote>
+<p>Ez egy nagyon lebutított példa, ütközés szempontjából mindent gömbként kezelünk, és a távolságuk alapján döntjük el, hogy összeérnek-e. Ütközésről külön diplomát lehetne írni szóval a bácsi sem ment bele, és bármennyire is szeretném, nekem sincs időm rá.</p>
+</blockquote>
+<p>Probléma:</p>
+<p><img alt="sample text" src="img/10_collision_problem.png" /></p>
+<p>Ha az objektum gyors, a delta time nagy, átmehetünk objektumokon anélkül, hogy ütköznénk (diszkrét eset).</p>
+<p>Megoldás:
+Folytonos ütközésdetektálás. Egy sugarat bocsátunk a mozgatás irányában, megnézzük hogy beleütközik-e valamibe.</p>
+<p><img alt="alt text" src="img/10_rel.png" /></p>
+<p>A koordinátákat az vizsgált objektumhoz rögzítjük.</p>
+<!-- csak pszeudokód -->
+<p><div class="highlight"><pre><span></span><code><span class="n">rel_pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pos2</span>
+<span class="n">rel_velocity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">velocity</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">vel2</span>
+<span class="nl">Ray</span><span class="p">:</span><span class="w"> </span><span class="n">rel_pos</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rel_velocity</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ray</span><span class="w"> </span><span class="n">intersects</span><span class="w"> </span><span class="n">bounding</span><span class="w"> </span><span class="n">sphere</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tintersect</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dt</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">//collision</span>
+</code></pre></div>
+<em>(Bár még mindig nem tökéletes, a mozgatott objektumnak nem vesszük figyelembe a kiterjedését.)</em></p>
+<h4 id="billboard">Billboard</h4>
+<blockquote>
+<p>Mindig a kamera felé néző téglalap. Gyors!</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="n">vec3</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wEye</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pos</span><span class="p">;</span><span class="w">        </span><span class="c1">// szem felé mutat</span>
+<span class="n">vec3</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cross</span><span class="p">(</span><span class="n">up</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">);</span><span class="w">      </span><span class="c1">// billboard vízszintes (jobb)</span>
+<span class="n">vec3</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cross</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">);</span><span class="w">       </span><span class="c1">// billboard függőleges (fel)</span>
+<span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w">    </span><span class="c1">// normalizáljuk és beállítjuk a méretet</span>
+<span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
+</code></pre></div>
+<p>Tehát a transzformációs mátrixa:</p>
+<div class="arithmatex">\[ \bold{T} =
+\begin{bmatrix}
+r_x &amp; r_y &amp; r_z &amp; 0 \newline
+u_x &amp; u_y &amp; u_z &amp; 0 \newline
+0 &amp; 0 &amp; 1 &amp; 0 \newline
+pos_x &amp; pos_y &amp; pos_z &amp; 1
+\end{bmatrix}
+\]</div>
+<h4 id="reszecskerendszer-particlesystem">Részecskerendszer (particlesystem)</h4>
+<blockquote>
+<p>ez amúgy egy jó dolog de nem mennék részletekbe, mert aki tudja tudja és valszeg nem lesz a vizsgán</p>
+<p>egy rakás billboard, de egyben kezeljük</p>
+</blockquote>
+<p>Példának vegyünk porszemcséket, amit a szél fúj. Ezt a szelet tekintsük egy erőtérnek.</p>
+<div class="highlight"><pre><span></span><code>pos:                pos += velocity * dt
+velocity:           velocity += acceleration * dt
+acceleration:       acceleration = force / weight
+lifetime:           random kezdeti érték
+age:                age += dt; if (age &gt; lifetime) Kill();
+size, dsize:        size += dsize * dt;
+weight, dweight:    weight += dweight * dt
+color, dcolor:      color += dcolor * dt
+</code></pre></div>
+<h3 id="kviz">Kvíz</h3>
+<blockquote>
+<p>1. A virtuális világban egy pontszerű test és egy gömb mozog. A pontszerű test a szimulációs időlépés kezdetén a (1,2,5) pontban van (mértékegység parsec) és  (3,5,2) parsec/sec sebességgel halad. A gömb középpontja a szimulációs időlépés kezdetén a (2,3,7) pontban van és  (9,6,2) parsec/sec sebességgel halad. Mekkora az a minimális gömbsugár, amely felett a két objektum a dt=100 msec időlépésben az intervallum elején tesztelő diszkrét ütközésdetektálási algoritmus szerint ütközik?</p>
+</blockquote>
+<p><em>Megoldás:</em>
+Váltsuk át a pontszerű test koordiniátáit a gömbhöz relatíven.</p>
+<p><span class="arithmatex">\(p_r = p_p - p_g = (1, 2, 5) - (2, 3, 7) = (-1, -1 -2)\)</span></p>
+<p><span class="arithmatex">\(v_r = v_p - v_g = (3, 5, 2) - (9, 6, 2) = (-6, -1, 0)\)</span></p>
+<p>Vegyük észre, hohgy a pont egyre csak méginkább távolodni fog a gömbtől, ha ütközést szeretnénk detektálni azt mihamarabb. </p>
+<blockquote>
+<p>időlépés intervallum <strong>elején</strong> tesztelő, <strong>diszkrét</strong></p>
+</blockquote>
+<p>Magyarán az első teszt <span class="arithmatex">\(t = 0 \cdot dt\)</span> időben fut le.</p>
+<p>Ekkor a távolságuk <span class="arithmatex">\(|p_r| = \sqrt{6} \approx 2.45\)</span></p>
+<hr />
+<blockquote>
+<p>2. Egy test 3 darab különálló poliéder részből áll, és egyik rész sem tartalmaz lyukat. A testen összesen 10 csúcsot és 18 lapot számoltunk meg. Hány éle van? </p>
+</blockquote>
+<p><em>Megoldás:</em> </p>
+<!-- még milyen jó hogy benne van a jegyzetben (: -->
+<p>Euler karakterisztika invariánst felhasználva:</p>
+<p><span class="arithmatex">\(\text{csúcs} - \text{él} + \text{lap} = \chi\)</span></p>
+<p>poliéderek esetén <span class="arithmatex">\(\chi = 2\)</span>, nekünk <span class="arithmatex">\(3\)</span> poliéderünk van tehát <span class="arithmatex">\(\chi = 2 \cdot 3 = 6\)</span></p>
+<p>Behelyettesítve ez</p>
+<p><span class="arithmatex">\(6 = 10 - \text{él} + 18\)</span></p>
+<p><span class="arithmatex">\(\text{él} = 22\)</span></p>
+<hr />
+<blockquote>
+<p>5. Egy billboard (plakát) referencia helyzetében az origóban van és az xy síkra fekszik. Adjuk meg a modellezési transzformáció elemeit egy értékes jegyre, ha a </p>
+<ul>
+<li>a billboard mérete nem változik a transzformáció során</li>
+<li>a szem a világ (4,2,7) pontjában van</li>
+<li>a billboard által reprezentált objektum a (1,2,3) pontban van</li>
+<li>a billboard preferált függőleges iránya a (0,1,0) </li>
+</ul>
+</blockquote>
+<p><em>Megoldás:</em></p>
+<div class="highlight"><pre><span></span><code>vec3 w = wEye - pos;        // szem felé mutat
+vec3 r = cross(w, up);      // billboard vízszintes (jobb)
+vec3 u = cross(r, w);       // billboard függőleges (fel)
+r = normalize(r) * size;    // normalizáljuk és beállítjuk a méretet
+u = normalize(u) * size;
+</code></pre></div>
+<p>Kiszámoljuk <span class="arithmatex">\(w, r, u\)</span> értékeket:</p>
+<p><span class="arithmatex">\(w = \text{eye} - \text{pos} = (3, 0, 4)\)</span></p>
+<p><span class="arithmatex">\(r = \text{up} \times w = (4, 0, -3) \rightarrow \^{r} = (-0.8, 0, 0.6)\)</span> <em>(normalizáljuk)</em></p>
+<p><span class="arithmatex">\(u = r \times w = (0, 25, 0) \rightarrow \^{u} = (0, 1, 0)\)</span> <em>(ezt is)</em></p>
+<p>Behelyettesítünk:</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+r_x &amp; r_y &amp; r_z &amp; 0 \newline
+u_x &amp; u_y &amp; u_z &amp; 0 \newline
+0 &amp; 0 &amp; 1 &amp; 0 \newline
+pos_x &amp; pos_y &amp; pos_z &amp; 1
+\end{bmatrix} =
+\begin{bmatrix}
+0.8 &amp; 0 &amp; -0.6 &amp; 0 \newline
+0 &amp; 1 &amp; 0 &amp; 0 \newline
+0 &amp; 0 &amp; 1 &amp; 0 \newline
+1 &amp; 2 &amp; 3 &amp; 1
+\end{bmatrix}
+\]</div>
+<hr />
+<blockquote>
+<p>6. Egy FPS játékban az avatár pillanatnyi pozíciója (0, 0, 0), sebessége (6, 8, 0), gyorsulása (12, -9, 0). A kamera orientációt a Frenet kerettel állítjuk be. Mi lesz a kamera View transzformációja?</p>
+</blockquote>
+<!-- pov: a jegyzetben fél diában el nem magyarázott dolgot kéne megfejteni :3 -->
+<p><em>Megoldás:</em>
+Nincs mese, ki kell számolni.</p>
+<p><span class="arithmatex">\(r = (0, 0, 0)\)</span></p>
+<p><span class="arithmatex">\(j' = \^v = (0.6, 0.8, 0)\)</span></p>
+<p><span class="arithmatex">\(i' = \^v \times \^a = (0.6, 0.8, 0) \times (0.8, -0.6, 0) = (0,0,-1)\)</span></p>
+<p><span class="arithmatex">\(k' = i' \times j' = (0.8, -0.6, 0)\)</span></p>
+<p>Tehát a mátrixunk nem más, mint</p>
+<div class="arithmatex">\[M = 
+\begin{bmatrix}
+i' &amp; 0 \newline
+j' &amp; 0 \newline
+k' &amp; 0 \newline
+r  &amp; 1 \newline
+\end{bmatrix}=
+\begin{bmatrix}
+0 &amp; 0 &amp; -1 &amp; 0 \newline
+0.6 &amp; 0.8 &amp; 0 &amp; 0 \newline
+0.8 &amp; -0.6 &amp; 0 &amp; 0 \newline
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\]</div>
+<p>Majd aztán eltöltesz 2 órát azzal, hogy miért nem ez a megoldás. Ez kérlek egy transzformációs mátrix, nem a kamera View transzformációja. Tehát a helyes mátrix <img alt="🧂" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9c2.svg" title=":salt:" />:</p>
+<div class="arithmatex">\[
+\bold{T}_V =
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0\newline
+0 &amp; 1 &amp; 0 &amp; 0\newline
+0 &amp; 0 &amp; 1 &amp; 0\newline
+-e_x &amp; -e_y &amp; -e_z &amp; 1\newline
+\end{bmatrix}
+\begin{bmatrix}
+u_x &amp; u_y &amp; u_z &amp; 0\newline
+v_x &amp; v_y &amp; v_z &amp; 0\newline
+w_x &amp; w_y &amp; w_z &amp; 0\newline
+0 &amp; 0 &amp; 0 &amp; 1\newline
+\end{bmatrix}^{-1}
+\]</div>
+<p>Ahol </p>
+<p><span class="arithmatex">\(e = r\)</span></p>
+<p><span class="arithmatex">\(u = i\)</span></p>
+<p><span class="arithmatex">\(v = k\)</span></p>
+<p><span class="arithmatex">\(w = -j\)</span> <em>(ügye nem felejtettük el, hogy a view <span class="arithmatex">\(-z\)</span> irányba néz, és azt szeretnénk, hogy a irányába nézzünk)</em></p>
+<p>Megfeleltetés után, és annak tudatában, hogy a második mátrix ortonormál (tehát inverze önmaga transzponáltja)</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 0&amp; 1\\
+\end{bmatrix}
+\begin{bmatrix}
+0 &amp; 0 &amp; -1 &amp; 0 \\
+0.8 &amp; -0.6 &amp; 0 &amp; 0 \\
+-0.6 &amp; -0.8 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}^{-1}=
+\begin{bmatrix}
+0 &amp; 0.8 &amp; -0.6 &amp; 0 \\
+0 &amp; -0.6 &amp; -0.8 &amp; 0 \\
+-1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+\end{bmatrix}
+\]</div>
+<!-- it makes so much sense :) -->
+
+<hr />
+<blockquote>
+<p>7. Egy játékobjektum orr iránya referencia helyzetben az y tengely, függőleges iránya pedig a z tengely. Az objektum pályája <span class="arithmatex">\(r(t)=(\cos(t), \sin(t), t)\)</span>.
+Adjuk meg a modellezési transzformáció elemeit egy értékes jegyre a <span class="arithmatex">\(t=\pi/4\)</span>-re, ha az objektumot Frenet keret módszerrel animáljuk.</p>
+</blockquote>
+<!-- még egy frenet és nem állok jót magamért -->
+<p><em>Megoldás:</em></p>
+<p><span class="arithmatex">\(r(t)=(\cos(t), \sin(t), t)\)</span></p>
+<p><span class="arithmatex">\(v(t) = \.r(t)=(-\sin(t), \cos(t), 1)\)</span></p>
+<p><span class="arithmatex">\(a(t) = \"r(t)=(-\cos(t), -\sin(t), 0)\)</span></p>
+<p>Ezek a <span class="arithmatex">\(t=\frac\pi 4\)</span> helyen:</p>
+<p><span class="arithmatex">\(r(\frac\pi 4) = (\frac{\sqrt{2}} 2, \frac{\sqrt{2}} 2, \frac\pi 4)\)</span></p>
+<p><span class="arithmatex">\(v(\frac\pi 4) = (-\frac{\sqrt{2}} 2, \frac{\sqrt{2}} 2, 1)\)</span></p>
+<p><span class="arithmatex">\(a(\frac\pi 4) = (-\frac{\sqrt{2}} 2, -\frac{\sqrt{2}} 2, 0)\)</span></p>
+<p>És akkor számolunk...</p>
+<p><span class="arithmatex">\(r = (\frac{\sqrt{2}} 2, \frac{\sqrt{2}} 2, \frac\pi 4)\)</span></p>
+<p><span class="arithmatex">\(j' = \^v = (-\frac 1 2, \frac 1 2, \frac{\sqrt{2}} 2)\)</span></p>
+<p>$i' = \^v \times \^a = (\frac 1 2, -\frac 1 2, \frac{\sqrt{2}} 2) $</p>
+<p><span class="arithmatex">\(k' = i' \times j' = (-\frac{\sqrt{2}} 2, -\frac{\sqrt{2}} 2, 0)\)</span></p>
+<!-- mire ezd belatekolod gec -->
+
+<p>Tehát a mátrixunk nem más, mint</p>
+<div class="arithmatex">\[M = 
+\begin{bmatrix}
+i' &amp; 0 \\
+j' &amp; 0 \\
+k' &amp; 0 \\
+r  &amp; 1 \\
+\end{bmatrix}=
+\begin{bmatrix}
+\frac1 2 &amp; -\frac 1 2 &amp; \frac{\sqrt{2}} 2 &amp; 0 \\
+-\frac1 2 &amp; \frac 1 2 &amp; \frac{\sqrt{2}} 2 &amp; 0 \\
+-\frac{\sqrt{2}} 2 &amp; -\frac{\sqrt{2}} 2 &amp; 0 &amp; 0 \\
+\frac{\sqrt{2}} 2 &amp; \frac{\sqrt{2}} 2 &amp; \frac\pi 4 &amp; 1
+\end{bmatrix}=
+\begin{bmatrix}
+0.5 &amp; -0.5 &amp; 0.7 &amp; 0 \\
+-0.5 &amp; 0.5 &amp; 0.7 &amp; 0 \\
+-0.7 &amp; -0.7 &amp; 0 &amp; 0 \\
+0.7 &amp; 0.7 &amp; 0.8 &amp; 1
+\end{bmatrix}
+\]</div>
+<hr />
+<blockquote>
+<p>9. Az alábbi programsorok egy szimulációs hurkot (game loop) valósítanak meg, de nem jól működik. Válassza ki a hibás sorokat:
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">onIdle</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// idle call back</span>
+<span class="mi">1</span><span class="p">)</span><span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">tend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="mi">2</span><span class="p">)</span><span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">tstart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tend</span><span class="p">;</span>
+<span class="mi">3</span><span class="p">)</span><span class="w">  </span><span class="n">tend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glutGet</span><span class="p">(</span><span class="n">GLUT_ELAPSED_TIME</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="p">;</span>
+<span class="mi">4</span><span class="p">)</span><span class="w">  </span><span class="n">avatar</span><span class="o">-&gt;</span><span class="n">ProcessInput</span><span class="p">(</span><span class="w"> </span><span class="p">);</span>
+<span class="mi">5</span><span class="p">)</span><span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tstart</span><span class="p">;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tend</span><span class="p">;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dt</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="p">{</span>
+<span class="mi">6</span><span class="p">)</span><span class="w">      </span><span class="kt">float</span><span class="w"> </span><span class="n">Dt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span><span class="w"> </span><span class="n">tend</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
+<span class="mi">7</span><span class="p">)</span><span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">GameObject</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">objects</span><span class="p">)</span><span class="w"> </span><span class="n">obj</span><span class="o">-&gt;</span><span class="n">Control</span><span class="p">(</span><span class="n">dt</span><span class="p">);</span>
+<span class="mi">8</span><span class="p">)</span><span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">GameObject</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">objects</span><span class="p">)</span><span class="w"> </span><span class="n">obj</span><span class="o">-&gt;</span><span class="n">Animate</span><span class="p">(</span><span class="n">dt</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="mi">9</span><span class="p">)</span><span class="w">   </span><span class="n">onDisplay</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</blockquote>
+<p><em>Hibás sorok:</em></p>
+<ul>
+<li>1: <code>tend</code> vagy <code>static</code>, vagy a függvényen kívül kell léteznie, nem nullázhatjuk mindig </li>
+<li>3: nem kell leosztanunk milisecundumra</li>
+<li>8-9: először animálunk, utána irányítunk</li>
+</ul>
+<hr />
+<blockquote>
+<p>Mely problémák megoldásánál használnak Gram-Schmidt ortogonalizációt?</p>
+</blockquote>
+<p><em>Megoldás:</em></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Billboard (plakát)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Frenet keret</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3D kamera transzformáció</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Fizikai animáció</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 2D kamera transzformáció</li>
+</ul>
+<hr />
+<blockquote>
+<p>10. Egy kockát két szinten Catmull-Clark algoritmussal felosztunk. Hány háromszög keletkezik?</p>
+</blockquote>
+<p><em>Megoldás:</em></p>
+<p>Catmull-Clark algoritmusnál <span class="arithmatex">\(1\)</span> négyszögből csinálunk <span class="arithmatex">\(4\)</span>-et. Ezt kétszer is megcsináljuk:</p>
+<p><span class="arithmatex">\(6 \cdot 4 \cdot 4 = 96\)</span> négyszög, ami kétszer ennyi, azaz <span class="arithmatex">\(192\)</span> háromszög</p>
+<!-- i can finally krill myself -->
+
+<p><a href="9.html">Előző</a></p>
+<p><a href="11.html">Következő</a></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. június 11. 01:29:14 CEST"><span class="timeago" datetime="2025-06-11T01:29:14+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. június 11. 01:29:14 CEST">2025-06-11</span>
+  </span>
+
+    
+    
+    
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/Kristof-me" class="md-author" title="@Kristof-me">
+          
+          <img src="https://avatars.githubusercontent.com/u/79101369?v=4&size=72" alt="Kristof-me">
+        </a>
+      
+        <a href="https://github.com/Gilgames32" class="md-author" title="@Gilgames32">
+          
+          <img src="https://avatars.githubusercontent.com/u/91968230?v=4&size=72" alt="Gilgames32">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="9.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 9. Inkrementális képszintézis">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                9. Inkrementális képszintézis
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="11.html" class="md-footer__link md-footer__link--next" aria-label="Next: 11. Vektorháború">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                11. Vektorháború
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.instant", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2107 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://vik-ce-notes.github.io/notes/spec/game_theory/exam_notes.html">
+      
+      
+        <link rel="prev" href="../../sem4/computer_graphics/12.html">
+      
+      
+      
+      <link rel="icon" href="/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Vizsgajegyzet - Notes-online</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/code.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="Notes-online" class="md-header__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes-online
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Vizsgajegyzet
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/VIK-CE-Notes/vik-ce-notes.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    VIK-CE-Notes/vik-ce-notes.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="Notes-online" class="md-nav__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    Notes-online
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/VIK-CE-Notes/vik-ce-notes.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    VIK-CE-Notes/vik-ce-notes.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Üdvözlünk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Jegyzeteléshez
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Jegyzeteléshez
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../for_contributors/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Instrukciók
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../for_contributors/showcase.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Showcase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            1. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bevezetés a számításelméletbe 1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Bevezetés a számításelméletbe 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/tetelsor.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tételek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    15. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    16. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem1/theory_of_computing_1/17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    17. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    4. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            4. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Számítógépes grafika
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Számítógépes grafika
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem4/computer_graphics/1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Geometriák és algebrák
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem4/computer_graphics/2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Grafikus hardver és szoftver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem4/computer_graphics/3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Pontok és klasszikus görbék
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem4/computer_graphics/4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Affin transzformációk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem4/computer_graphics/5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. 2D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem4/computer_graphics/6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. 2D textúrázás
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem4/computer_graphics/7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. 3D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem4/computer_graphics/8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Sugárkövetés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem4/computer_graphics/9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Inkrementális képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem4/computer_graphics/10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Játékfejlesztés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem4/computer_graphics/11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Vektorháború
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sem4/computer_graphics/12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Fraktálok és káosz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Specializációk
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Specializációk
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algoritmikus játékelmélet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmikus játékelmélet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="exam_notes.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vizsgajegyzet
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Vizsgajegyzet</h1>
+
+<h2 id="1-kombinatorikus-jatek-fogalma-eles-jatek-betli-jatek-nyero-strategia-iranyitott-graf-magja-mag-egyertelmusege-dag-ban-jatekok-ill-poziciok-tipusa">1. Kombinatorikus játék fogalma, éles játék, betli játék, nyerő stratégia. Irányított gráf magja, mag egyértelműsége DAG-ban. Játékok, ill. pozíciók típusa</h2>
+<h3 id="kombinatorikus-jatek">Kombinatorikus játék</h3>
+<ul>
+<li><strong>Kétszemélyes</strong> és <strong>szekvenciális</strong>: a két játékos felváltva lép</li>
+<li>Adott egy (V, E) irányított gráf. V a lehetséges pozíciók (esetleg végtelen) halmaza. Egy pontból kiinduló élek a lehetséges lépéseknek felelnek meg. Teljesítenie kell a következőket:</li>
+<li><strong>A játék végesfokú:</strong> gráfban minden pont kifoka véges;</li>
+<li><strong>A játék véges:</strong> nincs végtelen hosszú irányított séta a gráfban.</li>
+<li>Általában adott egy p0 kezdőállás is, ami lehet egy konkrét állás (mint a sakknál) vagy egy tetszőleges V -beli állás, a játék paramétereként.</li>
+<li>A játéknak kétféle kimenetele van:</li>
+<li>Nyer-veszt</li>
+<li>Döntetlen</li>
+<li>Nyelő típusok:</li>
+<li><span class="arithmatex">\(N_W\)</span>:Nyerő nyelő(utolsó lépő nyert)</li>
+<li><span class="arithmatex">\(N_T\)</span>: Döntetlen</li>
+<li>
+<p><span class="arithmatex">\(N_L\)</span>: Vesztő nyelő(utolsó lépő veszt)</p>
+</li>
+<li>
+<p>Játék típusok</p>
+</li>
+<li><strong>Éles</strong>: ha minden nyelő P típusú</li>
+<li><strong>betli</strong>: ha mindegyik N típusú</li>
+</ul>
+<p><span class="arithmatex">\(J\)</span> típusa:</p>
+<ul>
+<li><code>1-es</code>, ha a kezdő garantálni tudja, hogy előbb-utóbb <span class="arithmatex">\(N_W\)</span> beli mezőbe lép</li>
+<li><code>*</code>, ha a kezdő garantálni tudja, hogy az ellenfél nem lép <span class="arithmatex">\(N_W\)</span> belibe</li>
+<li><code>2-es</code>, ha nem <code>1-es</code> és  nem <code>*</code></li>
+</ul>
+<h4 id="strategia">Stratégia</h4>
+<p>Stratégia alatt egy <span class="arithmatex">\(V → V\)</span> függvényt értünk, amely minden <span class="arithmatex">\(V\)</span> -beli helyzethez, amelyik nem nyelő, hozzárendeli az egyik ki-szomszédját: vagyis tetszőleges álláshoz hozzárendelünk egyet a lehetséges lépések közül. Egy játékos követi az adott stratégiát, ha mindig a stratégia által kijelölt pozícióba lép.</p>
+<p><strong>Nyerő</strong> egy stratégia, ha őt követve mindig nyerni tudunk, akármit is lépjen közben a másik játékos.</p>
+<h4 id="iranyitott-graf-magja">Irányított gráf magja</h4>
+<p>A <span class="arithmatex">\(G = (V, E)\)</span> gráf egy <span class="arithmatex">\(S ⊆ V\)</span> független ponthalmazát magnak nevezzük, ha minden <span class="arithmatex">\((V \backslash S)\)</span>-beli csúcsnak van <span class="arithmatex">\(S\)</span>-beli szomszédja.</p>
+<h5 id="tetel">Tétel</h5>
+<p>Ha <span class="arithmatex">\(G\)</span> DAG, akkor <span class="arithmatex">\(\exists G\)</span>-ben <span class="arithmatex">\(K\)</span> mag</p>
+<hr />
+<h2 id="2-jatekok-osszege-az-osszeg-tipusa-grundy-szamozas-nim-osszeadas-es-tulajdonsagai">2. Játékok összege, az összeg típusa. Grundy-számozás. NIM-összeadás és tulajdonságai</h2>
+<h3 id="jatekok-osszege">Játékok összege</h3>
+<p>A <span class="arithmatex">\(J\)</span> és <span class="arithmatex">\(J'\)</span> kombinatorikus játék összegén azt a <span class="arithmatex">\(J +J '\)</span> kombinatorikus játékot értjük, melyben a két játékos párhuzamosan játssza a <span class="arithmatex">\(J\)</span> és <span class="arithmatex">\(J'\)</span> játékokat úgy, hogy a soron következő játékos a <span class="arithmatex">\(J\)</span> és <span class="arithmatex">\(J'\)</span>játékok közül pontosan az egyikben lép egyet, és a <span class="arithmatex">\(J + J'\)</span> végeredménye az utoljára befejezett játék eredménye lesz.</p>
+<h3 id="az-osszeg-tipusa">Az összeg típusa</h3>
+<ol>
+<li><span class="arithmatex">\(J+J\)</span>: 2-es típusú</li>
+<li>
+<p>Ha a <span class="arithmatex">\(J = (V, E, p_0)\)</span> játék <span class="arithmatex">\(P\)</span> típusú, akkor a <span class="arithmatex">\(J + J'\)</span> összegjáték tetszőleges J' játékra ugynolyan típusú, mint <span class="arithmatex">\(J'\)</span>.
+  <strong>Bizonyítás:</strong>
+  Annak a játékosnak, akinek <span class="arithmatex">\(J'\)</span>-ben nyerő stratégiája van, a következő lesz a nyerő stratégiája <span class="arithmatex">\(J + J'\)</span>-ben: lépjen <span class="arithmatex">\(J'\)</span>-ben a stratégiája szerint, kivéve, ha a másik <span class="arithmatex">\(J\)</span>-ben lép, ekkor a <span class="arithmatex">\(J\)</span>-beli nyerő stratégiája szerint lépjen (hiszen <span class="arithmatex">\(J\)</span>-ben a másodiknak van nyerő stratégiája).</p>
+</li>
+<li>
+<p>Tetszőleges <span class="arithmatex">\(J\)</span> és <span class="arithmatex">\(J'\)</span> játékokra <span class="arithmatex">\(J\)</span> és <span class="arithmatex">\(J + J'+ J'\)</span> típusa megegyezik.
+<strong>Bizonyítás:</strong> A <span class="arithmatex">\(J\)</span>-ben nyerő játékos játszon a <span class="arithmatex">\(J\)</span>-beli nyerő stratégiája szerint, kivéve, ha a másik a <span class="arithmatex">\(J'\)</span> egyik példányában lép, ekkor lépje ugyanezt a másik példányban.</p>
+</li>
+</ol>
+<h3 id="grundy-szamozas">Grundy-számozás</h3>
+<p>Egy <span class="arithmatex">\(G = (V, E)\)</span> gráffal rendelkező éles kombinatorikus játék Grundy-számozása egy olyan <span class="arithmatex">\(g : V \rightarrow \mathbb{N}\)</span> függvény, melyre tetszőleges <span class="arithmatex">\(v ∈ V\)</span> esetén <span class="arithmatex">\(g(v) = mex\{g(w) \space| \space vw \in E\}\)</span> , ahol egy nemnegatív számokból álló halmaz mex (minimum excludant) értékén azt a legkisebb nemnegatív egész számot értjük, ami nincs benne a halmazban.</p>
+<p>Minden éles kombinatorikus játéknak létezik Grundy-számozása.</p>
+<h4 id="nim-osszeg">NIM összeg</h4>
+<p>Nim-összeg. Az a, <span class="arithmatex">\(b ∈ \mathbb{N}\)</span> számok nim-összegét úgy kapjuk meg, hogy mindkét számot felírjuk kettes számrendszerben és az azonos helyiértéken szereplő számjegyeiket modulo 2 összeadjuk. Jele: <span class="arithmatex">\(a ⊕ b\)</span>.</p>
+<h4 id="tulajdonsagai">Tulajdonságai</h4>
+<ol>
+<li><span class="arithmatex">\(a \oplus b = c \iff a \oplus b \oplus c = 0 \iff a \oplus c = b \iff b \oplus c = a\)</span></li>
+<li><span class="arithmatex">\(c &lt; a \oplus b \implies \exists a' &lt; a: a' \oplus b = c\)</span> vagy <span class="arithmatex">\(\exists b' &lt; b: a \oplus b' = c\)</span></li>
+</ol>
+<h4 id="megfigyelesek">Megfigyelések</h4>
+<ul>
+<li><span class="arithmatex">\(a \oplus b = a \oplus b' \implies b = b'\)</span></li>
+<li><span class="arithmatex">\(a \oplus b = a \oplus b' \iff b \oplus b' = a \oplus a = 0\)</span></li>
+<li><span class="arithmatex">\((a \oplus b) \oplus (a \oplus b') = 0 \iff b \oplus b' = 0 \iff b = b'\)</span></li>
+</ul>
+<hr />
+<h2 id="3-sprague-grundy-tetel-bouton-tetel-jatekok-izomorfiaja-es-ekvivalenciaja">3. Sprague-Grundy-tétel*, Bouton-tétel. Játékok izomorfiája és ekvivalenciája</h2>
+<h3 id="sprague-grundy-tetel">Sprague-Grundy-tétel</h3>
+<p>Ha a <span class="arithmatex">\(G = (V, E)\)</span> és <span class="arithmatex">\(G' = (V', E')\)</span> gráfokkal rendelkező éles kombinatorikus
+játékok Grundy-számozása rendre <span class="arithmatex">\(g : V → \mathbb{N}\)</span> és <span class="arithmatex">\(g' : V' → \mathbb{N}\)</span>, akkor a két játék összegének Grundy számozása </p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(g ⊕ g' : V × V' → \mathbb{N}\)</span>\)</span>
+asd</p>
+<h3 id="bouton-tetel">Bouton-tétel</h3>
+<p>Legyen <span class="arithmatex">\(k ∈ \mathbb{N}_+\)</span> és tekintsük azt a k-nim játékot, amiben a kupacok méretei <span class="arithmatex">\(n_1, n_2, . . . , n_k\)</span>.
+Ekkor a második játékosnak pontosan akkor van nyerő stratégiája, ha <span class="arithmatex">\(n_1 ⊕ n_2 ⊕ . . . ⊕ n_k = 0\)</span>.</p>
+<h3 id="jatekok-izomorfiaja">Játékok izomorfiája</h3>
+<p>A <span class="arithmatex">\((G, N_W, N_T, N_L, v_0)\)</span> és <span class="arithmatex">\((G', N'_W, N'_T, N'_L, v'_0)\)</span>, ha létezik <span class="arithmatex">\(G\)</span> és <span class="arithmatex">\(G'\)</span> között olyan gráf izomorfizmus, ami a nyelőket és a kezdőállásokat is megőrzi.</p>
+<h3 id="jatekok-ekvivalenciaja">Játékok ekvivalenciája</h3>
+<p>A <span class="arithmatex">\(J_1\)</span> és <span class="arithmatex">\(J_2\)</span> játékok <strong>eklivalensek</strong>, ha <span class="arithmatex">\(J_1 + J_2\)</span> egy 2-es típusú játék.</p>
+<p>Az alábbi állítások ekvivalensek:</p>
+<ol>
+<li><span class="arithmatex">\(J_1 + J_2\)</span> 2-es típusú</li>
+<li><span class="arithmatex">\(G_{J_1}(u_0) = G_{J_2}(v_0)\)</span></li>
+<li>Tetszőleges <span class="arithmatex">\(H\)</span> éles játékra <span class="arithmatex">\(J_1 + H\)</span> és <span class="arithmatex">\(J_2 + H\)</span> azonos típusúak.</li>
+</ol>
+<h2 id="4-strategia-masolas-strategialopas-mergezett-csoki-amoba-hex">4. Stratégia másolás, stratégialopás. Mérgezett csoki, amőba, hex</h2>
+<h3 id="strategia-masolas">Stratégia másolás</h3>
+<h3 id="strategia-lopas">Stratégia lopás</h3>
+<h3 id="mergezett-csoki">Mérgezett csoki</h3>
+<p>1-es típusú</p>
+<h3 id="amoba">Amőba</h3>
+<p>A k-amőbában az első játékosnak van nem vesztő stratégiája.</p>
+<h3 id="hex">Hex</h3>
+<p>Adott egy <span class="arithmatex">\((n \times n)\)</span>-es hatszögrács, ahol <span class="arithmatex">\(n ∈ \mathbb{N}_+\)</span>, és a soron következő játékos kiválasztja ennek egy (korábban még egyik játékos által sem választott) mezejét. A kezdőjátékos akkor nyer, ha keletkezik az általa kiválasztott mezőkből egy út a rács bal szélétől a jobbig, a másik játékos pedig akkor nyer, ha keletkezik az általa kiválasztott mezőkből egy út a rács első szélétől az alsóig.</p>
+<p>A hex-ben az első játékosnak van nem vesztő stratégiája.</p>
+<p><strong>Hex tétel</strong> (Hein, Nash, Gale). A hex játék sohasem végződhet döntetlennel.</p>
+<h2 id="5-epito-rombolo-jatekok-erdos-selfridge-tetel-hipergrafok-2-szinezhetosegenek-elegseges-feltetele">5. Építő-romboló játékok, Erdős-Selfridge-tétel*, hipergráfok 2-színezhetőségének elégséges feltétele</h2>
+<h3 id="epito-rombolo-jatekok-valamint-rombolo-epito-jatekok">Építő-romboló játékok, valamint romboló-építő játékok</h3>
+<p>Adott egy <span class="arithmatex">\(\mathcal{H} = (V, \varepsilon)\)</span> hipergráf, és a soron következő játékos kiválaszt egy (korábban még egyik játékos által sem választott) <span class="arithmatex">\(V\)</span> -beli csúcsot. Az építő játékos akkor nyer, ha kiválasztja valamely <span class="arithmatex">\(\varepsilon\)</span>-beli hiperél minden csúcsát, a romboló játékos pedig akkor nyer, ha ezt meg tudja akadályozni. Ha a kezdőjátékos az építő, akkor építő–romboló, ellenkező esetben pedig romboló–építő  átékról beszélünk.</p>
+<h3 id="erdos-selfridge-tetel">Erdős-Selfridge-tétel</h3>
+<p>Ha egy építő-romboló játék <span class="arithmatex">\(\mathcal{H} = (V, \varepsilon)\)</span> hipergráfjára <span class="arithmatex">\(\displaystyle \sum_{E \in \varepsilon} 2^{-|E|} &lt; \frac{1}{2}\)</span> teljesül, akkor a romboló játékosnak mindig van nyerő stratégiája.</p>
+<h3 id="hipergrafok-2-szinezhetosegenek-elegseges-feltetele">Hipergráfok 2-színezhetőségének elégséges feltétele</h3>
+<p><strong>Tétel</strong>:</p>
+<p>Ha egy <span class="arithmatex">\(\varepsilon\)</span> halmazrendszerre a rombolónak van nyerő stratégiája (második játékosként), akkor 2-színezhető.</p>
+<p><strong>Bizonyítás</strong>:
+Tudjuk, hogy akkor is a romboló nyerne, ha ő kezdene. Játsszon mindkét játékos a romboló stratégiája szerint, és színezzük a pontokat aszerint, hogy ki foglalja el: az építő pontjait kékkel, a romboló pontjait pirossal. Ekkor mindketten elérik, hogy minden <span class="arithmatex">\(\varepsilon\)</span>-beli halmazból legyen pontjuk, vagyis a kapott színezés jó 2-színezés.</p>
+<h2 id="6-strategiai-jatekok-fogolydilemma-pareto-optimalis-strategiavalasztas-dominans-strategiak-kevert-strategiak-strategiak-iteralt-eliminalasa-es-annak-hatasa-a-pareto-optimalis-strategiavalasztasokra">6. Stratégiai játékok, fogolydilemma, Pareto-optimális stratégiaválasztás, domináns stratégiák, kevert stratégiák. Stratégiák (iterált) eliminálása és annak hatása a Pareto-optimális stratégiaválasztásokra</h2>
+<h3 id="strategiai-jatek">Stratégiai játék</h3>
+<p>Adott <span class="arithmatex">\(n ∈ \mathbb{N}_+\)</span> játékos, és tetszőleges <span class="arithmatex">\(i ∈ \{1, . . . , n\}\)</span> esetén adott az <span class="arithmatex">\(i\)</span>-edik játékoshoz a lehetséges stratégiáinak egy véges <span class="arithmatex">\(S_i\)</span> halmaza, valamint egy <span class="arithmatex">\(u_i: S1 × . . . × Sn → \mathbb{R}\)</span> nyereségfüggvény. Minden játékos ismeri a többiek lehetséges stratégiáit és nyereségfüggvényeit. A játék elején a játékosok egymástól függetlenül kiválasztanak egy-egy stratégiát azzal a céllal, hogy maximalizálják a saját nyereségüket.</p>
+<p><strong>Tulajdonságok:</strong></p>
+<ul>
+<li><strong>Egy lépéses:</strong> a játékosok egyszerre lépnek</li>
+<li><strong>Szinkron:</strong> a játékosok egyszerre döntenek, a döntést titkolva egymástól</li>
+<li><strong>Teljes információ:</strong> minden játékos minden a játékra vonatkozó információt ismer</li>
+<li><strong>Racionalítás:</strong> minden játékos a saját nyereségét maximalizálja</li>
+<li><strong>Racionalítás köztudása:</strong> minden játékos felteszi, hogy a többiek racionálisak és hogy <code>ők is tudják, hogy a többiek racionálisak</code></li>
+<li><strong>Nullösszegű:</strong> a játékosok nyereségének összege nulla</li>
+</ul>
+<h3 id="fogolydilemma">Fogolydilemma</h3>
+<p>A fogyoldilemma egy gondolatkísérlet, ahol két racionális ügynök közötti játékot vizsgáljuk. A játékosoknak két lehetősége van: együttműködés vagy árulás. A játékosoknak az a céljuk, hogy a saját nyereségüket maximalizálják. A játék szabályai a következők:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Tagad</th>
+<th>Vall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tagad</td>
+<td>-1, -1</td>
+<td>-3, 0</td>
+</tr>
+<tr>
+<td>Vall</td>
+<td>0, -3</td>
+<td>-2, -2</td>
+</tr>
+</tbody>
+</table>
+<p>A játékban az árulás a az erős domináns stratégia, azaz a játékosoknak az a legjobb, ha árulnak. Így a Nash-egyensúlyban mindkét játékos árulni fog. Ez a megoldás azonban nem Pareto-optimális, mert ha mindketten tagadnának, akkor mindketten jobban járnának.</p>
+<h3 id="pareto-optimalis-strategiavalasztas">Pareto-optimális stratégiaválasztás</h3>
+<p>Pareto-optimális stratégiaválasztás. Az <span class="arithmatex">\((s_1,..., s_n) ∈ S_1×. . .×S_n\)</span> stratégiaválasztás Pareto-optimális, ha nem létezik olyan <span class="arithmatex">\((s'_1, . . . , s'_n) ∈ S_1 ×...× S_n\)</span> stratégiaválasztás, melyre a következők teljesülnek:</p>
+<ul>
+<li>minden <span class="arithmatex">\(i ∈ {1, . . . , n}\)</span> esetén <span class="arithmatex">\(u_i(s_1,..., s_n) ≤ u_i(s'_1,..., s'_n)\)</span>, és</li>
+<li><span class="arithmatex">\(\exists j ∈ {1, . . . , n}\)</span>, amelyre <span class="arithmatex">\(u_j(s_1,..., s_n) &lt; u_j(s'_1,..., s'_n)\)</span></li>
+</ul>
+<h3 id="dominans-strategiak">Domináns stratégiák</h3>
+<h4 id="gyenge-dominalas">Gyenge dominálás</h4>
+<p>A <span class="arithmatex">\(z \in S_i\)</span> stratégia gyengén dominálja a <span class="arithmatex">\(z' \in S_i\)</span> stratégiát, ha tetszőleges <span class="arithmatex">\(s_1 \in S_1,..., s_{i-1} \in S_{i-1}, s_{i+1} \in S_{i + 1}, ..., s_n \in S_n\)</span> esetén
+$$
+u_i(s_1,..., s_{i-1}, z, s_{i+1} ..., s_n) \geq u_i(s_1,..., s_{i-1}, z', s_{i+1} ..., s_n)
+$$</p>
+<h4 id="eros-dominalas">Erős dominálás</h4>
+<p>A <span class="arithmatex">\(z \in S_i\)</span> stratégia erősen dominálja a <span class="arithmatex">\(z' \in S_i\)</span> stratégiát, ha tetszőleges <span class="arithmatex">\(s_1 \in S_1,..., s_{i-1} \in S_{i-1}, s_{i+1} \in S_{i + 1}, ..., s_n \in S_n\)</span> esetén
+$$
+u_i(s_1,..., s_{i-1}, z, s_{i+1} ..., s_n) &gt; u_i(s_1,..., s_{i-1}, z', s_{i+1} ..., s_n)
+$$</p>
+<h3 id="kevert-strategiak">Kevert stratégiák</h3>
+<p>Tetszőleges <span class="arithmatex">\(i ∈ {1, . . . , n}\)</span> esetén egy <span class="arithmatex">\(S_i\)</span> halmaz feletti valószínűségi eloszlást az <span class="arithmatex">\(i\)</span>-edik játékos kevert stratégiájának nevezünk. Az <span class="arithmatex">\(i\)</span>-edik játékos kevert stratégiáinak halmazát a <span class="arithmatex">\(∆_i\)</span> szimbólummal jelöljük.</p>
+<h3 id="strategiak-iteralt-eliminalasa">Stratégiák (iterált) eliminálása</h3>
+<ul>
+<li><strong>Szigorú eliminálás</strong>: Azokat a stratégiákat elimináljuk, amelyek erősen domináltak.</li>
+<li><strong>Laza eliminálás</strong>: Azokat a stratégiákat elimináljuk, amelyek gyengén domináltak.</li>
+</ul>
+<p>Addig ismételjük az eliminálást, amíg lehet.</p>
+<h3 id="iteralt-eliminalas-hatasa-a-pareto-optimalis-strategiavalasztasokra">Iterált eliminálás hatása a Pareto-optimális stratégiaválasztásokra</h3>
+<ol>
+<li>
+<p>Szigorú eliminálás után Pareto-optimális kimenetek eltűnhetnek és keletkezhetnek. Tiszta Nash
+egyensúlyok nem tűnhetnek el.</p>
+</li>
+<li>
+<p>Laza eliminálás után Pareto-optimális kimenetek ugyan azok maradnak. Ha eliminálás után egy
+kimenetel tiszta Nash egyensúly, akkor az aze liminálás előtt is az volt.</p>
+</li>
+</ol>
+<p><code>Szigorú eliminálás nem változtat a tiszta Nash egyensúlyok halmazán</code></p>
+<h2 id="7-iteralt-szigoru-eliminalas-sorrend-fuggetlensege-tiszta-es-kevert-nash-egyensuly-iteralt-eliminalas-hatasa-a-nash-egyensulyokra">7. Iterált szigorú eliminálás sorrend-függetlensége*. Tiszta és kevert Nash-egyensúly, (iterált) eliminálás hatása a Nash-egyensúlyokra*</h2>
+<h3 id="iteralt-szigoru-eliminalas-sorrend-fuggetlensege">Iterált szigorú eliminálás sorrend-függetlensége</h3>
+<p>Akármilyen sorrendben töröljük a dominált stratégiákat az iterált eliminálás szigorú változatánál,
+a megmaradó stratégiák mindig ugyanazok lesznek.</p>
+<h3 id="tiszta-es-kevert-nash-egyensuly">Tiszta és kevert Nash-egyensúly</h3>
+<p>Egy <span class="arithmatex">\((s_1, s_2, ..., s_n) \in S_1 \times S_2 \times ... \times S_n\)</span> stratégiaválasztás <code>Nash egyensúly</code>, ha minden <span class="arithmatex">\(i \in \{1, ..., n\}\)</span> játékosra teljesül, hogy nincs olyan <span class="arithmatex">\(s_i' \in S_i\)</span> stratégia, amelyre</p>
+<div class="arithmatex">\[
+u_i(s_1, ..., s_{i-1}, s_i', s_{i+1}, ..., s_n) &gt; u_i(s_1, ..., s_{i-1}, s_i, s_{i+1}, ..., s_n).
+\]</div>
+<p>Más szóval, egy stratégiaválasztás Nash egyensúly, ha egyetlen játékos sem tudja növelni a saját nyereségét azzal, hogy egyoldalúan megváltoztatja a stratégiáját.</p>
+<ul>
+<li><strong>Tiszta Nash-egyensúly</strong>:</li>
+</ul>
+<p>Az <span class="arithmatex">\((s_1, s_2, ..., s_n) \in S_1 \times S_2 \times ... \times S_n\)</span> tiszta stratégiaválasztás tiszta Nash egyensúly, ha minden <span class="arithmatex">\(i ∈ {1, ..., n}\)</span> és <span class="arithmatex">\(s_i' \in S_i\)</span> esetén az <span class="arithmatex">\(i\)</span>-edik játékos várható nyeresége a <span class="arithmatex">\((s_1,..., s_{i-1}, s_i, s_{i+1},..., s_n)\)</span> stratégiaválasztás mellett legalább akkora, mint a <span class="arithmatex">\((s_1,..., s_{i-1}, s_i', s_{i+1},..., s_n)\)</span> mellett, azaz</p>
+<div class="arithmatex">\[
+u_i(s_1,..., s_{i-1}, s_i, s_{i+1},..., s_n) \geq u_i(s_1,..., s_{i-1}, s_i', s_{i+1},..., s_n)
+\]</div>
+<ul>
+<li><strong>Kevert Nash-egyensúly</strong>:</li>
+</ul>
+<p>Az <span class="arithmatex">\((\sigma_1,...,\sigma_n) \in \Delta_1 \times...\times\Delta_n\)</span> kevert stratégiaválasztás kevert Nash egynesúly, ha minden <span class="arithmatex">\(i ∈ {1,..., n}\)</span> és <span class="arithmatex">\(\sigma_i' \in S_i\)</span> esetén az <span class="arithmatex">\(i\)</span>-edik játékos várható nyeresége a <span class="arithmatex">\((\sigma_1,..., \sigma_{i-1}, \sigma_i, \sigma_{i+1},..., \sigma_n)\)</span> stratégiaválasztás mellett legalább akkora, mint a <span class="arithmatex">\((\sigma_1,..., \sigma_{i-1}, \sigma_i', \sigma_{i+1},..., \sigma_n)\)</span> mellett, azaz</p>
+<div class="arithmatex">\[
+u_i(\sigma_1,..., \sigma_{i-1}, \sigma_i, \sigma_{i+1},..., \sigma_n) \geq u_i(\sigma_1,..., \sigma_{i-1}, \sigma_i', \sigma_{i+1},..., \sigma_n)
+\]</div>
+<h3 id="iteralt-eliminalas-hatasa-a-nash-egyensulyokra">(Iterált) eliminálás hatása a Nash-egyensúlyokra</h3>
+<ol>
+<li>Szigorú eliminálással kevert Nash egyensúly nem tűnik el</li>
+<li>Laza eliminálás után kapott kevert Nash egyensúly az eredeti játékhoz is kevert Nash egyensúly.</li>
+</ol>
+<h2 id="8-maximin-strategiak-ketszemelyes-0-osszegu-veges-jatekok-maximin-strategia-es-nash-egyensuly-kapcsolata-neumann-tetel-biz-nelkul">8. Maximin stratégiák. Kétszemélyes, 0-összegű, véges játékok: maximin stratégia és Nash-egyensúly kapcsolata*, Neumann-tétel (biz. nélkül)</h2>
+<h3 id="maximin-strategiak">Maximin stratégiák</h3>
+<p>Egy játékos olyan kevert stratégiáját, mely maximalizálja számára a lehető legkisebb várható nyereséget a többi játékos bármilyen kevert stratégiái esetén, maximin stratégiának nevezünk.</p>
+<h3 id="ketszemelyes-0-osszegu-veges-jatekok-maximin-strategia-es-nash-egyensuly-kapcsolata">Kétszemélyes, 0-összegű, véges játékok: maximin stratégia és Nash-egyensúly kapcsolata</h3>
+<p>A játékosok maximin stratégiái minden véges, kétszemélyes, 0-összegű mátrixjátékban éppen a kevert Nash-egyensúlyoknak felelnek meg.</p>
+<h3 id="neumann-tetel">Neumann-tétel</h3>
+<p>Minden véges, kétszemélyes, 0-összegű mátrixjátékban a sorjátékos minimális várható nyereségének maximuma megegyezik az oszlopjátékos maximális várható veszteségének minimumával.</p>
+<h2 id="9-osztozkodasi-jatek-aranyos-elosztasok-oszt-valaszt-fink-es-tasnadi-eljaras">9. Osztozkodási játék, arányos elosztások. Oszt-választ, Fink- és Tasnádi-eljárás</h2>
+<h3 id="osztozkodasi-jatek">Osztozkodási játék</h3>
+<h3 id="elosztas">Elosztás</h3>
+<p>Elosztás alatt egy olyan <span class="arithmatex">\((A_1, \dots, A_n)\)</span> rendezett <span class="arithmatex">\(n\)</span>-est értünk, ahol:</p>
+<ul>
+<li>Tetszőleges <span class="arithmatex">\(i \in \{1, \dots, n\}\)</span> esetén <span class="arithmatex">\(A_i\)</span> véges sok páronként diszjunkt, balról zárt és jobbról nyílt intervallumoknak az uniója,</li>
+<li><span class="arithmatex">\(A_1, \dots, A_n\)</span> halmazok a <span class="arithmatex">\([0, 1]\)</span> intervallum egy felosztását alkotják (azaz páronként diszjunktak és az uniójuk <span class="arithmatex">\([0,1]\)</span>).</li>
+</ul>
+<h3 id="ertekelo-eloszlasfuggveny">Értékelő eloszlásfüggvény</h3>
+<p>Tetszőleges <span class="arithmatex">\(i \in \{1, \dots, n\}\)</span> esetén adott az <span class="arithmatex">\(i\)</span>-edik játékosnak az <span class="arithmatex">\(f_i\)</span> értékelő eloszlásfüggvénye, melyre a következők teljesülnek:</p>
+<ul>
+<li><span class="arithmatex">\(f_i: [0, 1] \to [0, 1]\)</span>,</li>
+<li>folytonos,</li>
+<li>monoton növekvő,</li>
+<li><span class="arithmatex">\(f_i(0) = 0\)</span>,</li>
+<li><span class="arithmatex">\(f_i(1) = 1\)</span>.</li>
+</ul>
+<p>Az <span class="arithmatex">\(i\)</span>-edik játékos értékelő függvénye egy olyan <span class="arithmatex">\(\mu_i\)</span> függvény, hogy:
+$$
+\mu_i(0) = 0, \quad \mu_i([a, b]) = f_i(b) - f_i(a),
+$$
+és tetszőleges <span class="arithmatex">\(k \in \mathbb{Z}_+\)</span>, <span class="arithmatex">\(0 \leq a_1 &lt; b_1 \leq a_2 &lt; b_2 \leq \dots \leq a_k &lt; b_k \leq 1\)</span> esetén:
+$$
+\mu_i\left(\bigcup_{j=1}^k [a_j, b_j]\right) = \sum_{j=1}^k \big(f_i(b_j) - f_i(a_j)\big).
+$$</p>
+<h3 id="aranyos-elosztas">Arányos elosztás</h3>
+<p>Egy <span class="arithmatex">\((A_1, \dots, A_n)\)</span> elosztás <code>arányos</code>, ha tetszőleges <span class="arithmatex">\(i \in \{1, \dots, n\}\)</span> esetén <span class="arithmatex">\(\mu_i(A_i) \geq 1/n\)</span>.</p>
+<h3 id="irigysegmentes-elosztas">Irigységmentes elosztás</h3>
+<p>Egy <span class="arithmatex">\((A_1, \dots, A_n)\)</span> elosztás irigységmentes, ha tetszőleges <span class="arithmatex">\(i, j \in \{1, \dots, n\}\)</span> esetén <span class="arithmatex">\(\mu_i(A_i) \geq \mu_i(A_j)\)</span>.</p>
+<h3 id="oszt-es-valaszt">Oszt és választ</h3>
+<p>Két játékos esetén az egyik játékos a saját értékelő függvénye szerint két egyenlő részre osztja az elosztandó halmazt, majd a másik játékos kiválasztja ezek közül a saját értékelő függvénye szerint némirosszabbat.</p>
+<h3 id="fink-eljaras">Fink-eljárás</h3>
+<p>Rekurzívan definiáljuk: ha az első <span class="arithmatex">\(n - 1\)</span> játékos már arányosan megosztozott az <span class="arithmatex">\((n - 1)\)</span>-személyes Fink-eljárással, akkor felosztják a saját értékelő függvényük szerint a saját részüket <span class="arithmatex">\(n\)</span> egyenlő  részre, és az <span class="arithmatex">\(n\)</span>-edik játékos mindenkiből választ a saját értékelő függvénye szerint egy-egy legjobb részt.</p>
+<h3 id="tasnadi-eljaras">Tasnádi-eljárás</h3>
+<p>Az első játékos a saját értékelő függvénye szerint <span class="arithmatex">\(n\)</span> egyforma részre osztja az elosztandó halmazt, és mind az <span class="arithmatex">\(n\)</span> részhez előkészít <span class="arithmatex">\(n - 1\)</span> darab jegyet. A <span class="arithmatex">\(k\)</span>-adik játékos mindegyik elvessz <span class="arithmatex">\(n - k\)</span> darab különböző jegyet aszerint, hogy melyik <span class="arithmatex">\(n - 1\)</span> részt értékeli a saját értékelő függvénye szerint a legjobbra. A fel nem használt <span class="arithmatex">\(n - 1\)</span> darab jegy az első játékosnál marad. Ezután az <span class="arithmatex">\(n\)</span> rész mindegyikén <span class="arithmatex">\(n - 1\)</span> játékos osztozkodik tovább a Tasnádi-eljárásnak megfelelő multiplicitással vesz részt.</p>
+<h2 id="10-diszkret-mozgo-keses-es-even-paz-eljaras-irigysegmentes-elosztasok-conway-selfridge-eljaras">10. (Diszkrét) mozgó késes és Even-Paz eljárás. Irigységmentes elosztások, Conway-Selfridge-eljárás</h2>
+<h3 id="a-mozgo-keses-eljaras-diszkret-valtozata">A mozgó késes eljárás diszkrét változata</h3>
+<p>Minden játékos megjelöli a saját értékelő függvénye szerint az aktuálisan legjobbnak tűnő szeletet, ami neki megfelel. A legjobbnak jelölővel rendelkező játékos megkapja a kért szeletét, és a többi játékos a megmaradt intervallumon folytatja az eljárást.</p>
+<h3 id="even-paz-eljaras">Even-Paz-eljárás</h3>
+<p>Minden játékos megjelöli a saját értékelő függvénye szerint <span class="arithmatex">\(\lfloor n/2 \rfloor\)</span>, <span class="arithmatex">\(\lceil n/2 \rceil\)</span>-ig tartó részt. Vágjuk el az intervallumot a balról számított <span class="arithmatex">\(\lfloor n/2 \rfloor\)</span>-edik osztópontnál (a többi játékos által is megjelölt osztópontokat megfelelő multiplicitással számoljuk). A vágástól balra jelölő játékosok a baloldali részen, a többiek a jobboldali részen osztoznak tovább az Even-Paz-eljárással.</p>
+<h3 id="conway-selfridge-eljaras">Conway-Selfridge-eljárás</h3>
+<p>Három játékos osztozkodik: <span class="arithmatex">\(A, B, C\)</span></p>
+<ol>
+<li><span class="arithmatex">\(A\)</span> három egyenlő részre osztja az intervallumot.
+A szeletek <span class="arithmatex">\(B\)</span> preferencia sorrendjében legyenek: <span class="arithmatex">\(X, Y, Z\)</span></li>
+<li><span class="arithmatex">\(B\)</span> <span class="arithmatex">\(X\)</span>-ből levág egy <span class="arithmatex">\(X^*\)</span> darabot úgy, hogy a maradék <span class="arithmatex">\(X'\)</span> és <span class="arithmatex">\(Y\)</span> egyformák legyenek.</li>
+<li><span class="arithmatex">\(X', Y, Z\)</span>-ből <span class="arithmatex">\(C \rightarrow B \rightarrow A\)</span> sorrendben váalsztanak. Ha <span class="arithmatex">\(B\)</span> választhatja <span class="arithmatex">\(X'\)</span>-t, akkor azt választja.</li>
+<li><span class="arithmatex">\(P(X)\)</span>: az <span class="arithmatex">\(X'\)</span>-t megkapó játékos <span class="arithmatex">\(\in \{B, C\} P(\overline{X'}) = B\)</span> és <span class="arithmatex">\(C\)</span> az, aki nem <span class="arithmatex">\(X'\)</span>-t kapta.</li>
+<li><span class="arithmatex">\(P(\overline{X'})\)</span> három egyforma részre osztja az <span class="arithmatex">\(X^*\)</span>-ot, majd ebből választanak
+<span class="arithmatex">\(P(X') \rightarrow A \rightarrow P(\overline{X'})\)</span> sorrendben.</li>
+</ol>
+<h2 id="11-csodjatek-kelmeszabaly-kelmeszabaly-konzisztens-szetosztas-kaminski-fele-kozlekedoedeny-rendszer-a-csodjatek-nukleolusza-aumann-maschler-tetel">11. Csődjáték, kelmeszabály, kelmeszabály-konzisztens szétosztás, Kamiński-féle közlekedőedény-rendszer. A csődjáték nukleólusza, Aumann-Maschler-tétel*</h2>
+<h3 id="kelmeszabaly">Kelmeszabály</h3>
+<ul>
+<li>Ketten osztozkodnak és többet követelnek, mint a vagyon</li>
+<li>Mindketten megkapják a másik által nem követelt részt, míg a vitatott részen egyenlően osztoznak.</li>
+</ul>
+<h3 id="csodproblema">Csődprobléma</h3>
+<p>Meghal egy ember, aki <span class="arithmatex">\(E\)</span> nagyságú vagyont és <span class="arithmatex">\(d_1, d_2,..., d_n\)</span> nagyságú adósságot hagyg hátra. Hogyan kell kifizetni a hitelezőket, ha <span class="arithmatex">\(\sum_id_i &gt; E\)</span>.</p>
+<h4 id="formalis-problema">Formális probléma</h4>
+<p>A <strong>csődproblémát</strong> az <span class="arithmatex">\(E\)</span> vagyon nagyság és a <span class="arithmatex">\(d_1 \leq d_2 \leq \dots \leq d_n\)</span> követelések írják le, ahol <span class="arithmatex">\(0 \leq E \leq d_1 + d_2 + \dots + d_n\)</span>.</p>
+<p><strong>Definíció:</strong>
+A csődprobléma esetén <code>szétosztásnak</code> egy nemnegatív valós számokból álló olyan <span class="arithmatex">\((x_1, x_2, \dots, x_n)\)</span> rendezett <span class="arithmatex">\(n\)</span>-est nevezünk, amire <span class="arithmatex">\(E = x_1 + x_2 + \dots + x_n\)</span>.</p>
+<p>Ha <span class="arithmatex">\(n = 2\)</span>, akkor a ksz egy lehetséges szétosztást adó eljárás.</p>
+<p><strong>Definíció</strong>
+Az <span class="arithmatex">\((x_1, x_2, \dots, x_n)\)</span> szétosztás <code>ksz-konzisztens</code>, ha bármely <span class="arithmatex">\(i, j\)</span>-re az <span class="arithmatex">\(x_i + x_j\)</span> nagyságú vagyon <span class="arithmatex">\(d_i, d_j\)</span> követelésekhez a ksz szabály <span class="arithmatex">\(x_i\)</span> és <span class="arithmatex">\(x_j\)</span> részeket rendel.</p>
+<p><strong>Azaz:</strong> Ha két hitelező az általuk kapott részt a ksz szerint újraosztja, akkor a korábbi jussukat kapják vissza.</p>
+<p><strong>Megfigyelés:</strong>
+A Talmudbeli szétosztások ksz-konzisztensek.</p>
+<p><strong>Kínzó kérdés:</strong>
+Létezik-e minden csődproblémára ksz-konzisztens szétosztás?</p>
+<p><strong>Részleges válasz:</strong>
+Ha van, akkor egyértelmű.</p>
+<h3 id="kaminski-fele-kozlekedoedeny-rendszer">Kamiński-féle közlekedőedény-rendszer</h3>
+<p>Tfh mindkét hitelezőhöz tartozik egy-egy azonos keresztmetszetű, <span class="arithmatex">\(d_1\)</span> ill. <span class="arithmatex">\(d_2\)</span> térfogatú, hengeres tartály. Vágjuk félbe a tartályokat, kössük össze ezeket vékony csövekkel, és töltsük fel <span class="arithmatex">\(E\)</span> (vagyon nagyság) mennyiségű folyadékkal az így kapott közlekedőedény-rendszert.</p>
+<p>„Könnyen” látható, hogy folyadék épp a ksz szerint oszlik meg az egyes tartályokban.</p>
+<p>Így már nem nehéz ksz-konzisztens szétosztást találni: minden hitelezőhöz tartozzon egy-egy követelésnyi térfogatú tartály, kössük össze ezeket vékony csövekkel, és töltsük fel <span class="arithmatex">\(E\)</span> mennyiségű folyadékkal a kapott rendszert.</p>
+<h3 id="a-csodjatek-nukleolusza">A csődjáték nukleólusza</h3>
+<p>Egy <span class="arithmatex">\(S\)</span> koalíció <code>többlete</code> annyi amennyit az értéken felül kap.</p>
+<hr />
+<p>A <code>töbletvektor</code> a többletekből áll, növekvő sorrendben.</p>
+<p>Például:</p>
+<p><span class="arithmatex">\(\theta{(x)} = (33.3, 66.6, 66.6, 100, 100, 133.3)\)</span></p>
+<hr />
+<p>A <code>nukleolusz</code> az a szétosztás, ami lexikografikusan maximalizálja a többletvektort. Azaz: az első
+koordináta maximális, ezen belül a második, stb.</p>
+<h3 id="aumann-maschler-tetel">Aumann-Maschler-tétel</h3>
+<p>A ksz-konzisztens szétosztás a csődjáték nukleólusza.</p>
+<h2 id="12-szavazasi-modell-egyhangu-es-lenyegtelen-alternativaktol-fuggetlen-szavazasi-mechanizmusok-tarsadalmi-valasztasi-fuggvenyek-es-szabalyok-kapcsolata-extrem-alternativa-lemma-az-extrem-alternativakrol">12. Szavazási modell. Egyhangú és lényegtelen alternatíváktól független szavazási mechanizmusok. Társadalmi választási függvények és szabályok kapcsolata. Extrém alternatíva, lemma az extrém alternatívákról</h2>
+<h3 id="szavazasi-modell">Szavazási modell</h3>
+<p>Az alábbi szavazási modellben dolgozunk. Adott a szavazók <span class="arithmatex">\(N = \{1, 2, \dots, n\}\)</span> és az alternatívák <span class="arithmatex">\(A = \{a_1, \dots, a_k\}\)</span> halmaza, <span class="arithmatex">\(L\)</span> pedig az <span class="arithmatex">\(A\)</span> alternatívahalmaz lineáris rendezéseit jelöli.</p>
+<p>Feltesszük, hogy minden szavazó preferenciáját egy <span class="arithmatex">\(L\)</span>-beli lineáris rendezés írja le (az <span class="arithmatex">\(i\)</span>-dik szavazóét <span class="arithmatex">\(\preceq_i\)</span> jelöli), és rögzítjük, hogy a szavazás végeredménye csak ezektől a preferenciáktól függhet, ahol <span class="arithmatex">\(a \prec_i b\)</span> jelentése az, hogy az <span class="arithmatex">\(i\)</span>-dik szavazó számára a <span class="arithmatex">\(b\)</span> alternatíva jobb az <span class="arithmatex">\(a\)</span> alternatívánál. A <span class="arithmatex">\(\preceq\)</span> preferenciarendezés szerint legjobban preferált alternatívát <span class="arithmatex">\(Top(\preceq)\)</span> jelöli.</p>
+<p><strong>Választási profil</strong> egy, a szavazók preferenciáit felsoroló <span class="arithmatex">\(\Pi = (\preceq_1, \dots, \preceq_n)\)</span>
+vektor. A szavazás kimenetele pedig egy függvény által meghatározott <span class="arithmatex">\(L\)</span>-beli közös preferenciarendezés
+ vagy egy <span class="arithmatex">\(A\)</span>-beli alternatíva.</p>
+<p><strong>Társadalmi választási szabály (TVSZ)</strong> alatt egy <span class="arithmatex">\(F : L^n \to L\)</span> függvényt,<br />
+<strong>Társadalmi választási függvény (TVF)</strong> alatt pedig egy <span class="arithmatex">\(F : L^n \to A\)</span> leképezést értünk.</p>
+<h3 id="egyhangu-es-lenyegtelen-alternativaktol-fuggetlen-szavazasi-mechanizmusok">Egyhangú és lényegtelen alternatíváktól független szavazási mechanizmusok</h3>
+<p>Az <span class="arithmatex">\(F\)</span> TVSZ <code>egyhangú</code>, ha minden <span class="arithmatex">\((a,b)\)</span> alternatívapárra igaz az alábbi tulajdonság.
+Ha <span class="arithmatex">\(a \preceq_i b\)</span> minden 1 <span class="arithmatex">\(i\)</span>-re akkor <span class="arithmatex">\(a \preceq b\)</span> teljesül a <span class="arithmatex">\(\preceq = F(\Pi)\)</span> közös döntésre.</p>
+<p>Az <span class="arithmatex">\(F\)</span> <strong>TVSZ</strong> <code>független a lényegtelen alternatíváktól</code>, ha minden <span class="arithmatex">\((a, b)\)</span> alternatívapárra az alábbi tulajdonság teljesül.</p>
+<p>Ha <span class="arithmatex">\(\Pi = (\preceq_1, \dots, \preceq_n)\)</span> és <span class="arithmatex">\(\Pi' = (\preceq'_1, \dots, \preceq'_n)\)</span> olyan választási profilok, amelyekben minden szavazó egyformán rendezi az <span class="arithmatex">\((a, b)\)</span> párt, akkor az <span class="arithmatex">\(F(\Pi)\)</span> és <span class="arithmatex">\(F(\Pi')\)</span> közös preferenciák is egyformán rendezik az <span class="arithmatex">\((a, b)\)</span> párt.</p>
+<p><strong>Ugyanez formulákkal, precízen:</strong></p>
+<p>Ha <span class="arithmatex">\((a \preceq_i b \iff a \preceq'_i b \ \forall i \in N)\)</span> akkor <span class="arithmatex">\((a \preceq b \iff a \preceq' b),\)</span> ahol <span class="arithmatex">\(\preceq = F(\Pi)\)</span> és <span class="arithmatex">\(\preceq' = F(\Pi')\)</span>.</p>
+<p>Ilyen mechanizmusok:</p>
+<ul>
+<li>
+<p><code>Jóváhagyásos szavazás:</code></p>
+<ol>
+<li><strong>Szavazás:</strong> Minden szavazó tetszőleges számú alternatívát jóváhagyhat</li>
+<li><strong>Győztes:</strong> Az az alternatíva nyer, amelyiket a legtöbben jóváhagyták.</li>
+</ol>
+</li>
+<li>
+<p><code>Többségi szavazás:</code></p>
+<ol>
+<li><strong>Szavazás:</strong> Minden szavazó egy alternatívát választ.</li>
+<li><strong>Győztes:</strong> Az az alternatíva nyer, amelyiket a legtöbben választottak.</li>
+</ol>
+</li>
+<li>
+<p><code>Borda-szavazás:</code></p>
+<ol>
+<li><strong>Rangsorolás:</strong> Minden szavazó rangsorolja az összes alternatívát. Ha van <span class="arithmatex">\(( k )\)</span> alternatíva, akkor az első helyezett <span class="arithmatex">\((k-1)\)</span> pontot kap, a második helyezett <span class="arithmatex">\((k-2 )\)</span> pontot, és így tovább, az utolsó helyezett 0 pontot kap.</li>
+<li><strong>Pontok összesítése:</strong> Az összes szavazó által adott pontokat összeadják minden alternatívára.</li>
+<li><strong>Győztes meghatározása:</strong> Az az alternatíva nyer, amelyik a legtöbb pontot kapta.</li>
+</ol>
+</li>
+<li>
+<p><code>Copeland-szavazás</code></p>
+<ol>
+<li><strong>Páros összehasonlítások:</strong> Minden alternatívát összehasonlítanak minden más alternatívával egy-egy páros versenyben. Az egyes páros versenyekben az az alternatíva nyer, amelyik több szavazatot kap.</li>
+<li><strong>Pontozás:</strong> Minden alternatíva kap egy pontot minden egyes nyert páros versenyért, és fél pontot minden döntetlenért.</li>
+<li><strong>Győztes meghatározása:</strong> Az az alternatíva nyer, amelyik a legtöbb pontot gyűjtötte össze a páros versenyek során.</li>
+</ol>
+</li>
+<li>
+<p><code>Condorcet-szavazás</code></p>
+<ol>
+<li><strong>Páros összehasonlítások:</strong> Minden alternatívát összehasonlítanak minden más alternatívával egy-egy páros versenyben. Az egyes páros versenyekbennaz az alternatíva nyer, amelyik több szavazatot kap.</li>
+<li><strong>Győztes meghatározása:</strong> Az az alternatíva nyer, amelyik minden más alternatívával szemben nyer.</li>
+</ol>
+</li>
+</ul>
+<h3 id="extrem-alternativa">Extrém alternatíva</h3>
+<p>Az alternatívák egy <span class="arithmatex">\(\preceq\)</span> rendezésében a <span class="arithmatex">\(\preceq\)</span> szerinti legjobb és legrosszabb alternatívát <code>extrémnek</code> nevezzük.</p>
+<h3 id="lemma-az-extrem-alternativakrol">Lemma az extrém alternatívákról</h3>
+<p>Tegyük fel, hogy az <span class="arithmatex">\(F\)</span> TVSZ független a lényegtelen alternatíváktól. Ha ekkor T extrém alternatíva a <span class="arithmatex">\(\Pi\)</span> választási profilban szereplő minden <span class="arithmatex">\(\preceq_i\)</span> preferenciarendezésben, akkor T extrém alternatíva a közös <span class="arithmatex">\(F(\Pi)\)</span> rendezésben is.</p>
+<h2 id="13-jovahagyasos-tobbsegi-diktatorikus-szavazas-borda-es-copeland-szavazasok-condorcet-gyoztes-condorcet-konzisztencia-arrow-tetel">13. Jóváhagyásos, többségi, diktatórikus szavazás. Borda- és Copeland-szavazások. Condorcet-győztes, Condorcet-konzisztencia. Arrow-tétel*</h2>
+<ul>
+<li>
+<p><code>Jóváhagyásos szavazás:</code></p>
+<ol>
+<li><strong>Szavazás:</strong> Minden szavazó tetszőleges számú alternatívát jóváhagyhat</li>
+<li><strong>Győztes:</strong> Az az alternatíva nyer, amelyiket a legtöbben jóváhagyták.</li>
+</ol>
+</li>
+<li>
+<p><code>Többségi szavazás:</code></p>
+<ol>
+<li><strong>Szavazás:</strong> Minden szavazó egy alternatívát választ.</li>
+<li><strong>Győztes:</strong> Az az alternatíva nyer, amelyiket a legtöbben választottak.</li>
+</ol>
+</li>
+<li>
+<p><code>Borda-szavazás:</code></p>
+<ol>
+<li><strong>Rangsorolás:</strong> Minden szavazó rangsorolja az összes alternatívát. Ha van <span class="arithmatex">\(( k )\)</span> alternatíva, akkor az első helyezett <span class="arithmatex">\((k-1)\)</span> pontot kap, a második helyezett <span class="arithmatex">\((k-2 )\)</span> pontot, és így tovább, az utolsó helyezett 0 pontot kap.</li>
+<li><strong>Pontok összesítése:</strong> Az összes szavazó által adott pontokat összeadják minden alternatívára.</li>
+<li><strong>Győztes meghatározása:</strong> Az az alternatíva nyer, amelyik a legtöbb pontot kapta.</li>
+</ol>
+</li>
+<li>
+<p><code>Diktatórikus szavazás:</code></p>
+<ol>
+<li><strong>Szavazás:</strong> Egy diktátor minden szavazásban egy alternatívát választ.</li>
+<li><strong>Győztes:</strong> Az a alternatíva nyer, amelyiket a diktátor választott.</li>
+</ol>
+</li>
+<li>
+<p><code>Copeland-szavazás</code>(<em>Concordet konzisztens</em>)</p>
+<ol>
+<li><strong>Páros összehasonlítások:</strong> Minden alternatívát összehasonlítanak minden más alternatívával egy-egy páros versenyben. Az egyes páros versenyekben az az alternatíva nyer, amelyik több szavazatot kap.</li>
+<li><strong>Pontozás:</strong> Minden alternatíva kap egy pontot minden egyes nyert páros versenyért, és fél pontot minden döntetlenért.</li>
+<li><strong>Győztes meghatározása:</strong> Az az alternatíva nyer, amelyik a legtöbb pontot gyűjtötte össze a páros versenyek során.</li>
+</ol>
+</li>
+</ul>
+<h3 id="condorcet-gyoztes">Condorcet-győztes</h3>
+<p>Az az alternatíva, amelyik minden más alternatívával szemben nyer a páros versenyekben.</p>
+<ul>
+<li>
+<p><code>Condorcet-szavazás</code></p>
+<ol>
+<li><strong>Páros összehasonlítások:</strong> Minden alternatívát összehasonlítanak minden más alternatívával egy-egy páros versenyben. Az egyes páros versenyekben az az alternatíva nyer, amelyik több szavazatot kap.</li>
+<li><strong>Győztes meghatározása:</strong> Az az alternatíva nyer, amelyik minden más alternatívával szemben nyer.</li>
+</ol>
+</li>
+</ul>
+<h3 id="condorcet-konzisztencia">Condorcet-konzisztencia</h3>
+<p>Egy szavazási mechanizmus <code>Condorcet-konzisztens</code>, ha a Condorcet-győztes nem veszíthet.</p>
+<h3 id="arrow-tetel">Arrow-tétel</h3>
+<p>Ha <span class="arithmatex">\(|A| &gt; 2\)</span>, továbbá az <span class="arithmatex">\(F\)</span> TVSZ egyhangú és független a lényegtelen alternatíváktól, akkor <span class="arithmatex">\(F\)</span> diktatórikus.</p>
+<h2 id="14-szavazasi-mechanizmusok-manipulalhatosaga-es-taktikazasbiztossaga-gibbard-satterthwaite-tet">14. Szavazási mechanizmusok manipulálhatósága és taktikázásbiztossága. Gibbard-Satterthwaite-tét</h2>
+<h3 id="manipulalhatosag">Manipulálhatóság</h3>
+<p>Az <span class="arithmatex">\(f : L^n \rightarrow A\)</span> TVF manipulálható, ha van olyan <span class="arithmatex">\(\Pi = (\preceq_1,...,\preceq_n)\)</span> választási profil és <span class="arithmatex">\(\preceq_i'\)</span> preferenciarendezés, amire <span class="arithmatex">\(f(\Pi) \preceq_i f(\Pi_{-i}, \preceq_i')\)</span> teljesül. Ha egy <span class="arithmatex">\(f\)</span> TVF nem manipulálható, akkor <span class="arithmatex">\(f\)</span>-et taktikázásbiztosnak is nevezzük.</p>
+<h3 id="szurjektivitas">Szürjektívítás</h3>
+<p>Az <span class="arithmatex">\(f : L^n \rightarrow A\)</span> TVF szürjektív, ha minden <span class="arithmatex">\(a \in A\)</span> alternatíva esetén van olyan <span class="arithmatex">\(\Pi = (\preceq_1,...,\preceq_n)\)</span> választási profil, amire <span class="arithmatex">\(f(\Pi) = a\)</span>.</p>
+<p>Vagyis szurjektivitás a szavazási elméletben azt jelenti, hogy az alternatívák halmazában (<span class="arithmatex">\(A\)</span>) minden lehetséges kimenetelhez (alternatívához) létezik legalább egy olyan szavazási profil (<span class="arithmatex">\(\Pi\)</span>), amelyben az adott kimenetel kerül kiválasztásra. Ez biztosítja, hogy a szavazási függvény (<span class="arithmatex">\(f\)</span>) bármilyen lehetséges kimenetelt elő tud állítani a megfelelő szavazói preferenciák megadása esetén.</p>
+<h3 id="gibbard-satterthwaite-tetel">Gibbard-Satterthwaite-tétel</h3>
+<p>Ha az <span class="arithmatex">\(f\)</span> TVF taktikázásbiztos, szürjektív és <span class="arithmatex">\(|A| \geq 3\)</span>, akkor <span class="arithmatex">\(f\)</span> diktatórikus.</p>
+<h2 id="15-arveresi-mechanizmusok-taktikazasbiztossag-szubvencio-es-vesztesegmentesseg-masodik-aras-arveres-clarke-szaballyal-definialt-vickrey-clarke-groves-mechanizmus-es-annak-taktikazasbiztossaga">15. Árverési mechanizmusok, taktikázásbiztosság, szubvenció- és veszteségmentesség. Második áras árverés, Clarke-szabállyal definiált Vickrey-Clarke-Groves-mechanizmus, és annak taktikázásbiztossága*</h2>
+<p>Adott a licitálók <span class="arithmatex">\(N = \{1, 2, \dots, n\}\)</span> és az alternatívák <span class="arithmatex">\(A\)</span> halmaza. Az <span class="arithmatex">\(i\)</span>-edik licitáló számára az <span class="arithmatex">\(a \in A\)</span> alternatíva értékét <span class="arithmatex">\(\hat{v_i}(a) \in \mathbb{R}\)</span> jelöli. Ennyi pénzt ér meg az <span class="arithmatex">\(i\)</span>-edik licitáló számára az a kimenet, hogy a végső döntés az alternatíva kiválasztása. Az árverés során minden licitálónak meg kell adnia egy licitet. A licit nem más, mint minden alternatívához egy licitérték hozzárendelése. Az <span class="arithmatex">\(i\)</span>-edik licitáló licitje tehát egy <span class="arithmatex">\(v_i : A \to \mathbb{R}\)</span> függvény, ahol <span class="arithmatex">\(v_i(a)\)</span> jelenti az <span class="arithmatex">\(i\)</span>-edik licitálónak az $ a $ alternatívára vonatkozó licitjét. Az <span class="arithmatex">\(i\)</span>-edik licitáló lehetséges licitjeinek halmazát <span class="arithmatex">\(S_i\)</span> jelöli, <span class="arithmatex">\(S = S_1 \times S_2 \times \cdots \times S_n\)</span> pedig a lehetséges licitprofilok halmaza: ha <span class="arithmatex">\(v \in S\)</span>, akkor <span class="arithmatex">\(v = (v_1, \dots, v_n)\)</span>. (Itt is elkövettük a jelölésrendszer korábban megszokott abúzusát, és <span class="arithmatex">\((v_{-i}, \hat{v}_i)\)</span>-val ezt a licitprofilt jelöljük, amit <span class="arithmatex">\(v\)</span>-ből úgy kapunk, hogy az <span class="arithmatex">\(i\)</span>-edik licitjét <span class="arithmatex">\(v_i\)</span>-ből <span class="arithmatex">\(\hat{v}_i\)</span>-re cseréljük.)</p>
+<h3 id="arveresi-mechanizmusok">Árverési mechanizmusok</h3>
+<p>Az árverési mechanizmus egy <span class="arithmatex">\(\mathcal{M} = (f, p_1, \dots, p_n)\)</span> <span class="arithmatex">\((n + 1)\)</span>-es, ahol <span class="arithmatex">\(f : S \to A\)</span> és <span class="arithmatex">\(p_i : S \to \mathbb{R}\)</span> függvények. Az <span class="arithmatex">\(\mathcal{M}\)</span> árverési mechanizmus a következőképp működik: a licitálók licitjei alapján az <span class="arithmatex">\(f\)</span> licitprofil független alternatívát választ ki, azaz <span class="arithmatex">\(f(v) \in A\)</span>, és ezért a licitálók kifizetéseit a <span class="arithmatex">\(p\)</span> függvények írják le, azaz <span class="arithmatex">\(i\)</span>-edik konkrétan <span class="arithmatex">\(p_i(v)\)</span> összeget fizet. Miután ez az árverés lezajlott, az <span class="arithmatex">\(i\)</span>-edik licitáló nyeresége a kimeneti alternatíva értéke az <span class="arithmatex">\(i\)</span>-edik licitáló számára különbsége a kifizetése és a választott alternatíva értéke között :</p>
+<div class="arithmatex">\[
+u_i(v) = v_i(f(v)) - p_i(v).
+\]</div>
+<h3 id="taktikazasbiztossag">Taktikázásbiztosság</h3>
+<p>Egy fontos tulajdonság, a <strong>taktikázásbiztosság</strong> azt jelenti, hogy az <span class="arithmatex">\(i\)</span>-edik licitáló úgy ér el maximális nyereséget, ha az igazat mondja, azaz valódi értékfüggvényét adja meg licitként, minden esetben, amikor az összes többi licitáló is így tesz. Az ilyen árverési mechanizmusokat taktikázásbiztosnak nevezzük. A pontos definíció a következő:</p>
+<p>Az <span class="arithmatex">\(\mathcal{M} = (f, p_1, \dots, p_n)\)</span> árverési mechanizmus <code>taktikázásbiztos</code>, ha</p>
+<div class="arithmatex">\[
+u_i(v_{-i}, \hat{v}_i) \leq u_i(v_{-i}, v_i)
+\]</div>
+<p>teljesül minden <span class="arithmatex">\(v \in S\)</span> licitprofilra és minden <span class="arithmatex">\(i \in N\)</span> licitálóra.</p>
+<h3 id="szubvencio-es-vesztesegmentesseg">Szubvenció- és veszteségmentesség</h3>
+<p>Egy konkrét VCG-mechanizmust akkor nevezünk <code>szubvenciómentesnek</code>, ha <span class="arithmatex">\(p_i(v) ≥ 0\)</span> teljesül minden <span class="arithmatex">\(v ∈ S\)</span> licitprofil és minden <span class="arithmatex">\(i ∈ N\)</span> licitáló esetén.</p>
+<p>Egy konkrét VCG-mechanizmust akkor nevezünk <code>veszteségmentesnek</code>, hogyha egy licitáló őszintén licitál, akkor nem éri veszteség.</p>
+<h3 id="masodik-aras-arveres">Második áras árverés</h3>
+<p>Minden licitáló megad egy licitet, és a nyertes az lesz, aki a legtöbbet ajánlja. A nyertes a második legmagasabb licit összegét fizeti.</p>
+<h3 id="clarke-szaballyal-definialt-vickrey-clarke-groves-mechanizmus-es-annak-taktikazasbiztossaga">Clarke-szabállyal definiált Vickrey-Clarke-Groves-mechanizmus, és annak taktikázásbiztossága*</h3>
+<h4 id="clarke-szabaly">Clarke-szabály</h4>
+<div class="arithmatex">\[
+h_i(\underline{V_{-i}}) = max_{a \in A}\sum_{i \neq j}v_j(a)
+\]</div>
+<h4 id="vickrey-clarke-groves-mechanizmus">Vickrey-Clarke-Groves-mechanizmus</h4>
+<p><span class="arithmatex">\(\underline{V}_{-i} \in S\)</span>-re <span class="arithmatex">\(f(\underline{V})\)</span> az az <span class="arithmatex">\(a\in A\)</span> alternatíva, ami maximalizálja a <span class="arithmatex">\(V_1(a) + V_2(a) + \dots + V_n(a)\)</span> összértéket.</p>
+<p><span class="arithmatex">\(p_i(\underline{V}) = h_i(\underline{V}_{-i}) - \sum_{j \neq i}v_j(f(\underline{X}))\)</span>, ahol <span class="arithmatex">\(h_i\)</span> egy rögzített függvény.</p>
+<p><strong><em>taktikázásbiztos</em></strong></p>
+<h2 id="16-ujraosztasi-feladat-eros-mag-felso-korcsere-ttc-algoritmus-shapley-scarf-tetel">16. Újraosztási feladat, erős mag. Felső körcsere (TTC) algoritmus. Shapley-Scarf-tétel*</h2>
+<h3 id="ujraosztasi-feladat">Újraosztási feladat</h3>
+<p>Az újraelosztási feladatban minden játékos rendelkezik egy-egy jószággal, és bár ennél többre nincs ugyan szüksége, irigyelheti más játékos jószágát. Úgy szeretnénk újraelosztani a játékosok között a javaikat, hogy senki se járjon rosszul (ami önmagában nem nehéz: mindenki tartsa meg a maga jószágát), és emellett mindenki a számára lehető legjobbat kapja a számára elérhető jószágok közül. Az irodalomban lakáspiac néven fut ez a modell, aholis a játékosok <span class="arithmatex">\(N = \{1,2,..., n\}\)</span> halmazának elemei a lakástulajdonosok, a jószágok pedig a lakásaik. Minden lakástulajdonos rendelkezik egy preferenciarendezéssel a piacon található lakásokon (az i tulajdonosét, jelöli), ami formálisan egy lineáris rendezés az N halmazon: <span class="arithmatex">\(j \preceq_i k\)</span> azt jelenti, hogy az <span class="arithmatex">\(i\)</span> tulajdonos számára a <span class="arithmatex">\(k\)</span> tulajdonos lakása jobb, mint a j tulajdonosé. A probléma inputja tehát a tulajdonosok N halmaza és a <span class="arithmatex">\(\Pi = (\preceq_1,...,\preceq_n) \in P^n\)</span> preferenciaprofil, ahol <span class="arithmatex">\(P\)</span> jelöli az <span class="arithmatex">\(N\)</span> halmaz lineáris rendezéseinek halmazát. Az újraelosztási mechanizmus egy <span class="arithmatex">\(f: P^n \rightarrow S_N\)</span> leképezés, ahol <span class="arithmatex">\(S_y\)</span> az <span class="arithmatex">\(N\)</span> halmaz permutációinak halmazát jelöli. A mechanizmus által szolgáltatott konkrét újraelosztást az <span class="arithmatex">\(f(\Pi) = \sigma\)</span> output-permutáció írja le: <span class="arithmatex">\(\sigma(i) = j\)</span> azt jelenti, hogy az <span class="arithmatex">\(i\)</span> lakástulajdonos a <span class="arithmatex">\(j\)</span> tulajdonos lakását kapja a sajátjáért cserébe (amit persze a <span class="arithmatex">\(σ^{-1} (i)\)</span> tulajdonos fog elfoglalni). Az újraelosztási mechanizmussal kap- csolatban természetes az alábbi elvárás.</p>
+<h4 id="gyengen-blokkolo-koalicio">Gyengén blokkoló koalíció</h4>
+<p>Legyen <span class="arithmatex">\(σ∈ S_N\)</span> egy rögzített újraelosztás. Lakástulajdonosok egy <span class="arithmatex">\(B \subseteq N\)</span> halmaza a <span class="arithmatex">\(\sigma\)</span> újraelosztást gyengén blokkoló koalíciót alkot, ha a <span class="arithmatex">\(B\)</span>-beli tulajdonosok el tudják osztani a saját lakásaikat egymás között úgy, hogy senki se járjon rosszabbul, mint a <span class="arithmatex">\(\sigma\)</span> újraelosztás mellett, és legalább egy <span class="arithmatex">\(B\)</span>-beli tulajdonos helyzete határozottan javuljon <span class="arithmatex">\(\sigma\)</span>-hoz képest. Formálisan: a <span class="arithmatex">\(B\)</span> halmaz akkor blokkolja gyengén <span class="arithmatex">\(\sigma\)</span>-t, ha van olyan ∈ S_B permutáció <span class="arithmatex">\(B\)</span>-n és olyan <span class="arithmatex">\(i ∈ B\)</span> tulajdonos, hogy <span class="arithmatex">\(\sigma(i) \preceq_i π(i)\)</span> mellett <span class="arithmatex">\(\sigma(j) \preceq_j π(j)\)</span> teljesül minden <span class="arithmatex">\(j ∈ B\)</span> lakástulajdonosra.
+Az erős mag mindazon <span class="arithmatex">\(\sigma∈ S_N\)</span> újraelosztásokból áll, amelyeket egyetlen koalíció sem blokkol gyengén.</p>
+<h3 id="eros-mag">Erős mag</h3>
+<p>Az erős mag azon <span class="arithmatex">\(\sigma \in S_N\)</span> újraelosztások halmaza, amelyeket egyetlen koalíció sem blokkol gyengén.</p>
+<h3 id="ttc-algoritmus">TTC algoritmus</h3>
+<p>Minden tulajdonos rámutat a számára legjobb lakásra(akár a sajátjára). Gráfként ábrázolva minden ki-fok = 1 --&gt; létezik kör.</p>
+<p><span class="arithmatex">\(N_1\)</span>: Kör mentén a <span class="arithmatex">\(\rightarrow\)</span> lakástulajdonosok halmaza</p>
+<p><span class="arithmatex">\(N_1\)</span> Cserél egymás közt a kör mentén és az eljárást <span class="arithmatex">\(N - N_1\)</span>-en folytatjuk.</p>
+<p>Az eljárárás végén kapjuk a <span class="arithmatex">\(\sigma\)</span> szétosztást.</p>
+<h3 id="shapley-scarf-tetel">Shapley-Scarf-tétel</h3>
+<p>A TTC outputja  az erős mag egyetlen eleme.</p>
+<h2 id="17-csoportos-taktikazasbiztossag-fogalma-a-felso-korcsere-algoritmus-csoportos-taktikazasbiztossaga-piaci-egyensuly-letezese-es-eros-magbelisege">17. Csoportos taktikázásbiztosság fogalma, a felső körcsere algoritmus csoportos taktikázásbiztossága*, Piaci egyensúly létezése és erős magbelisége*</h2>
+<h3 id="csoportos-taktikazasbiztossag">Csoportos taktikázásbiztosság</h3>
+<p>Egy mechanizmus akkor <code>csoportosan taktikázásbiztos</code>, ha a lakástulajdonosok egyetlen részhalmaza sem képes úgy meghamisítani a preferenciáit, hogy a mechanizmus futtatása után egyikük se járjon rosszabbul, mint a valódi preferenciáik megadásával, de legyen közöttük legalább egy olyan lakástulajdonos, aki határozottan profitál a hamisításból.</p>
+<h3 id="felso-korcsere-algoritmus-csoportos-taktikazasbiztossaga">Felső körcsere algoritmus csoportos taktikázásbiztossága*</h3>
+<p>A felső körcsere algoritmus csoportosan taktikázásbiztos a lakáspiac-modellben megfogalmazott újraelosztási feladatra.</p>
+<p><strong>Bizonyítás:</strong></p>
+<p>Tegyük fel, hogy a felső körcsere algoritmus outputja a <span class="arithmatex">\(\sigma = f(\Pi)\)</span> permutáció, <span class="arithmatex">\(M \subseteq N\)</span> a lakástulajdonosok egy tetszőleges részhalmaza és és <span class="arithmatex">\(\Pi_M \in P^{|M|}\)</span> egy preferenciaprofil <span class="arithmatex">\(M\)</span>-en. Futtassuk a felső körcsere algoritmust a <span class="arithmatex">\(\Pi\)</span> és a <span class="arithmatex">\(\Pi' = (\Pi_{-M}, \Pi_M)\)</span> profilokon, utóbbi esetben az <span class="arithmatex">\(M\)</span>-beli tulajdonosok <span class="arithmatex">\(\Pi\)</span>-beli preferenciáit cseréljük ki a <span class="arithmatex">\(\Pi_M\)</span>-beliekre. Azt fogjuk igazolni, hogy ha <span class="arithmatex">\(σ' = f(Π') ≠ 0\)</span>, akkor van olyan <span class="arithmatex">\(M\)</span>-beli tulajdonos, aki rosszabb lakást kap az ügyeskedés miatt, azaz <span class="arithmatex">\(\sigma'(i) \preceq_i \sigma(i)\)</span>.</p>
+<p><span class="arithmatex">\(\Pi\)</span>-n ill. <span class="arithmatex">\(\Pi'\)</span>-n futtatott TTC által eliminált közös körökben szereplő tulajdonosok elhagyásával elérhetjük, hogy a felső körcsere algoritmus futtatásával kapott <span class="arithmatex">\(\sigma\)</span> és <span class="arithmatex">\(\sigma'\)</span> kimenetekben szereplő körök páronként különbözők legyenek. Legyen tehát <span class="arithmatex">\(C\)</span> a legelső cserekör, amit a <span class="arithmatex">\(\Pi\)</span> profilon futtatott felső körcsere algoritmus megtalál. A feltevés miatt C-ben van olyan <span class="arithmatex">\(i\)</span> tulajdonos, akire <span class="arithmatex">\(σ(i) ≠ \sigma'\)</span>(i), azaz különböző lakást kap, mint ha <span class="arithmatex">\(\Pi'\)</span>-n futtatnánk a TTC-t. Ekkor <span class="arithmatex">\(σ' (i) \preceq_i σ(i)\)</span>, hiszen <span class="arithmatex">\(σ(i)\)</span> első helyen áll az <span class="arithmatex">\(i\)</span> tulajdonos preferenciarendezésében. Ez egyúttal azt is jelenti, hogy <span class="arithmatex">\(\preceq_i'≠ \preceq_i\)</span>, azaz az <span class="arithmatex">\(i\)</span> tulajdonos nem a <span class="arithmatex">\(\Pi\)</span>-beli preferenciáival vesz részt a TTC-ben, ezért aztán <span class="arithmatex">\(i ∈ M\)</span>. Ezek szerint az <span class="arithmatex">\(M\)</span>-beli tulajdonosok nem tudják sikeresen manipulálni a TTC algoritmust, ez pedig a tételben állított csoportos taktikázásbiztosságot igazolja</p>
+<h3 id="piaci-egyensuly-letezese-es-eros-magbelisege">Piaci egyensúly létezése és erős magbelisége*</h3>
+<p>Az <span class="arithmatex">\(N\)</span> tulajdonsághalmaz és <span class="arithmatex">\(\Pi = (\preceq_1,...,\preceq_n)\)</span> preferenciaprofil által meghatározott lakáspiacon a <span class="arithmatex">\(p : N \rightarrow \mathbb{R}_+\)</span> leképezés és <span class="arithmatex">\(\sigma \in S_N\)</span> együttesét <code>piaci egyensúlynak</code> nevezzük, ha <span class="arithmatex">\(p(\sigma(i)) \leq p(i)\)</span> melett <span class="arithmatex">\(i \preceq_i j \Rightarrow p(j) &gt; p(i)\)</span> teljesül minden <span class="arithmatex">\(i, j \in N\)</span> esetén.</p>
+<h4 id="lemma">Lemma</h4>
+<p>Tegyük fel, hogy <span class="arithmatex">\((p, \sigma)\)</span> piaci egyensúly az <span class="arithmatex">\((N, \Pi)\)</span> lakáspiacon és <span class="arithmatex">\(C\)</span> egyolyan kör, aminek a mentén a tulajdonosok lakást cserélnek a <span class="arithmatex">\(\sigma\)</span> permutációban. Ekkor <span class="arithmatex">\(p(i) = p(j)\)</span> teljesül minden <span class="arithmatex">\(i, j \in C\)</span> tulajdonosra, azaz a piaci egyensúlyban szereplő lakáscserék során minden tulajdonos a lakásának teljes vételárát az új lakásra fordítja.</p>
+<h3 id="eros-magbeliseg">Erős magbeliség</h3>
+<p>Tegyük fel, hogy <span class="arithmatex">\((p, \sigma)\)</span> piaci egyensúly az <span class="arithmatex">\((N, \Pi)\)</span> lakáspiacon. Ekkor <span class="arithmatex">\(\sigma\)</span> az <code>erős mag egyik eleme</code>.</p>
+<h2 id="18-stabil-parositasok-eltorlesi-lemma-lanykero-algoritmus-fiu-optimalitas-stabil-parositasok-altal-fedett-csucshalmaz">18. Stabil párosítások. Éltörlési lemma, lánykérő algoritmus, fiú-optimalitás. Stabil párosítások által fedett csúcshalmaz</h2>
+<h3 id="stabil-parositasok">Stabil párosítások</h3>
+<p>Az általános házassági modellben dolgozunk. A játékosok mindegyike vagy fiú vagy lány és a köztük lehetséges házasságokat egy <span class="arithmatex">\(G\)</span> páros gráf írja le: ennek színosztályai a fiúk <span class="arithmatex">\(F\)</span> és a lányok <span class="arithmatex">\(L\)</span> halmazai, és egy <span class="arithmatex">\(f\)</span> él jelentése az, hogy <span class="arithmatex">\(f\)</span> és <span class="arithmatex">\(l\)</span> között lehetséges a házasság. Minden játékos rendelkezik egy <span class="arithmatex">\(\preceq_a\)</span> lineáris preferenciarendezéssel az <span class="arithmatex">\(a\)</span>-ra illeszkedő éleken, azaz a potenciális házastársain. A cél egy <span class="arithmatex">\(M\)</span> párosítás mentén úgy összeházasítani a játékosokat, hogy lehetőleg senki se legyen elégedetlen. Ez utóbbi feltétel most a maghoz tartozást jelenti, azaz ne legyen az <span class="arithmatex">\(M\)</span> párosítás mellett blokkoló koalíció. Játékosok egy <span class="arithmatex">\(B\)</span> részhalmaza akkor blokkoló koalíció <span class="arithmatex">\(M\)</span>-re nézve ha a <span class="arithmatex">\(B\)</span>-beli játékosok képesek arra, hogy önerőből javítsák a helyzetüket, azaz ha van olyan <span class="arithmatex">\(N\)</span> párosítás <span class="arithmatex">\(B\)</span>-n, ami egyetlen <span class="arithmatex">\(B\)</span>-beli játékos számára sem rosszabb <span class="arithmatex">\(M\)</span>-nél, de van legalább egy olyan <span class="arithmatex">\(B\)</span>-beli játékos, aki <span class="arithmatex">\(N\)</span>-nel jobban jár, mint <span class="arithmatex">\(M\)</span>-mel. Utóbbi kitétel azt jelenti, hogy <span class="arithmatex">\(b\)</span> jobb párt kap <span class="arithmatex">\(N\)</span>-ben, mint <span class="arithmatex">\(M\)</span>-ben, vagy pedig <span class="arithmatex">\(b\)</span> fedetlen <span class="arithmatex">\(M\)</span>-ben, de van párja <span class="arithmatex">\(N\)</span>-ben.</p>
+<p>Vizsgáljuk meg, hogyan is néz ki egy blokkoló koalíció! Tegyük fel, hogy a <span class="arithmatex">\(B\)</span> koalíció az <span class="arithmatex">\(N\)</span> párosítás mentén blokkolja az <span class="arithmatex">\(M\)</span> párosítást. Van tehát egy olyan <span class="arithmatex">\(ba ∈ N\)</span> él, amivel <span class="arithmatex">\(b\)</span> jobban jár az <span class="arithmatex">\(M\)</span>-beli helyzetéhez képest. Ez azt jelenti, hogy a nem <span class="arithmatex">\(b\)</span>-val élő párban <span class="arithmatex">\(M\)</span>-ben, és mivel <span class="arithmatex">\(a ∈ B\)</span> is teljesül, ezért <span class="arithmatex">\(a\)</span>-nak is jobban kell járnia a <span class="arithmatex">\(ba\)</span> éllel, mint <span class="arithmatex">\(M\)</span>-mel. Ez azt jelenti, hogy tetszőleges <span class="arithmatex">\(B\)</span> blokkoló koalíció tartalmaz egy kétfős blokkoló koalíciót. Ezért a maghoz tartozás eldöntésekor a fenti definíció helyett elegendő csupán annyit megkövetelni, hogy ne legyen blokkoló él, azaz kétfős blokkoló koalíció.</p>
+<p>Adott a <span class="arithmatex">\(G = (V, E)\)</span> gráf és minden <span class="arithmatex">\(v ∈ V\)</span> csúcshoz a <span class="arithmatex">\(v\)</span>-re illeszkedő élek <span class="arithmatex">\(E(v)\)</span> halmaza, ahol a <span class="arithmatex">\(v\)</span> csúcs preferenciáját leíró <span class="arithmatex">\(≻v\)</span> lineáris rendezés. Azt mondjuk, hogy <span class="arithmatex">\(v\)</span> számára az <span class="arithmatex">\(e\)</span> él jobb az <span class="arithmatex">\(f\)</span> élénél, ha <span class="arithmatex">\(f ≻v e\)</span>. A <span class="arithmatex">\(G\)</span> gráf <span class="arithmatex">\(M\)</span> párosítása mellett az <span class="arithmatex">\(uv\)</span> él akkor nevezünk tehát blokkoló élnek, ha <span class="arithmatex">\(u\)</span> és <span class="arithmatex">\(v\)</span> is jobban jár az <span class="arithmatex">\(uv\)</span> éllel, mint <span class="arithmatex">\(M\)</span>-mel, azaz ha <span class="arithmatex">\(M\)</span> alatt nem tartoznak olyan él sem, ami <span class="arithmatex">\(u\)</span> számára és olyan él sem, ami <span class="arithmatex">\(v\)</span> számára jobb az <span class="arithmatex">\(uv\)</span> élénél. Ha az <span class="arithmatex">\(M\)</span> párosítás mellett nincs blokkoló él, akkor <span class="arithmatex">\(M\)</span>-et <code>stabil párosításnak</code> nevezzük.</p>
+<h3 id="eltorlesi-lemma">Éltörlési lemma</h3>
+<p>Legyen <span class="arithmatex">\(G = (V,E)\)</span> irányítatlan gráf és legyen <span class="arithmatex">\(\preceq_v\)</span> lineáris rendezés a <span class="arithmatex">\(v\)</span>-re illeszkedő élek <span class="arithmatex">\(E(v)\)</span> halmazán minden <span class="arithmatex">\(v \in V\)</span> esetén. Tegyük fel, hogy az <span class="arithmatex">\(u\)</span> csúcs legjobb éle <span class="arithmatex">\(e = uv\)</span>, és <span class="arithmatex">\(e \succ_v f = wv\)</span>, azaz <span class="arithmatex">\(v\)</span> számára <span class="arithmatex">\(e\)</span> jobb, mint <span class="arithmatex">\(f\)</span>. Ekkor a <span class="arithmatex">\(G\)</span> és a <span class="arithmatex">\(G - f\)</span> gráfoknak ugyan azok a stabil párosításai.</p>
+<h3 id="lanykero-algoritmus">Lánykérő algoritmus</h3>
+<ol>
+<li>Minden fiú megkéri a számára legszimpatikusabb lányt.</li>
+<li>Minden lány a legjobb kivételével visszautasítja a kérőit.</li>
+<li>Ha nem történt elutasítás, akkor vége a folyamatnak.</li>
+<li>Ha volt elutasítás, akkor a fiúk, akiket elutasítottak, megpróbálják a következő legszimpatikusabb lányt megkérni.</li>
+</ol>
+<p><strong>Output:</strong></p>
+<ul>
+<li>Stabil párosítás</li>
+<li><code>Fiú optimális</code>, vagyis minden fiú számára a legjobb lányt kapja. Míg minden lány a legrosszabb olyan fiút kapja, aki a párosításban számára elérhető.</li>
+</ul>
+<h3 id="stabil-parositasok-altal-fedett-csucshalmaz">Stabil párosítások által fedett csúcshalmaz</h3>
+<p>Ha <span class="arithmatex">\(M_1\)</span> és <span class="arithmatex">\(M_2\)</span> az élpreferenciákkal ellátott (nem feltétlen páros) <span class="arithmatex">\(G\)</span> gráf két stabil párosítása, akkor <span class="arithmatex">\(V(M_1) = V(M_2)\)</span>, azaz a <span class="arithmatex">\(G\)</span> gráf bármelyik stabil párosítását is választjuk, mindig ugyanazok a csúcsok lesznek kipárosítva és ugyanazok maradnak fedetlenek.</p>
+<h2 id="19-egyetemi-felveteli-problema-es-annak-visszavezetese-stabil-parositasok-keresesere-ponthatarhuzasi-feladat-stabil-ponthatar-ponthatarnovelo-es-csokkento-algoritmus-valamint-azok-helyessege">19. Egyetemi felvételi probléma és annak visszavezetése stabil párosítások keresésére. Ponthatárhúzási feladat, stabil ponthatár. Ponthatárnövelő és -csökkentő algoritmus, valamint azok helyessége*</h2>
+<h3 id="felveteli-sema">Felvételi séma</h3>
+<p><code>Felvételi séma</code> alatt egy olyan <span class="arithmatex">\(F ⊆ E\)</span> élhalmazt értünk, amelyikre igaz, hogy minden <span class="arithmatex">\(t ∈ T\)</span> jelentkező legfeljebb 1, minden <span class="arithmatex">\(s\)</span> szak pedig legfeljebb <span class="arithmatex">\(q_s\)</span> <span class="arithmatex">\(F\)</span>-beli élnek csúcsa. Egy felvételi séma tehát jelentkezések egy olyan halmaza, ami megvalósítható: egyetlen jelentkezőnek sem tartalmazza egynél több jelentkezését és egyetlen szak hallgatói létszáma sem haladja meg az adott szak keretszámát.</p>
+<h3 id="stabil-felveteli-sema">Stabil felvételi séma</h3>
+<p>Egy <span class="arithmatex">\(F\)</span> felvételi séma akkor <code>stabil</code>, ha egyetlen él sem blokkolja. Itt blokkoló élen olyan <span class="arithmatex">\(e = ts\)</span> él értünk, amivel mindkét végpontja jobban járna, mint a séma szerinti élekkel: egyrészt tehát nincs olyan <span class="arithmatex">\(f ∈ F\)</span> él amire <span class="arithmatex">\(e \preceq_t f\)</span>, másrészt pedig nincsenek olyan <span class="arithmatex">\(f₁, ..., fₓ ∈ F\)</span> élek sem, amelyekre <span class="arithmatex">\(e \preceq_s fᵢ\)</span> teljesül <span class="arithmatex">\(i = 1, ..., q_s\)</span> esetén. Egy <span class="arithmatex">\(ts\)</span> él tehát blokkol, ha a <span class="arithmatex">\(t\)</span> jelentkező felvették az <span class="arithmatex">\(s\)</span> szaknál preferáltabb szakra vagy ha az <span class="arithmatex">\(s\)</span> szak a teljes keretszámát egytől egyig tőle gyengébb jelentkezőkkel töltötte fel.</p>
+<p>Az egyetemi felvételi probléma esetén a feladat egy stabil felvételi sémát keresése a fent leírt modellben. Világos, hogy ha minden létszámkorlát pontosan 1, akkor az egyetemi felvételi probléma egy páros gráf stabil párosításának keresésével ekvivalens. Megmutatjuk, hogy az egyetemi felvételi probléma 1-nél nagyobb keretszámok esetén is visszavezethető páros gráf stabil párosításának keresésére.</p>
+<h3 id="stabil-parositasok-keresesere-viszavezetes">Stabil párosítások keresésére viszavezetés</h3>
+<p>A <span class="arithmatex">\(G = (S ∪ T, E)\)</span> gráf, <span class="arithmatex">\({q_s : s ∈ S}\)</span> keretszámok és <span class="arithmatex">\({≻ₛ : s ∈ S}\)</span>, <span class="arithmatex">\({≻ₜ : t ∈ T}\)</span> ill. <span class="arithmatex">\({≻ₛ : s ∈ S'}\)</span> preferenciák által definiált egyetemi felvételi problémában <span class="arithmatex">\(F\)</span> pontosan akkor stabil felvételi séma, ha a <span class="arithmatex">\(G'\)</span> gráfnak van olyan <span class="arithmatex">\(F'\)</span> stabil párosítása, amire <span class="arithmatex">\(F = P(F')\)</span> teljesül.</p>
+<h3 id="ponthatarhuzasi-feladat">Ponthatárhúzási feladat</h3>
+<p>Az előző részben tárgyalt egyetemi felvételi modell lényeges leegyszerűsítést tartalmaz a valósághoz képest. Magyarországon ugyanis az egyetemi szakok preferenciáját a jelentkezőkön nem egy lineáris rendezés, hanem egy pontszámokon alapuló rangsor határozza meg. Ezért bármely szak jelentkezői között előfordulhat pontszámegyenlőség. A jogi környezet azonban nem engedi meg, hogy ugyanarra a szakra azonos felvételi pontszámmal rendelkező jelentkezők különböző elbírálásban részesüljenek. Ezért nem egy felvételi séma explicit meghatározásával, hanem implicit módon, egy ponthatár megállapítása révén dől el, hogy az egyes jelentkezők melyik szakra nyernek felvételt.</p>
+<h3 id="stabil-ponthatar">Stabil ponthatár</h3>
+<p>Egy <span class="arithmatex">\(l\)</span> ponthatár pontosan akkor stabil, ha <span class="arithmatex">\(l\)</span> a <span class="arithmatex">\(φ\)</span> operátor fixpontja, azaz ha <span class="arithmatex">\(l = φ(l)\)</span> teljesül. Vagyis ha a minimum ponthatár, amivel még nem lépjük túl a keretszámokat megegyezik a ponthatárral.</p>
+<h3 id="ponthatarnovelo-es-csokkento-algoritmus">Ponthatárnövelő és -csökkentő algoritmus</h3>
+<p>Tetszőleges vonalhúzási probléma esetén van stabil ponthatár. A ponthatárnövelő ill. a ponthatárcsökkentő algoritmusok <span class="arithmatex">\(\underline{ℓ}\)</span> ill. <span class="arithmatex">\(\overline{ℓ}\)</span> outputjai stabil ponthatárok, és tetszőleges <span class="arithmatex">\(ℓ\)</span> stabil ponthatárra <span class="arithmatex">\(ℓ ≤ ℓ ≤ \overline{ℓ}\)</span> teljesül.</p>
+<p>Ha <span class="arithmatex">\(ℓ ≤ ℓ'\)</span> stabil ponthatárok, akkor az <span class="arithmatex">\(ℓ\)</span> ponthatár alkalmazása esetén legalább annyi jelentkezőt vesznek fel, mint az <span class="arithmatex">\(ℓ'\)</span> ponthatár alkalmazásával. Következésképp a legtöbb jelentkező a jelentkező-optimalis ponthatár alkalmazása esetén nyer felvételt.</p>
+<h4 id="varphi-monoton"><span class="arithmatex">\(\varphi\)</span> monoton</h4>
+<p><span class="arithmatex">\(0 \leq \varphi(0) \leq \varphi(\varphi(0)) \leq \dots \varphi^{(k)}(0) \leq \dots\)</span></p>
+<p>lesz olyan, hogy <span class="arithmatex">\(\varphi^{(k)}(0) = \varphi^{(k+1)}(0)\)</span>, azaz <span class="arithmatex">\(\underline{ℓ} = \varphi^{(k)}(0)\)</span> stabil ponthatár.</p>
+<p>belátható ez a</p>
+<p><span class="arithmatex">\(500 \geq \varphi(500) \geq \varphi(\varphi(500)) \geq \dots \varphi^{(k)}(500) \geq \dots\)</span> esetre is.</p>
+<hr />
+<p><span class="arithmatex">\(Bizonyítás.\)</span> Csupán a tétel második bekezdése szorul bizonyításra, az első részt még a tétel kimondása előtt igazoltuk. A második részhez pedig mindössze annyit kell megfigyelni, hogy egy jelentkező felvétele pusztán azon múlik, hogy van-e eredményes jelentkezése.</p>
+<p>Márpedig ha egy <span class="arithmatex">\(t\)</span> jelentkezőnek az <span class="arithmatex">\(s\)</span> szakra történő jelentkezése az <span class="arithmatex">\(ℓ'\)</span> ponthatár esetén eredményes, akkor ugyanez a jelentkezés <span class="arithmatex">\(ℓ\)</span> esetén is eredményes. Ezért aztán minden jelentkező, akit az <span class="arithmatex">\(ℓ'\)</span> ponthatár mellett felvesznek valamelyik szakra, felvételt nyer valahova az <span class="arithmatex">\(ℓ\)</span> ponthatár alkalmazása esetén is.</p>
+<h2 id="20-nepszeru-parositasok-stabil-parositasok-nepszerusege-kavitha-algoritmus-es-annak-helyessege">20. Népszerű párosítások, stabil párosítások népszerűsége, Kavitha-algoritmus, és annak helyessége*</h2>
+<h3 id="nepszeru-parositasok">Népszerű párosítások</h3>
+<p>M párosítás <code>népszerűbb</code> az N párosításnál, ha az M és N közti választás esetében többen szavaznak M-re, mint N-re.</p>
+<h3 id="stabil-parositasok-nepszerusege">Stabil párosítások népszerűsége</h3>
+<p>Ha <span class="arithmatex">\(M\)</span> stabil, akkor nem létezik <span class="arithmatex">\(M\)</span>-nél kevesebb élt tartalmazó stabil párosítás.</p>
+<p>Ha <span class="arithmatex">\(M'\)</span> a <span class="arithmatex">\(G = (S ∪ T, E)\)</span> gráf stabil párosítása, akkor <span class="arithmatex">\(M'\)</span>-nek megfelelő <span class="arithmatex">\(G\)</span>-beli élek <span class="arithmatex">\(M = \{e \in E : \{e^p, e^z\} \cap M' \neq \emptyset \}\)</span></p>
+<h3 id="kavitha-algoritmus">Kavitha-algoritmus</h3>
+<p>A Kavitha-algoritmus egy olyan algoritmus, amely népszerű párosításokat talál egy gráfban. Az alábbiakban bemutatom, hogyan működik a Kavitha-algoritmus:</p>
+<h4 id="lepesek">Lépések</h4>
+<ol>
+<li>
+<p><strong>Kezdeti párosítás</strong>: Kezdjünk egy tetszőleges párosítással <span class="arithmatex">\(M\)</span> a gráfban <span class="arithmatex">\(G = (S \cup T, E)\)</span>.</p>
+</li>
+<li>
+<p><strong>Preferenciák meghatározása</strong>: Minden csúcs <span class="arithmatex">\(s \in S\)</span> és <span class="arithmatex">\(t \in T\)</span> preferenciákat rendel az élekhez. Azaz, minden csúcs rangsorolja az összes hozzá kapcsolódó élt.</p>
+</li>
+<li>
+<p><strong>Népszerűségi feltétel ellenőrzése</strong>: Ellenőrizzük, hogy a jelenlegi párosítás <span class="arithmatex">\(M\)</span> népszerű-e. Egy párosítás akkor népszerű, ha nincs olyan másik párosítás, amelyet több csúcs preferál <span class="arithmatex">\(M\)</span>-hez képest.</p>
+</li>
+<li>
+<p><strong>Javítási lépések</strong>: Ha <span class="arithmatex">\(M\)</span> nem népszerű, akkor keressünk egy olyan élt, amely javíthatja a párosítást. Ezt úgy tehetjük meg, hogy egy augmentáló utat keresünk, amely növeli a párosítás méretét vagy javítja a népszerűséget.</p>
+</li>
+<li>
+<p><strong>Párosítás frissítése</strong>: Frissítsük a párosítást az augmentáló út mentén. Ez azt jelenti, hogy az augmentáló út mentén váltogatjuk a párosított és nem párosított éleket.</p>
+</li>
+<li>
+<p><strong>Ismétlés</strong>: Ismételjük meg a népszerűségi feltétel ellenőrzését és a javítási lépéseket, amíg nem találunk népszerű párosítást.</p>
+</li>
+</ol>
+<p>A kikosarazott fiúk "személyiségfejlesztő trainingen" vesznek részt, ahonnan a lehető legnépszerűbben térnek vissza. Trainingre csak egyszer lehet menni.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. június 11. 01:29:14 CEST"><span class="timeago" datetime="2025-06-11T01:29:14+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. június 11. 01:29:14 CEST">2025-06-11</span>
+  </span>
+
+    
+    
+    
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/Kristof-me" class="md-author" title="@Kristof-me">
+          
+          <img src="https://avatars.githubusercontent.com/u/79101369?v=4&size=72" alt="Kristof-me">
+        </a>
+      
+        <a href="https://github.com/zal2004" class="md-author" title="@zal2004">
+          
+          <img src="https://avatars.githubusercontent.com/u/28259661?v=4&size=72" alt="zal2004">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../sem4/computer_graphics/12.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 12. Fraktálok és káosz">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                12. Fraktálok és káosz
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.instant", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,19 @@
+/* CSS for the welcome page */
+
+.md-content h1 {
+    text-align: center;
+    font-size: 52px;
+    background: linear-gradient(130deg, #68cd5c, #24dd44);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
+    line-height: 1.1;
+    font-weight: bold;
+}
+
+
+
+/*
+    You can implement a decent CSS background here if you're interested.
+*/

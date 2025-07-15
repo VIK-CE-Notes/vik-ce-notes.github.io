@@ -75,6 +75,3 @@ site*/
 
 # Conda
 .conda/
-
-# VSCode workspace
-*.code-workspace

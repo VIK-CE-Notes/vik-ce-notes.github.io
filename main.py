@@ -53,7 +53,6 @@ def on_pre_page_macros(env : MacrosPlugin):
     This function is called before the page macros are processed.
     '''
     text = compatible_admonition(env.markdown)
-
     text = katex_block_linebreaks(text)
     text = remove_url_accents(text)
 

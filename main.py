@@ -44,7 +44,7 @@ def remove_url_accents(text : str) -> str:
     Cause the headings get the id without the accents
     '''
 
-    pattern = r'\[(.*)\]\((.*)\)'
+    pattern = r'\[(.*)\]\((.*?)\)'
     return re.sub(pattern, lambda m: f'[{m.group(1)}]({unidecode(m.group(2))})', text)
 
 

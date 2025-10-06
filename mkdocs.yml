@@ -33,7 +33,7 @@ nav:
         - 17. Tétel: ./notes/sem1/theory_of_computing_1/17.md
   - 4. félév:
     - Számítógépes grafika:
-      # - Előszó: ./notes/sem4/computer_graphics/index.md
+      - ./notes/sem4/computer_graphics/index.md
       - 1. Geometriák és algebrák: ./notes/sem4/computer_graphics/1.md
       - 2. Grafikus hardver és szoftver: ./notes/sem4/computer_graphics/2.md
       - 3. Pontok és klasszikus görbék: ./notes/sem4/computer_graphics/3.md
@@ -77,6 +77,7 @@ theme:
     - content.code.annotate
     - navigation.instant
     - navigation.footer
+    - navigation.indexes
   # Admonition icons: 
   # https://squidfunk.github.io/mkdocs-material/reference/admonitions/?h=admonition#admonition-icons
 

@@ -34,18 +34,20 @@ nav:
   - 4. félév:
     - Számítógépes grafika:
       - ./notes/sem4/computer_graphics/index.md
-      - 1. Geometriák és algebrák: ./notes/sem4/computer_graphics/1.md
-      - 2. Grafikus hardver és szoftver: ./notes/sem4/computer_graphics/2.md
-      - 3. Pontok és klasszikus görbék: ./notes/sem4/computer_graphics/3.md
-      - 4. Affin transzformációk: ./notes/sem4/computer_graphics/4.md
-      - 5. 2D képszintézis: ./notes/sem4/computer_graphics/5.md
-      - 6. 2D textúrázás: ./notes/sem4/computer_graphics/6.md
-      - 7. 3D képszintézis: ./notes/sem4/computer_graphics/7.md
-      - 8. Sugárkövetés: ./notes/sem4/computer_graphics/8.md
-      - 9. Inkrementális képszintézis: ./notes/sem4/computer_graphics/9.md
-      - 10. Játékfejlesztés: ./notes/sem4/computer_graphics/10.md
-      - 11. Vektorháború: ./notes/sem4/computer_graphics/11.md
-      - 12. Fraktálok és káosz: ./notes/sem4/computer_graphics/12.md
+      - 1. Geometriák és algebrák: ./notes/sem4/computer_graphics/lectures/1.md
+      - 2. Grafikus hardver és szoftver: ./notes/sem4/computer_graphics/lectures/2.md
+      - 3. Pontok és klasszikus görbék: ./notes/sem4/computer_graphics/lectures/3.md
+      - 4. Affin transzformációk: ./notes/sem4/computer_graphics/lectures/4.md
+      - 5. 2D képszintézis: ./notes/sem4/computer_graphics/lectures/5.md
+      - 6. 2D textúrázás: ./notes/sem4/computer_graphics/lectures/6.md
+      - 7. 3D képszintézis: ./notes/sem4/computer_graphics/lectures/7.md
+      - 8. Sugárkövetés: ./notes/sem4/computer_graphics/lectures/8.md
+      - 9. Inkrementális képszintézis: ./notes/sem4/computer_graphics/lectures/9.md
+      - 10. Játékfejlesztés: ./notes/sem4/computer_graphics/lectures/10.md
+      - 11. Vektorháború: ./notes/sem4/computer_graphics/lectures/11.md
+      - 12. Fraktálok és káosz: ./notes/sem4/computer_graphics/lectures/12.md
+      - Függelékek:
+        - A. Matematikai kifejezések: ./notes/sem4/computer_graphics/appendix/math_appendix.md
   - Specializációk:
     - Algoritmikus játékelmélet:
       - Vizsgajegyzet: ./notes/spec/game_theory/exam_notes.md

@@ -22,4 +22,4 @@ A jegyzetben sok matematikai kifejezéssel találkozhatunk, melyeknek egy rész�
 
 ## Maintainers
 
-Orbán "$\lambda$evy" Levente [orban.levente.laszlo AT gmail.com]
+Orbán "$\lambda$evy" Levente ([GitHub](https://github.com/levyry))

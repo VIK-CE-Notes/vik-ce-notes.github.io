@@ -10,7 +10,7 @@ Kellemes informálódást!
 
 ---
 
-??? warning A jegyzetek teljességéről
-    Ez egy best-effort projekt, az összes erőfeszítésünk ellenére tévedések és elírások előfordulhatnak. Amennyiben ilyennel találkozol kérlek jelezd nekünk issue-ban vagy javítsad ki az útmutató alapján. 
+??? warning "A jegyzetek teljességéről"
+    Ez egy best-effort projekt, az összes erőfeszítésünk ellenére tévedések és elírások előfordulhatnak. Amennyiben ilyennel találkozol, kérlek, jelezd nekünk issue-ban vagy javítsd ki az útmutató alapján. 
     
     Előre is köszönjük :heart:

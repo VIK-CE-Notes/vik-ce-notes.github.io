@@ -1,6 +1,6 @@
 # Showcase
 
-Itt láthatod, hogy hogyan jelenik meg egy Markdown fájl tartalma.  *(A dokumentum a repository-ban a `doc/for_contributors/showcase.md` útvonalon érhető el.)*
+Itt láthatod, hogy hogyan jelenik meg egy Markdown fájl tartalma.  *(A dokumentum a repository-ban a `docs/for_contributors/showcase.md` útvonalon érhető el.)*
 
 ---
 

@@ -1,25 +1,25 @@
 # Jegyzeteléshez
 
 ???+ info "Háttértörténet" 
-    Szinte az összes tantárgyhoz készült jegyzet$^*$, amik egy privát GitHub repositoryba lettek feltéve. Ezek mind [markdownban](https://en.wikipedia.org/wiki/Markdown) készültek egy bizonyos flavor-rel és egész jól szerepeltek számonkérések során. A repo-nak a megosztása azonban több problémába is ütközött, ezért jött létre egy nyílt alternatíva, ami remélhetőleg több VIK-es hallgató tanulmányait is elősegítheti.
+    Szinte az összes tantárgyhoz készült jegyzet$^*$, amik egy privát GitHub repositoryba lettek feltéve. Ezek mind [Markdownban](https://en.wikipedia.org/wiki/Markdown) készültek egy bizonyos flavor-rel és egész jól szerepeltek számonkérések során. A repónak a megosztása azonban több problémába is ütközött, ezért jött létre egy nyílt alternatíva, ami remélhetőleg több VIK-es hallgató tanulmányait is elősegítheti.
     
-    <p style="font-size: 0.8em; font-style: italic">*: A specializációnál ezt már nehezebb volt tartani, ott a szoftverfejlesztés ágazat specifikus tárgyai lettek tárgyalva</p>
+    <p style="font-size: 0.8em; font-style: italic">*: A specializációnál ezt már nehezebb volt tartani, ott a szoftverfejlesztés ágazatspecifikus tárgyai lettek tárgyalva</p>
 
 ## Új jegyzet feltöltése
 
 #### Szerkesztés
-Alapvetően a Visual Studio Code-hoz készült [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) kiegészítőt használtuk jegyzetek készítésére, ezért az oldalt is igyekeztünk úgy létrehozni, hogy támogassa minden funkcióját. Ezt a [showcase](./showcase.md) odalon részletesebben is megnézheted.
+Alapvetően a Visual Studio Code-hoz készült [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) kiegészítőt használtuk jegyzetek készítésére, ezért az oldalt is igyekeztünk úgy létrehozni, hogy támogassa minden funkcióját. Ezt a [showcase](./showcase.md) oldalon részletesebben is megnézheted.
 
 Vagyis elegendő ezt a kiegészítőt használni a `docs` mappán belül, ha csak dokumentációs céljaid vannak. Természetesen azt is szeretnénk, hogy az általad készített dokumentumok elérhetőek legyenek, ezért a gyökérmappában a `mkdocs.yaml` fájlban, a `nav` tulajdonságban fel kell venned a dokumentumaid nevét és elérési módját.
 
 #### Feltöltés
-Ahhoz, hogy a dokumentumaid / javításaid megoszd másokkal az alábbi lépéseket javasoljuk:
+Ahhoz, hogy a dokumentumaidat / javításaidat megoszd másokkal, az alábbi lépéseket javasoljuk:
 
 **For contributors:**
 
 1. Klónozd le a repository-t
     ```bash
-    git clone https://github.com/VIK-CE-Notes/vik-ce-notes.github.io
+    git clone [https://github.com/VIK-CE-Notes/vik-ce-notes.github.io](https://github.com/VIK-CE-Notes/vik-ce-notes.github.io)
     ```
 2. Végezd el a változtatásokat
 3. Egy új branch-en töltsd fel
@@ -40,12 +40,12 @@ Ahhoz, hogy a dokumentumaid / javításaid megoszd másokkal az alábbi lépése
 
 ## Az oldal formálása
 
-#### Python környezet használata
-Amennyiben nagyobb változtatást szeretnél eszközölni (például új diagram típus támogatása), akkor már valószínűleg szükséged lesz a python környezet használatára.
+#### Python-környezet használata
+Amennyiben nagyobb változtatást szeretnél eszközölni (például új diagramtípus támogatása), akkor már valószínűleg szükséged lesz a Python-környezet használatára.
 
 A projekt [MkDocs](https://www.mkdocs.org/)-ra épül, a témája [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) és Python `3.11`-es verziót használ. Kezdetként az alábbi lépéseket tudom ajánlani:
 ```bash
-git clone https://github.com/VIK-CE-Notes/vik-ce-notes.github.io
+git clone [https://github.com/VIK-CE-Notes/vik-ce-notes.github.io](https://github.com/VIK-CE-Notes/vik-ce-notes.github.io)
 cd vik-ce-notes.github.io
 
 # itt hozhatsz létre virtuális környezetet

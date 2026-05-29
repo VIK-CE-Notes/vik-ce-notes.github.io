@@ -8,7 +8,7 @@ Ez a jegyzet egy hallgatók által készített és karbantartott projekt, mely m
 
 - Egy [házifeladat sablon](https://github.com/levyry/grafika-hf-template) is készült a tárgyhoz, mellyel nem kell függőségek levadászásával, vagy a text editorod beállításaival foglalkoznod a házi írás helyett.
 - A tárgy [VIK Wiki oldalán](https://vik.wiki/Sz%C3%A1m%C3%ADt%C3%B3g%C3%A9pes_grafika) megtalálod a tárgy követelményeit, illetve további segédanyagokat, tippeket.
-- Szirmay tanár úr [YouTube csatornájára](https://www.youtube.com/@laszloszirmay-kalos5413) többször is hivatkozik a jegyzet. Mindenképpen ajánljuk az előadásvideók nézését, melyhez van egy [playlist](https://www.youtube.com/playlist?list=PLiH4g_VR3i0Pz0vAyjPzPCXDqLqHPfW2p).
+- Szirmay tanár úr YouTube csatornájára többször is hivatkozik a jegyzet. Mindenképpen ajánljuk az előadásvideók nézését, melyhez készült egy [playlist](https://www.youtube.com/playlist?list=PLiH4g_VR3i0Pz0vAyjPzPCXDqLqHPfW2p).
 
 ## Visszajelzések
 
@@ -19,7 +19,3 @@ Ahogy telnek a félévek a tárgytematika megváltozhat, új segédanyagok és k
 ### Matematikai kifejezések
 
 A jegyzetben sok matematikai kifejezéssel találkozhatunk, melyeknek egy részét a tárgy már feltételezi, hogy mindenki ismeri. Az [$A.$ függelékben](appendix/math_appendix.md) található a legtöbb ilyen kifejezés definíciója, illetve egy példa rá. Reméljük, hogy ez segít mindenkit ugyan arra a szintre hozni.
-
-## Maintainers
-
-Orbán "$\lambda$evy" Levente ([GitHub](https://github.com/levyry))
